@@ -1,36 +1,104 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Sakin Kirti",
+    "label": "Computational Biologist",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "kirti@broadinstitute.org",
+    "phone": "",
+    "url": "https://sakinkirti.github.io",
+    "summary": "Building and applying machine learning to understand and model biology.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
+      "address": "",
+      "postalCode": "",
+      "city": "Boston",
       "countryCode": "US",
-      "region": "California"
+      "region": "Massachusetts"
     },
     "profiles": [
       {
+        "network": "Linkedin",
+        "username": "sakinkirti",
+        "url": "https://linkedin.com/in/sakinkirti"
+      },
+      {
         "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "username": "sakinkirti",
+        "url": "https://twitter.com/sakinkirti"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "name": "Cardiovascular Disease Initiative, The Broad Institute of MIT and Harvard",
+      "position": "Computational Associate",
+      "url": "https://ellinorlab.org",
+      "startDate": "2023-07-05",
+      "endDate": "Present",
+      "summary": "Uncovering novel gene targets for dilated cardiomyopathy treatment. Building next-generation contractility platform.",
+      "highlights": [
+        "Applying DINO-ViT to uncover novel gene targets for treatment of DCM", 
+        "Developing methods to mitigate batch effects in imaging features", 
+        "Building the analysis-half of the next generation high-throughput contractility platform",
+        "Mentored undergraduate students through the Broad's BSRP summer program"
+      ]
+    }, {
+      "name": "Center for Computational Imaging and Personalized Diagnostics, Case Western Reserve University",
+      "position": "AI Researcher",
+      "url": "https://engineering.case.edu/research/centers/computational-imaging-personalized-diagnostics",
+      "startDate": "2022-01",
+      "endDate": "2022-10",
+      "summary": "Identifying racial biases in prostate cancer diagnosis.",
+      "highlights": [
+        "Trained SqueezeNet models on race-stratified prostate cancer MRI datasets", 
+        "Used activation maps to observe image areas that networks were using for diagnosis",
+        "Identified racial biases by comparing model metrics and activation maps"
+      ]
+    }, {
+      "name": "Atit Lab, Department of Biology, Case Western Reserve University",
+      "position": "Undergraduate Researcher + Beckman Scholar",
+      "url": "https://case.edu/artsci/biology/atitlab/",
+      "startDate": "2019-11",
+      "endDate": "2023-05",
+      "summary": "Wet lab + computational approaches to fibrosis discovery",
+      "highlights": [
+        "Beckman Scholar award ($20,000/15 mo) for biology research - awarded 2020", 
+        "Carried out project identifying the key role of DPP4 in skin fibrosis progression",
+        "Predicted skin fibrosis with convolutional neural network and using radiomics approaches", 
+        "Developed FIJI plug-ins to analyze lab's imaging experiments in an automated, unbiased fashion"
+      ]
+    }, {
+      "name": "Surgo Ventures",
+      "position": "AI/ML Intern",
+      "url": "https://surgoventures.org",
+      "startDate": "2022-06",
+      "endDate": "2022-09",
+      "summary": "Causal ML for maternal mortality",
+      "highlights": [
+        "Developed probabilistic graphical modeling (PGM) package to computationally experiment with interventions", 
+        "Used PGM package to model maternal mortality; verified transportation as key roadblock for maternal doctor visits",
+        "Built multilevel regression model to analyze maternal transportation experiment with Uber Health"
+      ]
+    }, {
+      "name": "Heller Lab, Department of Otolaryngology, Stanford University School of Medicine",
+      "position": "Laboratory Intern",
+      "url": "https://hellerlab-stanford.net",
+      "startDate": "2018-09",
+      "endDate": "2019-09",
+      "summary": "In-situ hybridizations/differential gene expression for hearing regeneration",
+      "highlights": [
+        "Performed in-sity hybridizations to identify localization of hearing cell regeneration in chicken cochlea", 
+        "Performed sequencing and plotting of scRNA-seq data to identify key genes in hearing cell regeneration"
+      ]
+    }, {
+      "name": "Li Lab, Department of Biology, University of Massachusetts-Amherst",
+      "position": "Laboratory Intern",
+      "url": "https://www.bio.umass.edu/mcb/faculty/Li.html",
+      "startDate": "2018-06",
+      "endDate": "2018-08",
+      "summary": "Patch clamping to identify calcium reuptake in bullfrog papilla",
+      "highlights": [
+        "Performed patch clamping to measure calcium ion release and reuptake"
+      ]
     }
   ],
   "volunteer": [
@@ -47,69 +115,77 @@
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "Case Western Reserve University",
+      "location": "Cleveland, OH",
+      "url": "https://www.case.edu/",
+      "area": "Computer Science (AI)",
+      "studyType": "BA",
+      "startDate": "2019-08",
+      "endDate": "2023-05",
+      "score": "3.8",
+      "courses": ["Intro to AI", "Probabilistic Graphical Models", "Deep Learning", "Structured and Unstructured Data", "Computational Perception", "Microbiology", "Development and Physiology", "Organic Chemistry I & II", "Biochemistry", "Engineering and Global Health"]
     }
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "Dean's High Honors (7)",
+      "date": "2023-05",
+      "awarder": "Case Western Reserve University",
+      "url": "",
+      "summary": "GPA >3.75/4"
+    }, {
+      "title": "Junior-Senior Scholarship",
+      "date": "2021-08",
+      "awarder": "School of Engineering, Case Western Reserve University",
+      "url": "",
+      "summary": "$500/semester for engineering students that show the most promise in their future career"
+    }, {
+      "title": "Highest Achieving Sophomore",
+      "date": "2020-05",
+      "awarder": "Case Western Reserve University",
+      "url": "",
+      "summary": "For top 100 students after their sophomore year at CWRU"
+    }, {
+      "title": "Beckman Scholar",
+      "date": "2020-03",
+      "awarder": "Arnold and Mabel Beckman Foundation",
+      "url": "https://www.beckman-foundation.org/people/sakin-kirti/",
+      "summary": "$21,000 funded 'research experience for exceptional undergraduate students in chemistry, biological sciences, or interdisciplinary combinations thereof'"
+    }, {
+      "title": "University Scholarship",
+      "date": "2019-03",
+      "awarder": "Case Western Reserve University",
+      "url": "",
+      "summary": "$20,000/year merit-based scholarship"
+    }, {
+      "title": "Best Undergraduate Poster Presentation",
+      "date": "2019-09",
+      "awarder": "Society of Developmental Biology",
+      "url": "",
+      "summary": "Best undergraduate poster presentation at conference"
     }
   ],
   "certificates": [
     {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
+      "name": "Statistical Analysis with R for Public Health",
+      "date": "2021-07-01",
+      "issuer": "Imperial College London/Coursera",
+      "url": "",
+      "icon": "fa-solid fa-clipboard-check"
+    }, {
+      "name": "Deep Learning Specialization",
+      "date": "2022-02-03",
+      "issuer": "DeepLearning.ai/Coursera",
+      "url": "",
+      "icon": "fa-solid fa-clipboard-check"
+    }, {
+      "name": "Algorithms Specialization",
+      "date": "2024-11-03",
+      "issuer": "Stanford University/Coursera",
+      "url": "",
       "icon": "fa-solid fa-clipboard-check"
     }
+    
   ],
   "publications": [
     {
@@ -136,55 +212,77 @@
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
+      "name": "Programming/Software",
+      "level": "Proficient",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Python",
+        "Java",
+        "bash",
+        "R",
+        "SQL",
+        "Matlab",
+        "Git/Github"
+      ]
+    },
+    {
+      "name": "Data Science",
+      "level": "Proficient",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "Representation Learning",
+        "Graphical Models",
+        "Convolutional Networks",
+        "Statistics/Probability"
+      ]
+    },
+    {
+      "name": "Cloud Computing/Big Data",
+      "level": "Proficient",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "AWS (S3, EC2, RDS)",
+        "GCP (VM)", 
+        "SQL, Graph Databases",
+        "High Performance Computing"
+      ]
+    },
+    {
+      "name": "Biology/Bioengineering",
+      "level": "Beginner",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "cardiomyocyte contractility",
+        "sectioning/staining/imaging"
       ]
     }
   ],
   "languages": [
     {
-      "language": "German",
+      "language": "English",
       "fluency": "Native speaker",
       "icon": ""
     },
     {
-      "language": "English",
-      "fluency": "Fluent",
+      "language": "Spanish",
+      "fluency": "Beginner",
+      "icon": ""
+    },
+    {
+      "language": "Telugu",
+      "fluency": "Conversational",
       "icon": ""
     }
   ],
   "interests": [
     {
-      "name": "Physics",
+      "name": "Hobbies",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Weightlifting",
+        "Running",
+        "Photography"
       ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
     }
   ],
   "projects": [
