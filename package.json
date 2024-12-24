@@ -1,0 +1,35 @@
+{
+  "name": "webpage",
+  "version": "1.0.0",
+  "description": "my personal portfolio site",
+  "main": "index.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "start": "npm run build && node dist/index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sakinkirti/sakinkirti.github.io.git"
+  },
+  "keywords": [
+    "typescript",
+    "machine-learning",
+    "ai"
+  ],
+  "author": "sakinkirti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakinkirti/sakinkirti.github.io/issues"
+  },
+  "homepage": "https://github.com/sakinkirti/sakinkirti.github.io#readme",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/typescript": "^2.0.0",
+    "express": "^4.21.2",
+    "react": "^19.0.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.2"
+  }
+}
