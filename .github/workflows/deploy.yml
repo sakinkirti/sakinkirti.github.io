@@ -22,13 +22,13 @@ jobs:
         gem install bundler -v 2.3.26
         bundle install
 
-    - name: Build the site
-      run: bundle exec jekyll build
+    - name: Build the site to docs/
+      run: bundle exec jekyll build --destination docs
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: main
-        publish_dir: ./_site
-        keep_files: true   # Important: Keeps non-site files like your Dockerfile, Gemfile, etc.
+    - name: Commit built site to docs/
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add docs
+        git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
+        git push
