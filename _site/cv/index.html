@@ -88,10 +88,18 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
+<!-- Main stylesheet -->
 <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/main.css">
 
+<!-- Custom stylesheets -->
+
+  
+    <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/custom.css">
+  
+
+
 <meta http-equiv="cleartype" content="on">
+
     
 
 <!-- start custom head snippets -->
@@ -121,11 +129,18 @@
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+    <nav id="site-nav" class="greedy-nav">
+      <button class="greedy-nav__toggle" aria-expanded="false" aria-label="Menu">
+        <div class="navicon"></div>
+      </button>
+
+      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <a class="masthead__menu-item masthead__menu-item--lg persist" href="http://0.0.0.0:4000/">Sakin Kirti</a>
+
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="http://0.0.0.0:4000/">Sakin Kirti</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/publications/">Publications</a></li>
@@ -134,23 +149,22 @@
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/talks/">Talks</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/teaching/">Teaching</a></li>
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/portfolio/">Photography</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/year-archive/">Blog Posts</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>
+
         <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </div>
 </div>
+
 
     
 
@@ -169,12 +183,12 @@
 
   <div class="author__avatar">
     
-    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti (he/him)"  fetchpriority="high" />
+    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti"  fetchpriority="high" />
     
   </div>
 
   <div class="author__content">
-    <h3 class="author__name">Sakin Kirti (he/him)</h3>
+    <h3 class="author__name">Sakin Kirti</h3>
     
     <p class="author__bio">Bioinformatics PhD Student / always exploring 🔎</p>
   </div>
@@ -264,13 +278,13 @@
       <h1 class="page__title">Curriculum Vitae</h1>
     
     
-<h2 id="education">Education</h2>
+<h2 id="education"><em>Education</em></h2>
 <p><strong>PhD, Bioinformatics</strong> | University of California, Los Angeles / Los Angeles, CA | Sep 2025 - PRESENT<br />
 <em>GPA</em>: —<br />
 <strong>BA, Computer Science</strong> | Case Western Reserve University / Cleveland, OH | Aug 2019 - May 2023<br />
 <em>GPA</em>: 3.82</p>
 
-<h2 id="experience">Experience</h2>
+<h2 id="experience"><em>Experience</em></h2>
 <p><strong>Computational Associate</strong> | The Broad Institute of MIT and Harvard / Cambridge, MA<br />
 July 2023 - July 2025<br />
 <em>Computer Vision, Drug Discovery, Representation Learning, Methods Development, Cardiovascular Disease, Google Cloud Platform</em></p>
@@ -299,11 +313,11 @@ Aug 2021 - Dec 2021<br />
 Aug 2018 - Aug 2019<br />
 <em>in-situ hybridizations, scRNA-seq</em></p>
 
-<h2 id="funding">Funding</h2>
+<h2 id="funding"><em>Funding</em></h2>
 <p><strong>Beckman Scholar’s Program</strong> | <em>Arnold and Mabel Beckman Foundation</em> | Dec 2019 - May 2023<br />
 $21,000 research grant supporting undergraduate research projects</p>
 
-<h2 id="honors-and-awards">Honors and Awards</h2>
+<h2 id="honors-and-awards"><em>Honors and Awards</em></h2>
 <p><strong>Junior-Senior Scholarship</strong> | <em>Case Alumni Association</em> | Aug 2021 - May 2023<br /> 
 $2,000 award for students with professional promise</p>
 
@@ -319,21 +333,15 @@ Exceptional Poster Presentation at SDB regional conference</p>
 <p><strong>Dean’s High Honors</strong> | <em>Case Western Reserve University</em> | Dec 2019 - May 2023<br /> 
 Maintaining GPA &gt; 3.75</p>
 
-<h2 id="teaching">Teaching</h2>
+<h2 id="teaching"><em>Teaching</em></h2>
 <p><strong>Teaching Assistant</strong> | Dr. Vipin Chaudhary | April 2023 - May 2023<br />
 <em>Introduction to Machine Learning for Industry Professionals</em></p>
 
-<h2 id="publications">Publications</h2>
-<ul>
-    
-
-
-
-
+<h2 id="publications"><em>Publications</em></h2>
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
+    <!-- <li> -->
     
     <h3 class="archive__item-title" itemprop="headline">
       
@@ -343,20 +351,13 @@ Maintaining GPA &gt; 3.75</p>
     </h3>
     
     <p class="archive__item-excerpt" itemprop="description">A Jussila, B Zhang, S Kirti, R Atit. (2010). &quot;Tissue fibrosis associated depletion of lipid‐filled cells.&quot; <i>Wiley Experimental Dermatology</i>. 1(2).</p> 
-    </li>
+    <!-- </li> -->
  </article>
 </div>
 
-  
-    
-
-
-
-
-
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
+    <!-- <li> -->
     
     <h3 class="archive__item-title" itemprop="headline">
       
@@ -366,20 +367,13 @@ Maintaining GPA &gt; 3.75</p>
     </h3>
     
     <p class="archive__item-excerpt" itemprop="description">A Jussila, B Zhang, E Caves, S Kirti, M Steele, E Hamburg-Shields, J Lydon, Y Ying, R Lafyatis, S Rajagopalan, V Horsley, R P Atit. (2022). &quot;Skin fibrosis and recovery is dependent on Wnt activation via DPP4.&quot; <i>Journal of Investigative Dermatology</i>. 142(6).</p> 
-    </li>
+    <!-- </li> -->
  </article>
 </div>
 
-  
-    
-
-
-
-
-
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
+    <!-- <li> -->
     
     <h3 class="archive__item-title" itemprop="headline">
       
@@ -389,20 +383,13 @@ Maintaining GPA &gt; 3.75</p>
     </h3>
     
     <p class="archive__item-excerpt" itemprop="description">S Kirti. (2022). &quot;How Machine Learning Will Change Our World: How Machine Learning Can Make Life Easier-And a Bit More Complicated.&quot; <i>The Synapse: Intercollegiate Science Magazine</i>. 30(1).</p> 
-    </li>
+    <!-- </li> -->
  </article>
 </div>
 
-  
-    
-
-
-
-
-
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
+    <!-- <li> -->
     
     <h3 class="archive__item-title" itemprop="headline">
       
@@ -412,20 +399,13 @@ Maintaining GPA &gt; 3.75</p>
     </h3>
     
     <p class="archive__item-excerpt" itemprop="description">A Janesick, M Scheibinger, N Benkafadar, S Kirti, S Heller. (2022). &quot;Avian auditory hair cell regeneration is accompanied by JAK/STAT-dependent expression of immune-related genes in supporting cells.&quot; <i>Development</i>. 149(8).</p> 
-    </li>
+    <!-- </li> -->
  </article>
 </div>
 
-  
-    
-
-
-
-
-
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
+    <!-- <li> -->
     
     <h3 class="archive__item-title" itemprop="headline">
       
@@ -435,19 +415,11 @@ Maintaining GPA &gt; 3.75</p>
     </h3>
     
     <p class="archive__item-excerpt" itemprop="description">A Janesick, M Scheibinger, N Benkafadar, S Kirti, DC Ellwanger, S Heller. (2021). &quot;Cell-type identity of the avian cochlea.&quot; <i>Cell Reports.</i> 34(12)</p> 
-    </li>
+    <!-- </li> -->
  </article>
 </div>
 
-  </ul>
-
-<h2 id="talks">Talks</h2>
-<ul>
-    
-
-
-
-
+<h2 id="talks"><em>Talks</em></h2>
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
@@ -455,23 +427,15 @@ Maintaining GPA &gt; 3.75</p>
     
     <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2014-03-01-talk-3" rel="permalink">Conference Proceeding talk 3 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2024-11-15-aha-contrack" rel="permalink">Contrack: A High-Throughput Contractility Screening Platform for 3D Human Cardiac Microtissues
 </a>
       
     </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> March 01, 2014</p>
-    <p class="archive__item-excerpt" itemprop="description">Conference proceedings talk at Testing Institute of America 2014 Annual Conference,  Los Angeles, CA, USA</p>
+    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> November 15, 2024</p>
+    <p class="archive__item-excerpt" itemprop="description">Poster at American Heart Association Scientific Sessions,  Chicago, Il, USA</p>
     </li>
   </article>
 </div>
-
-
-  
-    
-
-
-
-
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
@@ -479,23 +443,15 @@ Maintaining GPA &gt; 3.75</p>
     
     <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2014-02-01-talk-2" rel="permalink">Talk 2 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2023-11-15-mgb-gene-cell-therapy-symposium" rel="permalink">A High-Throughput Contractility Assay for Human Cardiac Organoids: a Translational Platform for Cardiomyopathy and Drug Discovery
 </a>
       
     </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> February 01, 2014</p>
-    <p class="archive__item-excerpt" itemprop="description">Talk at London School of Testing,  London, UK</p>
+    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> November 15, 2023</p>
+    <p class="archive__item-excerpt" itemprop="description">Poster at Mass General Brigham Gene and Cell Therapy Institute Symposium,  Boston, MA, USA</p>
     </li>
   </article>
 </div>
-
-
-  
-    
-
-
-
-
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
@@ -503,23 +459,15 @@ Maintaining GPA &gt; 3.75</p>
     
     <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2013-03-01-tutorial-1" rel="permalink">Tutorial 1 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2021-08-20-beckman-symposium" rel="permalink">DPP-IV mediates Wnt-stimulated dermal fibrosis
 </a>
       
     </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> March 01, 2013</p>
-    <p class="archive__item-excerpt" itemprop="description">Tutorial at UC-Berkeley Institute for Testing Science,  Berkeley, CA, USA</p>
+    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> August 20, 2021</p>
+    <p class="archive__item-excerpt" itemprop="description">Poster at Arnold and Mabel Beckman Foundation Annual Symposium,  Los Angeles, CA, USA</p>
     </li>
   </article>
 </div>
-
-
-  
-    
-
-
-
-
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
@@ -527,18 +475,32 @@ Maintaining GPA &gt; 3.75</p>
     
     <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2012-03-01-talk-1" rel="permalink">Talk 1 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2021-05-10-source-symposium" rel="permalink">DPP-IV mediates Wnt-stimulated dermal fibrosis
 </a>
       
     </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> March 01, 2012</p>
-    <p class="archive__item-excerpt" itemprop="description">Talk at UC San Francisco, Department of Testing,  San Francisco, CA, USA</p>
+    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> May 10, 2021</p>
+    <p class="archive__item-excerpt" itemprop="description">Symposium talk at Case Western Reserve University Annual SOURCE Symposium,  Cleveland, OH, USA</p>
     </li>
   </article>
 </div>
 
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <li>
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://0.0.0.0:4000/talks/2019-10-19-sdb" rel="permalink">Ototoxic Damage Induces Interferon Signaling in Chicken Cochlear Epithelial Stem Cells
+</a>
+      
+    </h3>
+    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> October 19, 2019</p>
+    <p class="archive__item-excerpt" itemprop="description">Poster at Society of Developmental Biology,  Cleveland, OH, USA</p>
+    </li>
+  </article>
+</div>
 
-  </ul>
 
   </div>
 </div>
@@ -587,7 +549,7 @@ Maintaining GPA &gt; 3.75</p>
 
 <div class="page__footer-copyright">
   &copy; 2025 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2025-07-17
+  Site last updated 2025-07-18
 </div>
 
       </footer>

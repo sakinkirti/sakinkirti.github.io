@@ -3,7 +3,7 @@ title: "How Machine Learning Will Change Our World: How Machine Learning Can Mak
 collection: publications
 category: magazines
 permalink: /publication/2022-04-20-how-machine-learning-will-change-our-world
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+excerpt: 'A brief discussion of machine learning and privacy.'
 date: 2022-04-20
 venue: 'The Synapse: Intercollegiate Science Magazine'
 paperurl: 'https://digitalcommons.denison.edu/cgi/viewcontent.cgi?article=1205&context=synapse'

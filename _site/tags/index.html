@@ -88,10 +88,18 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
+<!-- Main stylesheet -->
 <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/main.css">
 
+<!-- Custom stylesheets -->
+
+  
+    <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/custom.css">
+  
+
+
 <meta http-equiv="cleartype" content="on">
+
     
 
 <!-- start custom head snippets -->
@@ -121,11 +129,18 @@
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+    <nav id="site-nav" class="greedy-nav">
+      <button class="greedy-nav__toggle" aria-expanded="false" aria-label="Menu">
+        <div class="navicon"></div>
+      </button>
+
+      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <a class="masthead__menu-item masthead__menu-item--lg persist" href="http://0.0.0.0:4000/">Sakin Kirti</a>
+
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="http://0.0.0.0:4000/">Sakin Kirti</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/publications/">Publications</a></li>
@@ -134,23 +149,22 @@
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/talks/">Talks</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/teaching/">Teaching</a></li>
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/portfolio/">Photography</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/year-archive/">Blog Posts</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>
+
         <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </div>
 </div>
+
 
     
 
@@ -169,12 +183,12 @@
 
   <div class="author__avatar">
     
-    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti (he/him)"  fetchpriority="high" />
+    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti"  fetchpriority="high" />
     
   </div>
 
   <div class="author__content">
-    <h3 class="author__name">Sakin Kirti (he/him)</h3>
+    <h3 class="author__name">Sakin Kirti</h3>
     
     <p class="author__bio">Bioinformatics PhD Student / always exploring 🔎</p>
   </div>
@@ -299,22 +313,8 @@
 <!-- If not equal to previous then it must be unique as sorted -->
 
 
+<!-- Push to group_names -->
 
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
 
 
 
@@ -333,30 +333,6 @@
 <!-- If not equal to previous then it must be unique as sorted -->
 
 
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
 <!-- Push to group_names -->
 
 
@@ -367,22 +343,8 @@
 <!-- If not equal to previous then it must be unique as sorted -->
 
 
+<!-- Push to group_names -->
 
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
-
-
-
-
-
-<!-- If not equal to previous then it must be unique as sorted -->
 
 
 
@@ -390,6 +352,22 @@
 
 
 <!-- group_items -->
+
+
+<!-- Collect if contains -->
+
+
+
+<!-- Push to group_items -->
+
+
+
+<!-- Collect if contains -->
+
+
+
+<!-- Push to group_items -->
+
 
 
 <!-- Collect if contains -->
@@ -430,12 +408,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Future Blog Post
 </a>
       
-    </h2>
+    </h3>
     
     
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
@@ -452,180 +430,8 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Blog Post number 4
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-08-14T00:00:00+00:00">August 14, 2015</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2014/08/blog-post-3/" rel="permalink">Blog Post number 3
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2014-08-14T00:00:00+00:00">August 14, 2014</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2013/08/blog-post-2/" rel="permalink">Blog Post number 2
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2013-08-14T00:00:00+00:00">August 14, 2013</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-1/" rel="permalink">Blog Post number 1
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2012-08-14T00:00:00+00:00">August 14, 2012</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
+</p> -->
     
     
     
@@ -648,12 +454,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Future Blog Post
 </a>
       
-    </h2>
+    </h3>
     
     
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
@@ -670,180 +476,8 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Blog Post number 4
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-08-14T00:00:00+00:00">August 14, 2015</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2014/08/blog-post-3/" rel="permalink">Blog Post number 3
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2014-08-14T00:00:00+00:00">August 14, 2014</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2013/08/blog-post-2/" rel="permalink">Blog Post number 2
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2013-08-14T00:00:00+00:00">August 14, 2013</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-1/" rel="permalink">Blog Post number 1
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2012-08-14T00:00:00+00:00">August 14, 2012</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
+</p> -->
     
     
     
@@ -866,12 +500,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Future Blog Post
 </a>
       
-    </h2>
+    </h3>
     
     
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
@@ -888,8 +522,8 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
+</p> -->
     
     
     
@@ -897,6 +531,10 @@
   </article>
 </div>
 
+  
+
+  
+  <h2 id="first-post" class="archive__subtitle">first-post</h2>
   
     
 
@@ -908,12 +546,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Blog Post number 4
+        <a href="http://0.0.0.0:4000/posts/2025/07/finally-running/" rel="permalink">Finally running!
 </a>
       
-    </h2>
+    </h3>
     
     
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
@@ -926,13 +564,13 @@
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-08-14T00:00:00+00:00">August 14, 2015</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-07-17T00:00:00+00:00">July 17, 2025</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>Welcome to my site! Excited to get things off the ground. Hopefully I’ll be able to keep this updated adding photos as I travel, adding papers whenever I publish, continuing to grow the talkmap, and teaching whenever possible. I hope that I can use the blog to write a bit about major life events and just keep a relatively public-facing journal.</p>
 
-</p>
+</p> -->
     
     
     
@@ -940,6 +578,10 @@
   </article>
 </div>
 
+  
+
+  
+  <h2 id="general" class="archive__subtitle">general</h2>
   
     
 
@@ -951,12 +593,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/posts/2014/08/blog-post-3/" rel="permalink">Blog Post number 3
+        <a href="http://0.0.0.0:4000/posts/2025/07/finally-running/" rel="permalink">Finally running!
 </a>
       
-    </h2>
+    </h3>
     
     
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
@@ -969,99 +611,13 @@
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2014-08-14T00:00:00+00:00">August 14, 2014</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-07-17T00:00:00+00:00">July 17, 2025</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>Welcome to my site! Excited to get things off the ground. Hopefully I’ll be able to keep this updated adding photos as I travel, adding papers whenever I publish, continuing to grow the talkmap, and teaching whenever possible. I hope that I can use the blog to write a bit about major life events and just keep a relatively public-facing journal.</p>
 
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2013/08/blog-post-2/" rel="permalink">Blog Post number 2
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2013-08-14T00:00:00+00:00">August 14, 2013</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-1/" rel="permalink">Blog Post number 1
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2012-08-14T00:00:00+00:00">August 14, 2012</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
+</p> -->
     
     
     
@@ -1118,7 +674,7 @@
 
 <div class="page__footer-copyright">
   &copy; 2025 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2025-07-17
+  Site last updated 2025-07-18
 </div>
 
       </footer>

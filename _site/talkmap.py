@@ -18,7 +18,7 @@ TIMEOUT = 5
 g = glob.glob("_talks/*.md")
 
 # Prepare to geolocate
-geocoder = Nominatim(user_agent="academicpages.github.io")
+geocoder = Nominatim(user_agent="sakinkirti.github.io")
 location_dict = {}
 location = ""
 permalink = ""
@@ -27,8 +27,8 @@ title = ""
 # Perform geolocation
 for file in g:
     # Read the file
-    data = frontmatter.load(file)
-    data = data.to_dict()
+    data = frontmatter.Frontmatter.read_file(file)
+    # data = data.to_dict()
 
     # Press on if the location is not present
     if 'location' not in data:

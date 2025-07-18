@@ -1,0 +1,100 @@
+/* === Remove vertical spacing between items === */
+.archive__item, .list__item {
+  margin-top: 1em !important;
+  padding: 0 !important;
+}
+
+/* === Remove left indentation and borders === */
+.archive__item,
+.list__item {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  border-left: none !important;
+}
+
+/* === Force inner content to align left === */
+.archive__item-title,
+.archive__item-excerpt,
+.page__meta {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-align: left !important;
+}
+
+/* === Remove any default list formatting === */
+.list__item {
+  list-style-type: none !important;
+}
+
+/* === Tighten inner spacing === */
+.archive__item h2,
+.archive__item h3,
+.archive__item p,
+.list__item h2,
+.list__item h3,
+.list__item p {
+  margin-top: 0 !important;
+  margin-bottom: 0.3em !important;
+  padding: 0 !important;
+}
+
+/* === Optional: Tighten images in grid === */
+.archive__item-teaser img {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+}
+
+.archive__item-excerpt {
+    font-size: 18;
+}
+
+/* all for the navbar */
+/* Base Nav Styling */
+.masthead__menu-item {
+  display: inline-block;
+}
+
+/* Responsive Menu */
+/* Hide hamburger by default on desktop */
+.greedy-nav__toggle {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+  .greedy-nav__toggle {
+    display: block !important;
+  }
+}
+
+/* Hamburger icon bars */
+.navicon {
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  position: relative;
+  display: block;
+}
+
+.navicon::before,
+.navicon::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  left: 0;
+}
+
+.navicon::before {
+  top: -8px;
+}
+
+.navicon::after {
+  top: 8px;
+}

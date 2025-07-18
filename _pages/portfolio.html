@@ -1,14 +1,72 @@
 ---
 layout: archive
-title: "Portfolio"
+title: "Photography"
 permalink: /portfolio/
 author_profile: true
 ---
 
-{% include base_path %}
+I enjoy photography because it's a creative break from the work I do day to day. It lets me step outside, explore new places, and document moments that feel meaningful or visually interesting. I like the process of trying to capture a scene in just the right way—playing with angles, lighting, and framing until it feels right. It's also a way for me to learn from others and see how different people approach the same subject with completely different styles. At the end of the day, it's something I do because it's fun, relaxing, and gives me a reason to slow down and look at the world a little differently.<br>
+<br>
+I hope you enjoy this small selection of my photos :)<br>
+<br>
+
+<style>
+.collage {
+  column-count: 3;
+  column-gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .collage {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .collage {
+    column-count: 1;
+  }
+}
+
+.collage img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+</style>
+
+<div class="collage" id="image-collage">
+  {% assign images = site.static_files | where_exp: "file", "file.path contains '/images/IMG_'" %}
+  {% for image in images %}
+    <img src="{{ image.path }}" alt="{{ image.name }}">
+  {% endfor %}
+</div>
+
+<script>
+  // Shuffle function (Fisher-Yates shuffle)
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  // Shuffle the images inside the collage div
+  const collage = document.getElementById('image-collage');
+  const images = Array.from(collage.children);
+
+  // Shuffle the image elements
+  const shuffled = shuffle(images);
+
+  // Re-append in shuffled order
+  shuffled.forEach(img => collage.appendChild(img));
+</script>
+
+<!-- {% include base_path %}
 
 
 {% for post in site.portfolio %}
   {% include archive-single.html %}
-{% endfor %}
+{% endfor %} -->
 

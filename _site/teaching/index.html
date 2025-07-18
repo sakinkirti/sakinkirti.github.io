@@ -88,10 +88,18 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
+<!-- Main stylesheet -->
 <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/main.css">
 
+<!-- Custom stylesheets -->
+
+  
+    <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/custom.css">
+  
+
+
 <meta http-equiv="cleartype" content="on">
+
     
 
 <!-- start custom head snippets -->
@@ -121,11 +129,18 @@
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+    <nav id="site-nav" class="greedy-nav">
+      <button class="greedy-nav__toggle" aria-expanded="false" aria-label="Menu">
+        <div class="navicon"></div>
+      </button>
+
+      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <a class="masthead__menu-item masthead__menu-item--lg persist" href="http://0.0.0.0:4000/">Sakin Kirti</a>
+
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="http://0.0.0.0:4000/">Sakin Kirti</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/publications/">Publications</a></li>
@@ -134,23 +149,22 @@
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/talks/">Talks</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/teaching/">Teaching</a></li>
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/portfolio/">Photography</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/year-archive/">Blog Posts</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>
+
         <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </div>
 </div>
+
 
     
 
@@ -169,12 +183,12 @@
 
   <div class="author__avatar">
     
-    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti (he/him)"  fetchpriority="high" />
+    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti"  fetchpriority="high" />
     
   </div>
 
   <div class="author__content">
-    <h3 class="author__name">Sakin Kirti (he/him)</h3>
+    <h3 class="author__name">Sakin Kirti</h3>
     
     <p class="author__bio">Bioinformatics PhD Student / always exploring 🔎</p>
   </div>
@@ -276,58 +290,23 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/teaching/2015-spring-teaching-1" rel="permalink">Teaching experience 2
+        <a href="http://0.0.0.0:4000/teaching/2023-ml-for-industry-professionals" rel="permalink">Teaching Assistant
 </a>
       
-    </h2>
+    </h3>
     
     
 
         
-          <p> Workshop, <i>University 1, Department</i>, 2015 </p>
+          <p> Industry Professionals, <i>Case Western Reserve University, Computer and Data Sciences</i>, 2023 </p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a description of a teaching experience. You can use markdown like any other post.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-
-  
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/teaching/2014-spring-teaching-1" rel="permalink">Teaching experience 1
-</a>
-      
-    </h2>
-    
-    
-
-        
-          <p> Undergraduate course, <i>University 1, Department</i>, 2014 </p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a description of a teaching experience. You can use markdown like any other post.</p>
-
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>Teaching Assistant under Dr. Vipin Chaudhary<br /><br />
+Led breakout groups,</p>
+</p> -->
     
     
     
@@ -384,7 +363,7 @@
 
 <div class="page__footer-copyright">
   &copy; 2025 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2025-07-17
+  Site last updated 2025-07-18
 </div>
 
       </footer>

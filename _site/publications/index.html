@@ -88,10 +88,18 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
+<!-- Main stylesheet -->
 <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/main.css">
 
+<!-- Custom stylesheets -->
+
+  
+    <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/custom.css">
+  
+
+
 <meta http-equiv="cleartype" content="on">
+
     
 
 <!-- start custom head snippets -->
@@ -121,11 +129,18 @@
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+    <nav id="site-nav" class="greedy-nav">
+      <button class="greedy-nav__toggle" aria-expanded="false" aria-label="Menu">
+        <div class="navicon"></div>
+      </button>
+
+      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <a class="masthead__menu-item masthead__menu-item--lg persist" href="http://0.0.0.0:4000/">Sakin Kirti</a>
+
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="http://0.0.0.0:4000/">Sakin Kirti</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/publications/">Publications</a></li>
@@ -134,23 +149,22 @@
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/talks/">Talks</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/teaching/">Teaching</a></li>
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/portfolio/">Photography</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/year-archive/">Blog Posts</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>
+
         <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </div>
 </div>
+
 
     
 
@@ -169,12 +183,12 @@
 
   <div class="author__avatar">
     
-    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti (he/him)"  fetchpriority="high" />
+    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti"  fetchpriority="high" />
     
   </div>
 
   <div class="author__content">
-    <h3 class="author__name">Sakin Kirti (he/him)</h3>
+    <h3 class="author__name">Sakin Kirti</h3>
     
     <p class="author__bio">Bioinformatics PhD Student / always exploring 🔎</p>
   </div>
@@ -265,6 +279,7 @@
     
     
   <div class="wordwrap">I've included select publications here. You can find all of my articles on <a href="https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en">my Google Scholar profile</a>.</div>
+  <p>Clicking on each link will take you to more detail about that particular paper.</p>
 
 
 
@@ -302,12 +317,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2024-03-01-tissue-fibrosis-associated-depletion-of-lipid‐filled-cells" rel="permalink">Tissue fibrosis associated depletion of lipid‐filled cells
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -316,12 +331,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>review paper on skin cycling.</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>review paper on skin cycling.</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Jussila, B Zhang, S Kirti, R Atit. (2010). &quot;Tissue fibrosis associated depletion of lipid‐filled cells.&quot; <i>Wiley Experimental Dermatology</i>. 1(2).<br /><a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/exd.15054">Download Paper</a></p>
     
 
   </article>
@@ -340,12 +353,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2022-06-01-skin-fibrosis-and-recovery-is-dependent-on-wnt-activation-via-DPP4" rel="permalink">Skin fibrosis and recovery is dependent on Wnt activation via DPP4
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -354,12 +367,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>mechanistic evidence of DPP4 acting as a mediator of fibrotic fat loss in skin fibrosis</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>mechanistic evidence of DPP4 acting as a mediator of fibrotic fat loss in skin fibrosis</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Jussila, B Zhang, E Caves, S Kirti, M Steele, E Hamburg-Shields, J Lydon, Y Ying, R Lafyatis, S Rajagopalan, V Horsley, R P Atit. (2022). &quot;Skin fibrosis and recovery is dependent on Wnt activation via DPP4.&quot; <i>Journal of Investigative Dermatology</i>. 142(6).<br /><a href="https://pubmed.ncbi.nlm.nih.gov/34808238/">Download Paper</a></p>
     
 
   </article>
@@ -380,12 +391,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2022-04-15-avian-auditory-hair-cell-regeneration-is-accompanied" rel="permalink">Avian auditory hair cell regeneration is accompanied by JAK/STAT-dependent expression of immune-related genes in supporting cells
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -394,12 +405,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>details JAK/STAT-dependent expression of immune-related genes in hair cell regeneration</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>details JAK/STAT-dependent expression of immune-related genes in hair cell regeneration</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Janesick, M Scheibinger, N Benkafadar, S Kirti, S Heller. (2022). &quot;Avian auditory hair cell regeneration is accompanied by JAK/STAT-dependent expression of immune-related genes in supporting cells.&quot; <i>Development</i>. 149(8).<br /><a href="https://journals.biologists.com/dev/article/149/8/dev200113/275250">Download Paper</a></p>
     
 
   </article>
@@ -418,12 +427,12 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2021-03-23-cell-type-identity-of-the-avian-cochlea" rel="permalink">Cell-type identity of the avian cochlea
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -432,12 +441,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>Atlas of the chicken cochlea</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>Atlas of the chicken cochlea</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Janesick, M Scheibinger, N Benkafadar, S Kirti, DC Ellwanger, S Heller. (2021). &quot;Cell-type identity of the avian cochlea.&quot; <i>Cell Reports.</i> 34(12)<br /><a href="https://www.cell.com/cell-reports/fulltext/S2211-1247(21)00214-X">Download Paper</a></p>
     
 
   </article>
@@ -453,6 +460,56 @@
         
       
         
+      
+        
+      
+        
+  
+    
+    
+      
+        
+      
+        
+      
+      
+        <h2>Magazines</h2><hr />
+        
+      
+      
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://0.0.0.0:4000/publication/2022-04-20-how-machine-learning-will-change-our-world" rel="permalink">How Machine Learning Will Change Our World: How Machine Learning Can Make Life Easier-And a Bit More Complicated
+</a>
+      
+    </h3>
+    
+    
+
+        
+          <p>Published in <i>The Synapse: Intercollegiate Science Magazine</i>, 2022 </p>
+        
+
+    
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>A brief discussion of machine learning and privacy.</p>
+</p> -->
+    
+    
+    
+
+  </article>
+</div>
+
+    
       
         
       
@@ -510,7 +567,7 @@
 
 <div class="page__footer-copyright">
   &copy; 2025 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2025-07-17
+  Site last updated 2025-07-18
 </div>
 
       </footer>

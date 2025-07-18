@@ -9,13 +9,13 @@ redirect_from:
 
 {% include base_path %}
 
-## Education
+## _Education_
 __PhD, Bioinformatics__ | University of California, Los Angeles / Los Angeles, CA | Sep 2025 - PRESENT<br>
 _GPA_: ---<br>
 __BA, Computer Science__ | Case Western Reserve University / Cleveland, OH | Aug 2019 - May 2023<br>
 _GPA_: 3.82
 
-## Experience
+## _Experience_
 __Computational Associate__ | The Broad Institute of MIT and Harvard / Cambridge, MA<br>
 July 2023 - July 2025<br>
 _Computer Vision, Drug Discovery, Representation Learning, Methods Development, Cardiovascular Disease, Google Cloud Platform_
@@ -44,11 +44,11 @@ __Research Intern__ | Stanford University School of Medicine / Stanford, CA<br>
 Aug 2018 - Aug 2019<br>
 _in-situ hybridizations, scRNA-seq_
 
-## Funding
+## _Funding_
 __Beckman Scholar's Program__ | _Arnold and Mabel Beckman Foundation_ | Dec 2019 - May 2023<br>
 $21,000 research grant supporting undergraduate research projects
 
-## Honors and Awards
+## _Honors and Awards_
 __Junior-Senior Scholarship__ | _Case Alumni Association_ | Aug 2021 - May 2023<br> 
 $2,000 award for students with professional promise
 
@@ -64,16 +64,17 @@ Exceptional Poster Presentation at SDB regional conference
 __Dean's High Honors__ | _Case Western Reserve University_ | Dec 2019 - May 2023<br> 
 Maintaining GPA > 3.75
 
-## Teaching
+## _Teaching_
 __Teaching Assistant__ | Dr. Vipin Chaudhary | April 2023 - May 2023<br>
 _Introduction to Machine Learning for Industry Professionals_
   
-## Publications
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+## _Publications_
+{% for post in site.publications reversed %}
+  {% include archive-single-cv.html %}
+{% endfor %}
   
-## Talks
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
+## _Talks_
+{% for post in site.talks reversed %}
+  {% include archive-single-talk-cv.html  %}
+{% endfor %}
+

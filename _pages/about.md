@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I was born and brought up in San Jose, CA, and went to Lynbrook High School. I started my research journey in Dr. Stefan Heller's research lab at the Stanford University School of Medicine. I performed _in-situ_ hybridizations of various genes in the chicken cochlea, working to assemble at atlas of inner ear hair cell regerative genes.
+I was born and brought up in San Jose, CA, and went to Lynbrook High School. I started my research journey in Dr. Stefan Heller's research lab at the Stanford University School of Medicine. I performed _in-situ_ hybridizations of various genes in the chicken cochlea, working to assemble an atlas of inner ear hair cell regenerative genes.
 
 I moved to Cleveland, OH where I attended Case Western Reserve University for my Bachelor's in Computer Science, receiving both a University Scholarship and Junior-Senior Scholarship. I was mentored by Dr. Radhika Atit, where I was a Beckman Scholar, looking for mechanistic modulators of dermal fibrosis. I performed both wet and dry lab work using tools like CellProfiler, SAM, and SqueezeNet to identify histological changes in response to inhibition of DPP4. 
 

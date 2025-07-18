@@ -88,10 +88,18 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
+<!-- Main stylesheet -->
 <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/main.css">
 
+<!-- Custom stylesheets -->
+
+  
+    <link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/custom.css">
+  
+
+
 <meta http-equiv="cleartype" content="on">
+
     
 
 <!-- start custom head snippets -->
@@ -121,11 +129,18 @@
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+    <nav id="site-nav" class="greedy-nav">
+      <button class="greedy-nav__toggle" aria-expanded="false" aria-label="Menu">
+        <div class="navicon"></div>
+      </button>
+
+      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <a class="masthead__menu-item masthead__menu-item--lg persist" href="http://0.0.0.0:4000/">Sakin Kirti</a>
+
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="http://0.0.0.0:4000/">Sakin Kirti</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/publications/">Publications</a></li>
@@ -134,23 +149,22 @@
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/talks/">Talks</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/teaching/">Teaching</a></li>
+            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/portfolio/">Photography</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/year-archive/">Blog Posts</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="http://0.0.0.0:4000/cv/">CV</a></li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>
+
         <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </div>
 </div>
+
 
     
 
@@ -169,12 +183,12 @@
 
   <div class="author__avatar">
     
-    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti (he/him)"  fetchpriority="high" />
+    	<img src="http://0.0.0.0:4000/images/me.jpeg" class="author__avatar" alt="Sakin Kirti"  fetchpriority="high" />
     
   </div>
 
   <div class="author__content">
-    <h3 class="author__name">Sakin Kirti (he/him)</h3>
+    <h3 class="author__name">Sakin Kirti</h3>
     
     <p class="author__bio">Bioinformatics PhD Student / always exploring 🔎</p>
   </div>
@@ -272,11 +286,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/404.html" rel="permalink">Page Not Found</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -293,11 +307,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/" rel="permalink">Welcome to my site :)</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -314,11 +328,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/archive-layout-with-content/" rel="permalink">Archive Layout with Content</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -335,11 +349,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/categories/" rel="permalink">Posts by Category</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -356,11 +370,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/collection-archive/" rel="permalink">Posts by Collection</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -377,11 +391,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/cv-json/" rel="permalink">CV</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -398,11 +412,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/cv/" rel="permalink">Curriculum Vitae</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -419,11 +433,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/assets/css/main.css" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -440,11 +454,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/markdown/" rel="permalink">Markdown</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -461,11 +475,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/non-menu-page/" rel="permalink">Page not in menu</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -482,11 +496,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/page-archive/" rel="permalink">Page Archive</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -503,11 +517,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/portfolio/" rel="permalink">Portfolio</a>
+        <a href="http://0.0.0.0:4000/portfolio/" rel="permalink">Photography</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -524,11 +538,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publications/" rel="permalink">Selected Publications</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -545,11 +559,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/sitemap/" rel="permalink">Sitemap</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -566,11 +580,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/tags/" rel="permalink">Posts by Tags</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -587,11 +601,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/talkmap.html" rel="permalink">Talk map</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -608,11 +622,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/" rel="permalink">Talks and presentations</a>
+        <a href="http://0.0.0.0:4000/talks/" rel="permalink">Talks and Presentations</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -629,11 +643,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/teaching/" rel="permalink">Teaching</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -650,11 +664,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/terms/" rel="permalink">Terms and Privacy Policy</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -671,11 +685,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/year-archive/" rel="permalink">Blog posts</a>
       
-    </h2>
+    </h3>
     
     
 
@@ -692,11 +706,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/about/" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -713,11 +727,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/about.html" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -734,11 +748,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/resume-json" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -755,11 +769,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/resume" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -776,11 +790,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/md/" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -797,11 +811,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/markdown.html" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -818,11 +832,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/nmp/" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -839,11 +853,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/nmp.html" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -860,11 +874,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/wordpress/blog-posts/" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -881,11 +895,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/redirects.json" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -902,11 +916,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/feed.xml" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -923,11 +937,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/sitemap.xml" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -944,11 +958,11 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/robots.txt" rel="permalink"></a>
       
-    </h2>
+    </h3>
     
     
 
@@ -967,12 +981,12 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Future Blog Post
 </a>
       
-    </h2>
+    </h3>
     
     
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
@@ -989,8 +1003,8 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>
+</p> -->
     
     
     
@@ -1002,12 +1016,12 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-4/" rel="permalink">Blog Post number 4
+        <a href="http://0.0.0.0:4000/posts/2025/07/finally-running/" rel="permalink">Finally running!
 </a>
       
-    </h2>
+    </h3>
     
     
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
@@ -1020,121 +1034,13 @@
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-08-14T00:00:00+00:00">August 14, 2015</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-07-17T00:00:00+00:00">July 17, 2025</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>Welcome to my site! Excited to get things off the ground. Hopefully I’ll be able to keep this updated adding photos as I travel, adding papers whenever I publish, continuing to grow the talkmap, and teaching whenever possible. I hope that I can use the blog to write a bit about major life events and just keep a relatively public-facing journal.</p>
 
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2014/08/blog-post-3/" rel="permalink">Blog Post number 3
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2014-08-14T00:00:00+00:00">August 14, 2014</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2013/08/blog-post-2/" rel="permalink">Blog Post number 2
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2013-08-14T00:00:00+00:00">August 14, 2013</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/posts/2012/08/blog-post-1/" rel="permalink">Blog Post number 1
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2012-08-14T00:00:00+00:00">August 14, 2012</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
-
-</p>
+</p> -->
     
     
     
@@ -1144,68 +1050,18 @@
 
 <h2>portfolio</h2>
 
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/portfolio/portfolio-1/" rel="permalink">Portfolio item number 1
-</a>
-      
-    </h2>
-    
-    
-
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>Short description of portfolio item number 1<br /><img src="/images/500x300.png" /></p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/portfolio/portfolio-2/" rel="permalink">Portfolio item number 2
-</a>
-      
-    </h2>
-    
-    
-
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>Short description of portfolio item number 2 <br /><img src="/images/500x300.png" /></p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
 <h2>publications</h2>
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2021-03-23-cell-type-identity-of-the-avian-cochlea" rel="permalink">Cell-type identity of the avian cochlea
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -1214,12 +1070,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>Atlas of the chicken cochlea</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>Atlas of the chicken cochlea</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Janesick, M Scheibinger, N Benkafadar, S Kirti, DC Ellwanger, S Heller. (2021). &quot;Cell-type identity of the avian cochlea.&quot; <i>Cell Reports.</i> 34(12)<br /><a href="https://www.cell.com/cell-reports/fulltext/S2211-1247(21)00214-X">Download Paper</a></p>
     
 
   </article>
@@ -1229,12 +1083,12 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2022-04-15-avian-auditory-hair-cell-regeneration-is-accompanied" rel="permalink">Avian auditory hair cell regeneration is accompanied by JAK/STAT-dependent expression of immune-related genes in supporting cells
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -1243,12 +1097,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>details JAK/STAT-dependent expression of immune-related genes in hair cell regeneration</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>details JAK/STAT-dependent expression of immune-related genes in hair cell regeneration</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Janesick, M Scheibinger, N Benkafadar, S Kirti, S Heller. (2022). &quot;Avian auditory hair cell regeneration is accompanied by JAK/STAT-dependent expression of immune-related genes in supporting cells.&quot; <i>Development</i>. 149(8).<br /><a href="https://journals.biologists.com/dev/article/149/8/dev200113/275250">Download Paper</a></p>
     
 
   </article>
@@ -1258,12 +1110,12 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2022-04-20-how-machine-learning-will-change-our-world" rel="permalink">How Machine Learning Will Change Our World: How Machine Learning Can Make Life Easier-And a Bit More Complicated
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -1272,12 +1124,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This paper is about the number 1. The number 2 is left for future work.</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>A brief discussion of machine learning and privacy.</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: S Kirti. (2022). &quot;How Machine Learning Will Change Our World: How Machine Learning Can Make Life Easier-And a Bit More Complicated.&quot; <i>The Synapse: Intercollegiate Science Magazine</i>. 30(1).<br /><a href="https://digitalcommons.denison.edu/cgi/viewcontent.cgi?article=1205&amp;context=synapse">Download Paper</a></p>
     
 
   </article>
@@ -1287,12 +1137,12 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2022-06-01-skin-fibrosis-and-recovery-is-dependent-on-wnt-activation-via-DPP4" rel="permalink">Skin fibrosis and recovery is dependent on Wnt activation via DPP4
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -1301,12 +1151,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>mechanistic evidence of DPP4 acting as a mediator of fibrotic fat loss in skin fibrosis</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>mechanistic evidence of DPP4 acting as a mediator of fibrotic fat loss in skin fibrosis</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Jussila, B Zhang, E Caves, S Kirti, M Steele, E Hamburg-Shields, J Lydon, Y Ying, R Lafyatis, S Rajagopalan, V Horsley, R P Atit. (2022). &quot;Skin fibrosis and recovery is dependent on Wnt activation via DPP4.&quot; <i>Journal of Investigative Dermatology</i>. 142(6).<br /><a href="https://pubmed.ncbi.nlm.nih.gov/34808238/">Download Paper</a></p>
     
 
   </article>
@@ -1316,12 +1164,12 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
         <a href="http://0.0.0.0:4000/publication/2024-03-01-tissue-fibrosis-associated-depletion-of-lipid‐filled-cells" rel="permalink">Tissue fibrosis associated depletion of lipid‐filled cells
 </a>
       
-    </h2>
+    </h3>
     
     
 
@@ -1330,12 +1178,10 @@
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>review paper on skin cycling.</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>review paper on skin cycling.</p>
+</p> -->
     
     
-    
-      <p>Recommended citation: A Jussila, B Zhang, S Kirti, R Atit. (2010). &quot;Tissue fibrosis associated depletion of lipid‐filled cells.&quot; <i>Wiley Experimental Dermatology</i>. 1(2).<br /><a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/exd.15054">Download Paper</a></p>
     
 
   </article>
@@ -1347,22 +1193,25 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2012-03-01-talk-1" rel="permalink">Talk 1 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2019-10-19-sdb" rel="permalink">Ototoxic Damage Induces Interferon Signaling in Chicken Cochlear Epithelial Stem Cells
 </a>
       
-    </h2>
+    </h3>
     
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2012-03-01T00:00:00+00:00">March 01, 2012</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-10-19T00:00:00+00:00">October 19, 2019</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a description of your talk, which is a markdown file that can be all markdown-ified like any other post. Yay markdown!</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><iframe src="/files/SDB-2019.pdf" width="100%" height="600px">
+  This browser does not support PDFs. Please download the PDF: 
+  <a href="/files/SDB-2019.pdf">Download PDF</a>.
+</iframe>
+</p> -->
     
     
     
@@ -1374,23 +1223,25 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2013-03-01-tutorial-1" rel="permalink">Tutorial 1 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2021-05-10-source-symposium" rel="permalink">DPP-IV mediates Wnt-stimulated dermal fibrosis
 </a>
       
-    </h2>
+    </h3>
     
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2013-03-01T00:00:00+00:00">March 01, 2013</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2021-05-10T00:00:00+00:00">May 10, 2021</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p><a href="http://exampleurl.com">More information here</a></p>
-
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><iframe src="/files/SK_FinalBeckmanPresentationOct2021.pdf" width="100%" height="600px">
+  This browser does not support PDFs. Please download the PDF: 
+  <a href="/files/SK_FinalBeckmanPresentationOct2021.pdf">Download PDF</a>.
+</iframe>
+</p> -->
     
     
     
@@ -1402,23 +1253,25 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2014-02-01-talk-2" rel="permalink">Talk 2 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2021-08-20-beckman-symposium" rel="permalink">DPP-IV mediates Wnt-stimulated dermal fibrosis
 </a>
       
-    </h2>
+    </h3>
     
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2014-02-01T00:00:00+00:00">February 01, 2014</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2021-08-20T00:00:00+00:00">August 20, 2021</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p><a href="http://example2.com">More information here</a></p>
-
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><iframe src="/files/Beckman-2021.pdf" width="100%" height="600px">
+  This browser does not support PDFs. Please download the PDF: 
+  <a href="/files/Beckman-2021.pdf">Download PDF</a>.
+</iframe>
+</p> -->
     
     
     
@@ -1430,22 +1283,55 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/talks/2014-03-01-talk-3" rel="permalink">Conference Proceeding talk 3 on Relevant Topic in Your Field
+        <a href="http://0.0.0.0:4000/talks/2023-11-15-mgb-gene-cell-therapy-symposium" rel="permalink">A High-Throughput Contractility Assay for Human Cardiac Organoids: a Translational Platform for Cardiomyopathy and Drug Discovery
 </a>
       
-    </h2>
+    </h3>
     
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2014-03-01T00:00:00+00:00">March 01, 2014</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2023-11-15T00:00:00+00:00">November 15, 2023</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a description of your conference proceedings talk, note the different field in type. You can put anything in this field.</p>
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><iframe src="/files/MGB-GCTI.pdf" width="100%" height="600px">
+  This browser does not support PDFs. Please download the PDF: 
+  <a href="/files/MGB-GCTI.pdf">Download PDF</a>.
+</iframe>
+</p> -->
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://0.0.0.0:4000/talks/2024-11-15-aha-contrack" rel="permalink">Contrack: A High-Throughput Contractility Screening Platform for 3D Human Cardiac Microtissues
+</a>
+      
+    </h3>
+    
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-11-15T00:00:00+00:00">November 15, 2024</time></p>
+        
+
+    
+    <!-- <p class="archive__item-excerpt" itemprop="description"><iframe src="/files/AHA-Poster.pdf" width="100%" height="600px">
+  This browser does not support PDFs. Please download the PDF: 
+  <a href="/files/AHA-Poster.pdf">Download PDF</a>.
+</iframe>
+</p> -->
     
     
     
@@ -1459,51 +1345,23 @@
   <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
     
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="http://0.0.0.0:4000/teaching/2014-spring-teaching-1" rel="permalink">Teaching experience 1
+        <a href="http://0.0.0.0:4000/teaching/2023-ml-for-industry-professionals" rel="permalink">Teaching Assistant
 </a>
       
-    </h2>
+    </h3>
     
     
 
         
-          <p> Undergraduate course, <i>University 1, Department</i>, 2014 </p>
+          <p> Industry Professionals, <i>Case Western Reserve University, Computer and Data Sciences</i>, 2023 </p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a description of a teaching experience. You can use markdown like any other post.</p>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://0.0.0.0:4000/teaching/2015-spring-teaching-1" rel="permalink">Teaching experience 2
-</a>
-      
-    </h2>
-    
-    
-
-        
-          <p> Workshop, <i>University 1, Department</i>, 2015 </p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>This is a description of a teaching experience. You can use markdown like any other post.</p>
-
-</p>
+    <!-- <p class="archive__item-excerpt" itemprop="description"><p>Teaching Assistant under Dr. Vipin Chaudhary<br /><br />
+Led breakout groups,</p>
+</p> -->
     
     
     
@@ -1559,7 +1417,7 @@
 
 <div class="page__footer-copyright">
   &copy; 2025 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2025-07-17
+  Site last updated 2025-07-18
 </div>
 
       </footer>

@@ -1,22 +1,27 @@
 var addressPoints = [
   [
-    "Talk 2 on Relevant Topic in Your Field<br />London School of Testing; London, UK",
-    51.4893335,
-    -0.14405508452768728
+    "DPP-IV mediates Wnt-stimulated dermal fibrosis<br />Case Western Reserve University Annual SOURCE Symposium; Cleveland, OH, USA",
+    41.4996574,
+    -81.6936772
   ],
   [
-    "Tutorial 1 on Relevant Topic in Your Field<br />UC-Berkeley Institute for Testing Science; Berkeley, CA, USA",
-    37.8708393,
-    -122.272863
+    "Ototoxic Damage Induces Interferon Signaling in Chicken Cochlear Epithelial Stem Cells<br />Society of Developmental Biology; Cleveland, OH, USA",
+    41.4996574,
+    -81.6936772
   ],
   [
-    "Conference Proceeding talk 3 on Relevant Topic in Your Field<br />Testing Institute of America 2014 Annual Conference; Los Angeles, CA, USA",
+    "A High-Throughput Contractility Assay for Human Cardiac Organoids: a Translational Platform for Cardiomyopathy and Drug Discovery<br />Mass General Brigham Gene and Cell Therapy Institute Symposium; Boston, MA, USA",
+    42.3554334,
+    -71.060511
+  ],
+  [
+    "DPP-IV mediates Wnt-stimulated dermal fibrosis<br />Arnold and Mabel Beckman Foundation Annual Symposium; Los Angeles, CA, USA",
     34.0536909,
     -118.242766
   ],
   [
-    "Talk 1 on Relevant Topic in Your Field<br />UC San Francisco, Department of Testing; San Francisco, CA, USA",
-    37.7792588,
-    -122.4193286
+    "Contrack: A High-Throughput Contractility Screening Platform for 3D Human Cardiac Microtissues<br />American Heart Association Scientific Sessions; Chicago, Il, USA",
+    41.8755616,
+    -87.6244212
   ]
 ];
