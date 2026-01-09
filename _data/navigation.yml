@@ -28,6 +28,12 @@ personal-nav:
     url: "#photography"
   - title: "Reading List"
     url: "#reading-list"
+    children:
+      - title: "2026 List"
+        url: "#2026-reading-list"
+      - title: "2025 List"
+        url: "#2025-reading-list"
+
 
   # - title: "Blog Posts"
   #  url: /year-archive/
