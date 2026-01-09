@@ -43,12 +43,16 @@ little differently.<br><br>I hope you enjoy this small selection of my photos :)
   }
 </style>
 
-<div class="collage" id="image-collage">
-  {% assign images = site.static_files | where_exp: "file", "file.path contains '/images/IMG_'" %}
-  {% for image in images %}
-  <img src="{{ image.path }}" alt="{{ image.name }}">
-  {% endfor %}
-</div>
+<details>
+  <summary style="cursor: pointer; font-weight: bold; margin-bottom: 15px;">See Photos</summary>
+  <div class="collage" id="image-collage">
+    {% assign images = site.static_files | where_exp: "file", "file.path contains '/images/IMG_'" %}
+    {% for image in images %}
+    <img src="{{ image.path }}" alt="{{ image.name }}">
+    {% endfor %}
+  </div>
+</details>
+
 
 <script>
   // Shuffle function (Fisher-Yates shuffle)
@@ -80,72 +84,75 @@ Building on that momentum, I've put together a yearly reading list and I'm hopin
 the habit while continuing to explore new perspectives and styles.<br>
 <br>I'm hoping to return to this page and mark those that I've finished reading in bold<br>
 
-<h3 id="2026-reading-list">2026 Reading List - <i>Themes: Intelligence and Cognition; Morality and Control</i>
-</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Intelligence and Cognition</th>
-      <th>Morality and Control</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>A Brief History of Intelligence, <i>Max Bennett</i></b></td>
-      <td>Animal Farm, <i>George Orwell</i></td>
-    </tr>
-    <tr>
-      <td>A Human's Guide to Machine Intelligence, <i>Kartik Hosanagar</i></td>
-      <td>Brave New World, <i> Aldous Huxley</i></td>
-    </tr>
-    <tr>
-      <td>Behave, <i>Robert Sapolsky</i></td>
-      <td>1984, <i>George Orwell</i></td>
-    </tr>
-    <tr>
-      <td>Consciousness Explained, <i>Daniel Dennett</i></td>
-      <td>The Handmaid's Tale, <i>Margaret Atwood</i></td>
-    </tr>
-    <tr>
-      <td>How Emotions are Made, <i>Lisa Feldman Barrett</i></td>
-      <td>The Kite Runner, <i> Khaled Hosseini</i></td>
-    </tr>
-    <tr>
-      <td>The Brain from the Inside Out, <i>György Buzsáki</i></td>
-      <td>Never Let Me Go, <i> Kazuo Ishiguro</i></td>
-    </tr>
-  </tbody>
-</table>
+<details>
+  <summary style="cursor: pointer; font-weight: bold; margin-bottom: 15px;">View Reading Lists</summary>
 
-<h3 id="2025-reading-list">2025 Reading List - <i>Themes: History; Science Fiction; Journalism</i></h3>
-<table>
-  <thead>
-    <tr>
-      <th>History</th>
-      <th>Science Fiction</th>
-      <th>Journalism</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Lahore, <i>Manreet Sodhi Someshwar</i></b></td>
-      <td><b>Project Hail Mary, <i>Andy Weir</i></b></td>
-      <td><b>Abundance, <i>Derek Thompson and Ezra Klein</i></b></td>
-    </tr>
-    <tr>
-      <td><b>Hyderabad, <i>Manreet Sodhi Someshwar</i></b></td>
-      <td></td>
-      <td><b>Prisoners of Geography, <i>Tim Marshall</i></b></td>
-    </tr>
-    <tr>
-      <td><b>Kashmir, <i>Manreet Sodhi Someshwar</i></b></td>
-      <td></td>
-      <td><b>The Kingdom, The Power, and The Glory, <i>Tim Alberta</i></b></td>
-    </tr>
-    <tr>
-      <td><b>An Indigenous People's History of the United States, <i>Roxanne Dunbar-Ortiz</i></b></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  <h3 id="2026-reading-list">2026 Reading List - <i>Themes: Intelligence and Cognition; Morality and Control</i></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Intelligence and Cognition</th>
+        <th>Morality and Control</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>A Brief History of Intelligence, <i>Max Bennett</i></b></td>
+        <td>Animal Farm, <i>George Orwell</i></td>
+      </tr>
+      <tr>
+        <td>A Human's Guide to Machine Intelligence, <i>Kartik Hosanagar</i></td>
+        <td>Brave New World, <i> Aldous Huxley</i></td>
+      </tr>
+      <tr>
+        <td>Behave, <i>Robert Sapolsky</i></td>
+        <td>1984, <i>George Orwell</i></td>
+      </tr>
+      <tr>
+        <td>Consciousness Explained, <i>Daniel Dennett</i></td>
+        <td>The Handmaid's Tale, <i>Margaret Atwood</i></td>
+      </tr>
+      <tr>
+        <td>How Emotions are Made, <i>Lisa Feldman Barrett</i></td>
+        <td>The Kite Runner, <i> Khaled Hosseini</i></td>
+      </tr>
+      <tr>
+        <td>The Brain from the Inside Out, <i>György Buzsáki</i></td>
+        <td>Never Let Me Go, <i> Kazuo Ishiguro</i></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="2025-reading-list">2025 Reading List - <i>Themes: History; Science Fiction; Journalism</i></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>History</th>
+        <th>Science Fiction</th>
+        <th>Journalism</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Lahore, <i>Manreet Sodhi Someshwar</i></b></td>
+        <td><b>Project Hail Mary, <i>Andy Weir</i></b></td>
+        <td><b>Abundance, <i>Derek Thompson and Ezra Klein</i></b></td>
+      </tr>
+      <tr>
+        <td><b>Hyderabad, <i>Manreet Sodhi Someshwar</i></b></td>
+        <td></td>
+        <td><b>Prisoners of Geography, <i>Tim Marshall</i></b></td>
+      </tr>
+      <tr>
+        <td><b>Kashmir, <i>Manreet Sodhi Someshwar</i></b></td>
+        <td></td>
+        <td><b>The Kingdom, The Power, and The Glory, <i>Tim Alberta</i></b></td>
+      </tr>
+      <tr>
+        <td><b>An Indigenous People's History of the United States, <i>Roxanne Dunbar-Ortiz</i></b></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</details>
