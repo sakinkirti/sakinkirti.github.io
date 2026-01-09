@@ -11,14 +11,12 @@ redirect_from:
 
 ## _Education_
 __PhD, Bioinformatics__ | University of California, Los Angeles / Los Angeles, CA | Sep 2025 - PRESENT<br>
-_GPA_: ---<br>
-__BA, Computer Science__ | Case Western Reserve University / Cleveland, OH | Aug 2019 - May 2023<br>
-_GPA_: 3.82
+__BA, Computer Science__ | Case Western Reserve University / Cleveland, OH<br>
 
 ## _Experience_
 __Computational Associate__ | The Broad Institute of MIT and Harvard / Cambridge, MA<br>
 July 2023 - July 2025<br>
-_Computer Vision, Drug Discovery, Representation Learning, Methods Development, Cardiovascular Disease, Google Cloud Platform_
+_Computer Vision, Drug Discovery, Representation Learning, Cardiovascular Disease, Google Cloud Platform_
 
 __Junior Machine Learning Engineer__ | Trustlogix / Mountain View, CA<br>
 Nov 2023 - Jan 2024<br>
@@ -45,7 +43,7 @@ Aug 2018 - Aug 2019<br>
 _in-situ hybridizations, scRNA-seq_
 
 ## _Funding_
-__Beckman Scholar's Program__ | _Arnold and Mabel Beckman Foundation_ | Dec 2019 - May 2023<br>
+__Beckman Scholar's Program__ | _Arnold and Mabel Beckman Foundation & Case Western Reserve University_ | May 2020 - Aug 2021<br>
 $21,000 research grant supporting undergraduate research projects
 
 ## _Honors and Awards_

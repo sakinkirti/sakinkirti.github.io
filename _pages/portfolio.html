@@ -1,44 +1,55 @@
 ---
 layout: archive
-title: "Photography"
+title: "Personal"
 permalink: /portfolio/
 author_profile: true
+sidebar:
+nav: "personal-nav"
 ---
 
-I enjoy photography because it's a creative break from the work I do day to day. It lets me step outside, explore new places, and document moments that feel meaningful or visually interesting. I like the process of trying to capture a scene in just the right way—playing with angles, lighting, and framing until it feels right. It's also a way for me to learn from others and see how different people approach the same subject with completely different styles. At the end of the day, it's something I do because it's fun, relaxing, and gives me a reason to slow down and look at the world a little differently.<br>
+I enjoy photography because it's a creative break from the work I do day to day. It lets me step outside, explore new
+places, and document moments that feel meaningful or visually interesting. I like the process of trying to capture a
+scene in just the right way—playing with angles, lighting, and framing until it feels right. It's also a way for me to
+learn from others and see how different people approach the same subject with completely different styles. At the end of
+the day, it's something I do because it's fun, relaxing, and gives me a reason to slow down and look at the world a
+little differently.<br>
 <br>
+
+<h2 id="photography">Photography</h2>
 I hope you enjoy this small selection of my photos :)<br>
 <br>
 
+
 <style>
-.collage {
-  column-count: 3;
-  column-gap: 10px;
-}
-
-@media (max-width: 768px) {
   .collage {
-    column-count: 2;
+    column-count: 3;
+    column-gap: 10px;
   }
-}
 
-@media (max-width: 480px) {
-  .collage {
-    column-count: 1;
+  @media (max-width: 768px) {
+    .collage {
+      column-count: 2;
+    }
   }
-}
 
-.collage img {
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 8px; /* Optional: Rounded corners */
-}
+  @media (max-width: 480px) {
+    .collage {
+      column-count: 1;
+    }
+  }
+
+  .collage img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    /* Optional: Rounded corners */
+  }
 </style>
 
 <div class="collage" id="image-collage">
   {% assign images = site.static_files | where_exp: "file", "file.path contains '/images/IMG_'" %}
   {% for image in images %}
-    <img src="{{ image.path }}" alt="{{ image.name }}">
+  <img src="{{ image.path }}" alt="{{ image.name }}">
   {% endfor %}
 </div>
 
@@ -63,10 +74,21 @@ I hope you enjoy this small selection of my photos :)<br>
   shuffled.forEach(img => collage.appendChild(img));
 </script>
 
-<!-- {% include base_path %}
+<h2 id="reading-list">Reading List</h2>
 
+Listed below are some of the books I've been reading recently or that have left a lasting impression on me.
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %} -->
+### Currently Reading
+* *Project Hail Mary* by Andy Weir
+* *The Master and Margarita* by Mikhail Bulgakov
 
+### Favorites & Recommendations
+* *When Breath Becomes Air* by Paul Kalanithi
+* *Stories of Your Life and Others* by Ted Chiang
+* *The Gene: An Intimate History* by Siddhartha Mukherjee
+* *Thinking, Fast and Slow* by Daniel Kahneman
+
+### 2024 Reading List
+* *The Anxious Generation* by Jonathan Haidt
+* *Burn Book* by Kara Swisher
+* *The Coming Wave* by Mustafa Suleyman
