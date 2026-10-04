@@ -1,5 +1,6 @@
 /* === Remove vertical spacing between items === */
-.archive__item, .list__item {
+.archive__item,
+.list__item {
   margin-top: 1em !important;
   padding: 0 !important;
 }
@@ -46,13 +47,23 @@
 }
 
 .archive__item-excerpt {
-    font-size: 18;
+  font-size: 18px;
 }
 
 /* all for the navbar */
 /* Base Nav Styling */
 .masthead__menu-item {
   display: inline-block;
+}
+
+/* Bold the current page, not the first link (theme bolds li:first-child) */
+.greedy-nav .visible-links li:first-child {
+  font-weight: normal;
+}
+
+.greedy-nav .visible-links li.masthead__menu-item--active,
+.greedy-nav .hidden-links li.masthead__menu-item--active {
+  font-weight: bold;
 }
 
 /* Responsive Menu */
@@ -65,36 +76,172 @@
   display: none;
 }
 
-/* Show hamburger on small screens */
-@media (max-width: 768px) {
-  .greedy-nav__toggle {
-    display: block !important;
+/* Desktop: keep site title and links on one row */
+@media (min-width: 768px) {
+  .greedy-nav__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 }
 
-/* Hamburger icon bars */
-.navicon {
-  width: 24px;
-  height: 2px;
-  background-color: #333;
-  position: relative;
-  display: block;
+/* Show hamburger on small screens */
+@media (max-width: 767px) {
+
+  .masthead,
+  .masthead__inner-wrap {
+    overflow: visible !important;
+    /* Ensure absolute dropdown isn't clipped */
+  }
+
+  .greedy-nav {
+    display: flex !important;
+    flex-direction: row-reverse;
+    /* Pull toggle to the right, keep wrap (title) on the left */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: visible !important;
+  }
+
+  .greedy-nav__toggle {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    /* Remove absolute/relative positioning for flex */
+    margin-right: 10px;
+  }
+
+  .greedy-nav__wrap {
+    flex: 1;
+    display: block !important;
+  }
+
+  .visible-links {
+    display: none !important;
+  }
+
+  .hidden-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--global-bg-color);
+    border: none;
+    border-top: 1px solid var(--global-border-color);
+    border-bottom: 1px solid var(--global-border-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .hidden-links.hidden {
+    display: none !important;
+  }
+
+  .hidden-links li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border: none;
+  }
+
+  .hidden-links a {
+    display: block !important;
+    padding: 15px 20px !important;
+    font-size: 1.1rem !important;
+    border-bottom: 1px solid var(--global-border-color) !important;
+    color: var(--global-text-color) !important;
+    background: var(--global-bg-color) !important;
+  }
+
+  .hidden-links li:last-child a {
+    border-bottom: none;
+  }
+
+  .hidden-links:before,
+  .hidden-links:after {
+    display: none;
+    /* remove desktop triangle */
+  }
+
+  /* Plain icon: override the theme's filled `.greedy-nav button` style */
+  .greedy-nav .greedy-nav__toggle {
+    background: transparent;
+    padding: 0 10px;
+  }
+
+  .navicon,
+  .navicon::before,
+  .navicon::after {
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--global-text-color);
+  }
+
+  .navicon::before {
+    top: -7px;
+  }
+
+  .navicon::after {
+    bottom: -7px;
+  }
+
+  /* Keep the "X" (menu open) the same width as the bars */
+  .close .navicon::before,
+  .close .navicon::after {
+    width: 22px;
+  }
 }
 
-.navicon::before,
-.navicon::after {
-  content: "";
-  width: 24px;
-  height: 2px;
-  background-color: #333;
-  position: absolute;
-  left: 0;
+/* Use the full content width on single pages (theme reserves a 2/12 right
+   gutter), matching archive pages like CV and Publications */
+@media (min-width: 925px) {
+  .page {
+    padding-right: 0;
+  }
 }
 
-.navicon::before {
-  top: -8px;
+/* Section headings: same underline on archive pages (CV, Publications, Talks,
+   Personal) as the theme gives single pages */
+.archive h2 {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--global-border-color);
 }
 
-.navicon::after {
-  top: 8px;
+/* CV publication and talk lists */
+.cv-list li {
+  margin-bottom: 0.6em;
+}
+
+/* Homepage updates list */
+.page__content #updates {
+  margin-top: 1.25em;
+}
+
+.news {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75em;
+  margin-bottom: 0.6em;
+}
+
+.news__date {
+  flex: 0 0 5.5em;
+  font-size: 0.85em;
+  white-space: nowrap;
+  color: var(--global-text-color-light);
+  font-variant-numeric: tabular-nums;
+}
+
+details > summary {
+  cursor: pointer;
 }

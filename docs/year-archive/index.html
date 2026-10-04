@@ -68,6 +68,8 @@
 <meta property="og:title" content="Blog posts">
 
 
+  <meta property="og:description" name="description" content="Bioinformatics PhD student at UCLA studying computational neuroscience and representation learning, from robust retinal coding to noise-robust neural networks.">
+
 
   <meta property="og:url" content="https://sakinkirti.github.io/year-archive/">
 
@@ -104,6 +106,23 @@
 
 <!-- start custom head snippets -->
 
+<!-- Apply the theme before first paint: saved choice, else the device setting -->
+<script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  })();
+</script>
+
+<!-- Site font: Albert Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/academicons.css"/>
 
@@ -134,25 +153,38 @@
         <div class="navicon"></div>
       </button>
 
-      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="greedy-nav__wrap">
         <a class="masthead__menu-item masthead__menu-item--lg persist" href="https://sakinkirti.github.io/">Sakin Kirti</a>
 
         <ul class="visible-links">
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/cv/">CV</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/portfolio/">Personal</a></li>
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/cv/">CV</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/portfolio/">Personal</a></li>
+          
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"
+                title="toggle theme"></i></a>
           </li>
         </ul>
 
@@ -161,7 +193,6 @@
     </nav>
   </div>
 </div>
-
 
     
 
@@ -201,8 +232,6 @@
         <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>UCLA</li>
       
       
-        <li><a href="https://sakinkirti.github.io"><i class="fas fa-fw fa-link icon-pad-right" aria-hidden="true"></i>Website</a></li>
-      
       
 
       <!-- Font Awesome and Academicons icons / Academic websites -->
@@ -216,8 +245,6 @@
       
         <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
       
-      
-        <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=sakin+kirti"><i class="ai ai-pubmed ai-fw icon-pad-right"></i>PubMed</a></li>
                               
       
       
@@ -234,8 +261,6 @@
 
       <!-- Font Awesome icons / Social media -->
               
-      
-        <li><a href="https://bsky.app/profile/sakinkirti.bsky.social"><i class="fab fa-fw fa-bluesky icon-pad-right" aria-hidden="true"></i>Bluesky</a></li>
       
       
             
@@ -281,11 +306,6 @@
   
   
   
-
-
-  
-  
-  
     
     
       <h2 id="2025" class="archive__subtitle">2025</h2>
@@ -303,9 +323,11 @@
 
     <h3 class="archive__item-title" itemprop="headline">
       
-        <a href="https://sakinkirti.github.io/posts/2025/07/finally-running/" rel="permalink">Finally running!
+
+
+<a href="https://sakinkirti.github.io/posts/2025/07/finally-running/">Finally running!
 </a>
-      
+
     </h3>
     
     
@@ -344,7 +366,6 @@
       <footer>
         <!-- start custom footer snippets -->
 
-<a href="/sitemap/">Sitemap</a>
 
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -371,19 +392,23 @@
       <li><strong>Follow:</strong></li>
     
     
-      <li><a href="http://github.com/sakinkirti"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+      <li><a href="https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i> Google Scholar</a></li>
     
     
+      <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw" aria-hidden="true"></i> ORCID</a></li>
     
-    <li><a href="https://sakinkirti.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+      <li><a href="https://github.com/sakinkirti"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+      <li><a href="https://www.linkedin.com/in/sakinkirti"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
     
   </ul>
 </div>
 
-
 <div class="page__footer-copyright">
   &copy; 2026 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2026-01-09
+  Site last updated 2026-10-04
 </div>
 
       </footer>

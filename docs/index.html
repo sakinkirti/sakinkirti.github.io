@@ -68,6 +68,8 @@
 <meta property="og:title" content="Welcome to my site :)">
 
 
+  <meta property="og:description" name="description" content="Bioinformatics PhD student at UCLA studying computational neuroscience and representation learning, from robust retinal coding to noise-robust neural networks.">
+
 
   <meta property="og:url" content="https://sakinkirti.github.io/">
 
@@ -104,6 +106,23 @@
 
 <!-- start custom head snippets -->
 
+<!-- Apply the theme before first paint: saved choice, else the device setting -->
+<script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  })();
+</script>
+
+<!-- Site font: Albert Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/academicons.css"/>
 
@@ -134,25 +153,38 @@
         <div class="navicon"></div>
       </button>
 
-      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="greedy-nav__wrap">
         <a class="masthead__menu-item masthead__menu-item--lg persist" href="https://sakinkirti.github.io/">Sakin Kirti</a>
 
         <ul class="visible-links">
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/cv/">CV</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/portfolio/">Personal</a></li>
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/cv/">CV</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/portfolio/">Personal</a></li>
+          
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"
+                title="toggle theme"></i></a>
           </li>
         </ul>
 
@@ -161,7 +193,6 @@
     </nav>
   </div>
 </div>
-
 
     
 
@@ -203,8 +234,6 @@
         <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>UCLA</li>
       
       
-        <li><a href="https://sakinkirti.github.io"><i class="fas fa-fw fa-link icon-pad-right" aria-hidden="true"></i>Website</a></li>
-      
       
 
       <!-- Font Awesome and Academicons icons / Academic websites -->
@@ -218,8 +247,6 @@
       
         <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
       
-      
-        <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=sakin+kirti"><i class="ai ai-pubmed ai-fw icon-pad-right"></i>PubMed</a></li>
                               
       
       
@@ -236,8 +263,6 @@
 
       <!-- Font Awesome icons / Social media -->
               
-      
-        <li><a href="https://bsky.app/profile/sakinkirti.bsky.social"><i class="fab fa-fw fa-bluesky icon-pad-right" aria-hidden="true"></i>Bluesky</a></li>
       
       
             
@@ -291,17 +316,51 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>I was born and brought up in San Jose, CA, and went to Lynbrook High School. I started my research journey in Dr. Stefan Heller’s research lab at the Stanford University School of Medicine. I performed <em>in-situ</em> hybridizations of various genes in the chicken cochlea, working to assemble an atlas of inner ear hair cell regenerative genes.</p>
+        <p>I’m a Bioinformatics PhD student at UCLA interested in computational neuroscience and representation learning. In particular, I want to understand a) how the retina generates signals that are robust to varying conditions, and b) how we can use these properties in neural networks to make models robust to noise. My recent work has focused on regularizers that separate signal and nuisance variation so that models perform well on out of distribution corruptions. I’m now focused on understanding various retinal ganglion cell type functionality and what they add to visual representations.</p>
 
-<p>I moved to Cleveland, OH where I attended Case Western Reserve University for my Bachelor’s in Computer Science, receiving both a University Scholarship and Junior-Senior Scholarship. I was mentored by Dr. Radhika Atit, where I was a Beckman Scholar, looking for mechanistic modulators of dermal fibrosis. I performed both wet and dry lab work using tools like CellProfiler, SAM, and SqueezeNet to identify histological changes in response to inhibition of DPP4.</p>
+<p>I’m lucky to be advised by <a href="http://jzlab.org/">Dr. Joel Zylberberg at UCLA</a>. Prior to starting my PhD, I was fortunate to be mentored by <a href="https://www.ellinorlab.org/">Dr. Patrick Ellinor at the Broad Institute</a>, <a href="https://case.edu/artsci/biology/atitlab/">Dr. Radhika Atit at Case Western Reserve University</a>, and <a href="https://hellerlab-stanford.net/">Dr. Stefan Heller at Stanford</a>.</p>
 
-<p>I moved further east to Boston, MA to work under Dr. Patrick Ellinor at The Broad Institute. I built on computer vision methods like DINO to build unbiased feature extraction methods in the context of high-throughput imaging screens of cardiovascular diseases. Additionally, I built methods to reduce inter-plate variability in high-throughput imaging screens by modifying single-cell batch correction methods. I also built software to quickly analyze videos of contracting cardioids, leading to vast improvements in processing time and accuracy compared to existing methods.</p>
+<p>In my free time, I enjoy photography, backpacking, weightlifting, and cooking.</p>
 
-<p>Now, I’ve moved back home to California to join the Bioinformatics PhD program at UCLA. I would like to build on my experiences and build probabilistic methods to model and identify causal interactions in disease biology.</p>
+<h2 id="updates">Updates</h2>
 
-<p>I have a few hobbies; In my free time, I enjoy photography, backpacking, weightlifting, and cooking. These help keep my head on straight, tbh.</p>
+<ul class="news">
 
-<p>Hope you enjoy learning a bit about my experiences :)</p>
+  <li><span class="news__date">Sep 2026</span><span>New preprint on <a href="https://arxiv.org/abs/2610.00751">signal-noise factorization regularization for neural networks</a> was posted on arXiv.</span></li>
+
+  <li><span class="news__date">Sep 2025</span><span>Started my PhD in Bioinformatics at UCLA.</span></li>
+
+  <li><span class="news__date">Jul 2025</span><span>Wrapped up two years as a Computational Associate in Patrick Ellinor’s group at the Broad Institute.</span></li>
+
+  <li><span class="news__date">Nov 2024</span><span>Presented a poster on <a href="/files/AHA-Poster.pdf">Contrack</a>, a contractility screening platform for 3D cardiac microtissues, at AHA Scientific Sessions in Chicago.</span></li>
+
+  <li><span class="news__date">Mar 2024</span><span>Review on <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/exd.15054">fibrosis-associated depletion of lipid-filled cells</a> published in <em>Experimental Dermatology</em>.</span></li>
+
+</ul>
+
+<details>
+  <summary>Older updates</summary>
+  <ul class="news">
+  
+    <li><span class="news__date">Nov 2023</span><span>Presented a poster on a <a href="/files/MGB-GCTI.pdf">high-throughput contractility assay</a> for human cardiac organoids at the Mass General Brigham Gene and Cell Therapy Institute Symposium.</span></li>
+  
+    <li><span class="news__date">Jul 2023</span><span>Joined the Broad Institute as a Computational Associate, working on computer vision for cardiovascular drug discovery.</span></li>
+  
+    <li><span class="news__date">May 2023</span><span>Graduated from Case Western Reserve University with a BA in Computer Science.</span></li>
+  
+    <li><span class="news__date">Jun 2022</span><span>Paper on <a href="https://pubmed.ncbi.nlm.nih.gov/34808238/">skin fibrosis and Wnt activation via DPP4</a> published in the <em>Journal of Investigative Dermatology</em>.</span></li>
+  
+    <li><span class="news__date">Apr 2022</span><span>Paper on <a href="https://journals.biologists.com/dev/article/149/8/dev200113/275250">JAK/STAT-dependent immune gene expression in avian hair cell regeneration</a> published in <em>Development</em>.</span></li>
+  
+    <li><span class="news__date">Mar 2021</span><span>Paper on <a href="https://www.cell.com/cell-reports/fulltext/S2211-1247(21)00214-X">cell-type identity of the avian cochlea</a> published in <em>Cell Reports</em>.</span></li>
+  
+    <li><span class="news__date">May 2020</span><span>Named a Beckman Scholar to study mechanisms of dermal fibrosis in Radhika Atit’s lab at Case Western.</span></li>
+  
+    <li><span class="news__date">Oct 2019</span><span>Won Best Undergraduate Poster at the Society for Developmental Biology regional meeting.</span></li>
+  
+  </ul>
+</details>
+
 
 
         
@@ -337,7 +396,6 @@
       <footer>
         <!-- start custom footer snippets -->
 
-<a href="/sitemap/">Sitemap</a>
 
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -364,19 +422,23 @@
       <li><strong>Follow:</strong></li>
     
     
-      <li><a href="http://github.com/sakinkirti"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+      <li><a href="https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i> Google Scholar</a></li>
     
     
+      <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw" aria-hidden="true"></i> ORCID</a></li>
     
-    <li><a href="https://sakinkirti.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+      <li><a href="https://github.com/sakinkirti"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+      <li><a href="https://www.linkedin.com/in/sakinkirti"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
     
   </ul>
 </div>
 
-
 <div class="page__footer-copyright">
   &copy; 2026 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2026-01-09
+  Site last updated 2026-10-04
 </div>
 
       </footer>

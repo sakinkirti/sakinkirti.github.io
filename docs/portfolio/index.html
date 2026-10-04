@@ -68,6 +68,8 @@
 <meta property="og:title" content="Personal">
 
 
+  <meta property="og:description" name="description" content="Bioinformatics PhD student at UCLA studying computational neuroscience and representation learning, from robust retinal coding to noise-robust neural networks.">
+
 
   <meta property="og:url" content="https://sakinkirti.github.io/portfolio/">
 
@@ -104,6 +106,23 @@
 
 <!-- start custom head snippets -->
 
+<!-- Apply the theme before first paint: saved choice, else the device setting -->
+<script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  })();
+</script>
+
+<!-- Site font: Albert Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/academicons.css"/>
 
@@ -134,25 +153,38 @@
         <div class="navicon"></div>
       </button>
 
-      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="greedy-nav__wrap">
         <a class="masthead__menu-item masthead__menu-item--lg persist" href="https://sakinkirti.github.io/">Sakin Kirti</a>
 
         <ul class="visible-links">
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/cv/">CV</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
           
-            
-            <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/portfolio/">Personal</a></li>
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/cv/">CV</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item masthead__menu-item--active"><a href="https://sakinkirti.github.io/portfolio/" aria-current="page">Personal</a></li>
+          
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"
+                title="toggle theme"></i></a>
           </li>
         </ul>
 
@@ -161,7 +193,6 @@
     </nav>
   </div>
 </div>
-
 
     
 
@@ -201,8 +232,6 @@
         <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>UCLA</li>
       
       
-        <li><a href="https://sakinkirti.github.io"><i class="fas fa-fw fa-link icon-pad-right" aria-hidden="true"></i>Website</a></li>
-      
       
 
       <!-- Font Awesome and Academicons icons / Academic websites -->
@@ -216,8 +245,6 @@
       
         <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
       
-      
-        <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=sakin+kirti"><i class="ai ai-pubmed ai-fw icon-pad-right"></i>PubMed</a></li>
                               
       
       
@@ -234,8 +261,6 @@
 
       <!-- Font Awesome icons / Social media -->
               
-      
-        <li><a href="https://bsky.app/profile/sakinkirti.bsky.social"><i class="fab fa-fw fa-bluesky icon-pad-right" aria-hidden="true"></i>Bluesky</a></li>
       
       
             
@@ -275,11 +300,11 @@
       <h1 class="page__title">Personal</h1>
     
     <h2 id="photography">Photography</h2>
-I enjoy photography because it's a creative break from the work I do day to day. It lets me step outside, explore new
+I enjoy photography because it’s a creative break from the work I do day to day. It lets me step outside, explore new
 places, and document moments that feel meaningful or visually interesting. I like the process of trying to capture a
-scene in just the right way—playing with angles, lighting, and framing until it feels right. It's also a way for me to
+scene in just the right way—playing with angles, lighting, and framing until it feels right. It’s also a way for me to
 learn from others and see how different people approach the same subject with completely different styles. At the end of
-the day, it's something I do because it's fun, relaxing, and gives me a reason to slow down and look at the world a
+the day, it’s something I do because it’s fun, relaxing, and gives me a reason to slow down and look at the world a
 little differently.<br><br>I hope you enjoy this small selection of my photos :)<br>
 
 
@@ -310,77 +335,77 @@ little differently.<br><br>I hope you enjoy this small selection of my photos :)
 </style>
 
 <details>
-  <summary style="cursor: pointer; font-weight: bold; margin-bottom: 15px;">See Photos</summary>
+  <summary style="cursor: pointer; font-weight: bold; margin-bottom: 15px;">View Photos</summary>
   <div class="collage" id="image-collage">
     
     
-    <img src="/images/IMG_0023.JPG" alt="IMG_0023.JPG">
+    <img src="/images/IMG_0023.jpg" alt="Photo IMG_0023" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_0173-1.jpg" alt="IMG_0173-1.jpg">
+    <img src="/images/IMG_0173-1.jpg" alt="Photo IMG_0173-1" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_0201-1.jpg" alt="IMG_0201-1.jpg">
+    <img src="/images/IMG_0201-1.jpg" alt="Photo IMG_0201-1" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_0202-1.jpg" alt="IMG_0202-1.jpg">
+    <img src="/images/IMG_0202-1.jpg" alt="Photo IMG_0202-1" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_0236.jpeg" alt="IMG_0236.jpeg">
+    <img src="/images/IMG_0236.jpg" alt="Photo IMG_0236" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_1216.jpeg" alt="IMG_1216.jpeg">
+    <img src="/images/IMG_1216.jpg" alt="Photo IMG_1216" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_1265.jpeg" alt="IMG_1265.jpeg">
+    <img src="/images/IMG_1265.jpg" alt="Photo IMG_1265" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_1278.jpeg" alt="IMG_1278.jpeg">
+    <img src="/images/IMG_1278.jpg" alt="Photo IMG_1278" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_1304.jpeg" alt="IMG_1304.jpeg">
+    <img src="/images/IMG_1304.jpg" alt="Photo IMG_1304" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_2452.JPG" alt="IMG_2452.JPG">
+    <img src="/images/IMG_2452.jpg" alt="Photo IMG_2452" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_2859.jpg" alt="IMG_2859.jpg">
+    <img src="/images/IMG_2859.jpg" alt="Photo IMG_2859" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_30C6D9EE93ED.jpg" alt="IMG_30C6D9EE93ED.jpg">
+    <img src="/images/IMG_30C6D9EE93ED.jpg" alt="Photo IMG_30C6D9EE93ED" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_3312.JPG" alt="IMG_3312.JPG">
+    <img src="/images/IMG_3312.jpg" alt="Photo IMG_3312" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_3825.jpeg" alt="IMG_3825.jpeg">
+    <img src="/images/IMG_3825.jpg" alt="Photo IMG_3825" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_4836.jpeg" alt="IMG_4836.jpeg">
+    <img src="/images/IMG_4836.jpg" alt="Photo IMG_4836" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_5059.jpeg" alt="IMG_5059.jpeg">
+    <img src="/images/IMG_5059.jpg" alt="Photo IMG_5059" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_5617.png" alt="IMG_5617.png">
+    <img src="/images/IMG_5617.jpg" alt="Photo IMG_5617" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_6928.jpeg" alt="IMG_6928.jpeg">
+    <img src="/images/IMG_6928.jpg" alt="Photo IMG_6928" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7056.png" alt="IMG_7056.png">
+    <img src="/images/IMG_7056.jpg" alt="Photo IMG_7056" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7092.jpeg" alt="IMG_7092.jpeg">
+    <img src="/images/IMG_7092.jpg" alt="Photo IMG_7092" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7151.jpeg" alt="IMG_7151.jpeg">
+    <img src="/images/IMG_7151.jpg" alt="Photo IMG_7151" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7227.jpeg" alt="IMG_7227.jpeg">
+    <img src="/images/IMG_7227.jpg" alt="Photo IMG_7227" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7250.jpeg" alt="IMG_7250.jpeg">
+    <img src="/images/IMG_7250.jpg" alt="Photo IMG_7250" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7295.jpeg" alt="IMG_7295.jpeg">
+    <img src="/images/IMG_7295.jpg" alt="Photo IMG_7295" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7300.jpeg" alt="IMG_7300.jpeg">
+    <img src="/images/IMG_7300.jpg" alt="Photo IMG_7300" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7475.jpeg" alt="IMG_7475.jpeg">
+    <img src="/images/IMG_7475.jpg" alt="Photo IMG_7475" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_7B646871.jpg" alt="IMG_7B646871.jpg">
+    <img src="/images/IMG_7B646871.jpg" alt="Photo IMG_7B646871" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_8165.jpeg" alt="IMG_8165.jpeg">
+    <img src="/images/IMG_8165.jpg" alt="Photo IMG_8165" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_8408.jpeg" alt="IMG_8408.jpeg">
+    <img src="/images/IMG_8408.jpg" alt="Photo IMG_8408" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_8439.jpeg" alt="IMG_8439.jpeg">
+    <img src="/images/IMG_8439.jpg" alt="Photo IMG_8439" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_9266.jpeg" alt="IMG_9266.jpeg">
+    <img src="/images/IMG_9266.jpg" alt="Photo IMG_9266" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_F1185D4C.jpg" alt="IMG_F1185D4C.jpg">
+    <img src="/images/IMG_F1185D4C.jpg" alt="Photo IMG_F1185D4C" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_death-valley.jpeg" alt="IMG_death-valley.jpeg">
+    <img src="/images/IMG_death-valley.jpg" alt="Photo IMG_death-valley" loading="lazy" decoding="async">
     
-    <img src="/images/IMG_deathvalley.jpeg" alt="IMG_deathvalley.jpeg">
+    <img src="/images/IMG_deathvalley.jpg" alt="Photo IMG_deathvalley" loading="lazy" decoding="async">
     
   </div>
 </details>
@@ -409,83 +434,168 @@ little differently.<br><br>I hope you enjoy this small selection of my photos :)
 
 <h2 id="reading-list">Reading List</h2>
 
-I've been making a more intentional effort to read regularly, both as a way to slow down and to engage more deeply
-with ideas outside of my day-to-day work. Recently, I've read a mix of books that reflect my interests across science
+I’ve been making a more intentional effort to read regularly, both as a way to slow down and to engage more deeply
+with ideas outside of my day-to-day work. Recently, I’ve read a mix of books that reflect my interests across science
 and broader cultural themes, which has helped me rediscover how rewarding consistent reading can be.
-Building on that momentum, I've put together a yearly reading list and I'm hoping this list will help me maintain
+Building on that momentum, I’ve put together a yearly reading list and I’m hoping this list will help me maintain
 the habit while continuing to explore new perspectives and styles.<br>
-<br>I'm hoping to return to this page and mark those that I've finished reading in bold<br>
+<br>I’m hoping to return to this page and mark those that I’ve finished reading in bold.<br>
 
 <details>
   <summary style="cursor: pointer; font-weight: bold; margin-bottom: 15px;">View Reading Lists</summary>
+  
+  
   <h3 id="2026-reading-list">2026 Reading List - <i>Themes: Intelligence and Cognition; Morality and Control</i></h3>
+  
+  
   <table>
     <thead>
       <tr>
-        <th>Intelligence and Cognition</th>
-        <th>Morality and Control</th>
+        <th>Intelligence and Cognition</th><th>Morality and Control</th>
       </tr>
     </thead>
     <tbody>
+      
+      
       <tr>
+        
+        
         <td><b>A Brief History of Intelligence, <i>Max Bennett</i></b></td>
+        
+        
         <td>Animal Farm, <i>George Orwell</i></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td>A Human's Guide to Machine Intelligence, <i>Kartik Hosanagar</i></td>
-        <td>Brave New World, <i> Aldous Huxley</i></td>
+        
+        
+        <td>Brave New World, <i>Aldous Huxley</i></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td>Behave, <i>Robert Sapolsky</i></td>
+        
+        
         <td>1984, <i>George Orwell</i></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td>Consciousness Explained, <i>Daniel Dennett</i></td>
+        
+        
         <td>The Handmaid's Tale, <i>Margaret Atwood</i></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td>How Emotions are Made, <i>Lisa Feldman Barrett</i></td>
-        <td>The Kite Runner, <i> Khaled Hosseini</i></td>
+        
+        
+        <td>The Kite Runner, <i>Khaled Hosseini</i></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td>The Brain from the Inside Out, <i>György Buzsáki</i></td>
-        <td>Never Let Me Go, <i> Kazuo Ishiguro</i></td>
+        
+        
+        <td>Never Let Me Go, <i>Kazuo Ishiguro</i></td>
+        
       </tr>
+      
     </tbody>
   </table>
-
+  
+  
   <h3 id="2025-reading-list">2025 Reading List - <i>Themes: History; Science Fiction; Journalism</i></h3>
+  
+  
   <table>
     <thead>
       <tr>
-        <th>History</th>
-        <th>Science Fiction</th>
-        <th>Journalism</th>
+        <th>History</th><th>Science Fiction</th><th>Journalism</th>
       </tr>
     </thead>
     <tbody>
+      
+      
       <tr>
+        
+        
         <td><b>Lahore, <i>Manreet Sodhi Someshwar</i></b></td>
+        
+        
         <td><b>Project Hail Mary, <i>Andy Weir</i></b></td>
+        
+        
         <td><b>Abundance, <i>Derek Thompson and Ezra Klein</i></b></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td><b>Hyderabad, <i>Manreet Sodhi Someshwar</i></b></td>
+        
+        
         <td></td>
+        
+        
         <td><b>Prisoners of Geography, <i>Tim Marshall</i></b></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td><b>Kashmir, <i>Manreet Sodhi Someshwar</i></b></td>
+        
+        
         <td></td>
+        
+        
         <td><b>The Kingdom, The Power, and The Glory, <i>Tim Alberta</i></b></td>
+        
       </tr>
+      
+      
       <tr>
+        
+        
         <td><b>An Indigenous People's History of the United States, <i>Roxanne Dunbar-Ortiz</i></b></td>
+        
+        
         <td></td>
+        
+        
         <td></td>
+        
       </tr>
+      
     </tbody>
   </table>
+  
 </details>
   </div>
 </div>
@@ -495,7 +605,6 @@ the habit while continuing to explore new perspectives and styles.<br>
       <footer>
         <!-- start custom footer snippets -->
 
-<a href="/sitemap/">Sitemap</a>
 
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -522,19 +631,23 @@ the habit while continuing to explore new perspectives and styles.<br>
       <li><strong>Follow:</strong></li>
     
     
-      <li><a href="http://github.com/sakinkirti"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+      <li><a href="https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i> Google Scholar</a></li>
     
     
+      <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw" aria-hidden="true"></i> ORCID</a></li>
     
-    <li><a href="https://sakinkirti.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+      <li><a href="https://github.com/sakinkirti"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+      <li><a href="https://www.linkedin.com/in/sakinkirti"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
     
   </ul>
 </div>
 
-
 <div class="page__footer-copyright">
   &copy; 2026 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2026-01-09
+  Site last updated 2026-10-04
 </div>
 
       </footer>
