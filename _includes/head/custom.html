@@ -2,6 +2,23 @@
 
 <!-- start custom head snippets -->
 
+<!-- Apply the theme before first paint: saved choice, else the device setting -->
+<script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  })();
+</script>
+
+<!-- Site font: Albert Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 

@@ -1,0 +1,67 @@
+# Reading lists for the Personal page, newest year first.
+# Each year has categories (one table column each); set `finished: true` to bold a book.
+
+- year: 2026
+  categories:
+    - name: "Intelligence and Cognition"
+      books:
+        - title: "A Brief History of Intelligence"
+          author: "Max Bennett"
+          finished: true
+        - title: "A Human's Guide to Machine Intelligence"
+          author: "Kartik Hosanagar"
+        - title: "Behave"
+          author: "Robert Sapolsky"
+        - title: "Consciousness Explained"
+          author: "Daniel Dennett"
+        - title: "How Emotions are Made"
+          author: "Lisa Feldman Barrett"
+        - title: "The Brain from the Inside Out"
+          author: "György Buzsáki"
+    - name: "Morality and Control"
+      books:
+        - title: "Animal Farm"
+          author: "George Orwell"
+        - title: "Brave New World"
+          author: "Aldous Huxley"
+        - title: "1984"
+          author: "George Orwell"
+        - title: "The Handmaid's Tale"
+          author: "Margaret Atwood"
+        - title: "The Kite Runner"
+          author: "Khaled Hosseini"
+        - title: "Never Let Me Go"
+          author: "Kazuo Ishiguro"
+
+- year: 2025
+  categories:
+    - name: "History"
+      books:
+        - title: "Lahore"
+          author: "Manreet Sodhi Someshwar"
+          finished: true
+        - title: "Hyderabad"
+          author: "Manreet Sodhi Someshwar"
+          finished: true
+        - title: "Kashmir"
+          author: "Manreet Sodhi Someshwar"
+          finished: true
+        - title: "An Indigenous People's History of the United States"
+          author: "Roxanne Dunbar-Ortiz"
+          finished: true
+    - name: "Science Fiction"
+      books:
+        - title: "Project Hail Mary"
+          author: "Andy Weir"
+          finished: true
+    - name: "Journalism"
+      books:
+        - title: "Abundance"
+          author: "Derek Thompson and Ezra Klein"
+          finished: true
+        - title: "Prisoners of Geography"
+          author: "Tim Marshall"
+          finished: true
+        - title: "The Kingdom, The Power, and The Glory"
+          author: "Tim Alberta"
+          finished: true

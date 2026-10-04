@@ -1,0 +1,13 @@
+{% comment %}
+  Title link for a list item. Prefers the external source (link, paperurl,
+  slidesurl) and only falls back to the item's own page if its collection is
+  rendered. Expects `post` and `title` to be set.
+{% endcomment %}
+{% assign item_href = post.link | default: post.paperurl | default: post.slidesurl %}
+{% if item_href %}
+  {% unless item_href contains "://" %}{% assign item_href = item_href | prepend: base_path %}{% endunless %}
+{% else %}
+  {% assign item_collection = site.collections | where: "label", post.collection | first %}
+  {% if item_collection == nil or item_collection.output %}{% assign item_href = post.url | prepend: base_path %}{% endif %}
+{% endif %}
+{% if item_href %}<a href="{{ item_href }}">{{ title }}</a>{% else %}{{ title }}{% endif %}

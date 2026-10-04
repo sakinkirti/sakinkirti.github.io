@@ -2,7 +2,6 @@
 title: "Skin fibrosis and recovery is dependent on Wnt activation via DPP4"
 collection: publications
 category: manuscripts
-permalink: /publication/2022-06-01-skin-fibrosis-and-recovery-is-dependent-on-wnt-activation-via-DPP4
 excerpt: 'mechanistic evidence of DPP4 acting as a mediator of fibrotic fat loss in skin fibrosis'
 date: 2022-06-01
 venue: 'Journal of Investigative Dermatology'

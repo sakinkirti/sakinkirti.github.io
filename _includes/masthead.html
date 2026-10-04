@@ -7,20 +7,26 @@
         <div class="navicon"></div>
       </button>
 
-      <div class="greedy-nav__wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="greedy-nav__wrap">
         <a class="masthead__menu-item masthead__menu-item--lg persist" href="{{ base_path }}/">{{ site.title }}</a>
 
         <ul class="visible-links">
           {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-            {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+          {% if link.url contains 'http' %}
+          {% assign domain = '' %}
+          {% else %}
+          {% assign domain = base_path %}
+          {% endif %}
+          {% assign url_prefix = page.url | slice: 0, link.url.size %}
+          {% if url_prefix == link.url %}
+          <li class="masthead__menu-item masthead__menu-item--active"><a href="{{ domain }}{{ link.url }}" aria-current="page">{{ link.title }}</a></li>
+          {% else %}
+          <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+          {% endif %}
           {% endfor %}
           <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"
+                title="toggle theme"></i></a>
           </li>
         </ul>
 

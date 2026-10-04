@@ -2,12 +2,11 @@
 title: "Cell-type identity of the avian cochlea"
 collection: publications
 category: manuscripts
-permalink: /publication/2021-03-23-cell-type-identity-of-the-avian-cochlea
 excerpt: 'Atlas of the chicken cochlea'
 date: 2021-03-23
 venue: 'Cell Reports'
 paperurl: 'https://www.cell.com/cell-reports/fulltext/S2211-1247(21)00214-X'
-citation: 'A Janesick, M Scheibinger, N Benkafadar, S Kirti, DC Ellwanger, S Heller. (2021). &quot;Cell-type identity of the avian cochlea.&quot; <i>Cell Reports.</i> 34(12)'
+citation: 'A Janesick, M Scheibinger, N Benkafadar, S Kirti, DC Ellwanger, S Heller. (2021). &quot;Cell-type identity of the avian cochlea.&quot; <i>Cell Reports</i>. 34(12).'
 ---
 
 ## Summary

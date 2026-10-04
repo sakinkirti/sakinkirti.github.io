@@ -1,0 +1,13 @@
+---
+title: "Signal-Noise Factorization Isolates Nuisance Variation into Removable Subspaces"
+collection: publications
+category: preprints
+excerpt: 'Regularizers that enforce signal-noise factorization improve robustness of vision models to out-of-distribution image corruptions.'
+date: 2026-09-30
+venue: 'arXiv'
+paperurl: 'https://arxiv.org/abs/2610.00751'
+citation: 'S Kirti, J Zylberberg. (2026). &quot;Signal-Noise Factorization Isolates Nuisance Variation into Removable Subspaces.&quot; <i>arXiv preprint arXiv:2610.00751</i>.'
+---
+
+## Abstract
+Recent theoretical work identified fundamental properties of representation geometry that shape inference ability of deep neural networks. These include signal-noise factorization (SNF), the ability to segregate signal from noise, and signal-signal factorization (SSF), the ability to segregate task-specific and task-irrelevant signals. Here, we built regularizers that reinforce these two properties during training. We compared networks trained with these regularizers to L<sub>2</sub>-regularized baseline networks on the CIFAR-100 classification task to understand how our regularizers shape representation geometry and impact performance on a well-known computer vision baseline. Enhancing SNF via regularization improved model performance but enhancing SSF did not. Motivated by biomedical applications, we investigated how our regularizers affected performance on the BloodMNIST dataset treated with MedMNIST-C corruptions at five severity levels, and found even larger performance gains using the SNF regularizer. To understand the mechanism by which SNF-regularization produces improved performance, we analyzed the nuisance subspaces across regularization regimes, finding that the SNF-regularized models represent noise in distinct subspaces, separate from class-relevant signal. Because this geometry is explicit, the dominant corruption-induced directions can be estimated on held-out data and projected out of the representations. This manipulation led to a substantial gain in accuracy. These results show that regularizers that enforce signal-noise factorization can produce substantial improvements on computer vision tasks that contain out-of-distribution image distortions at inference time. They also highlight how shaping representations affects model performance: isolating nuisance variables from categorical ones is more important than maintaining factorized representations of categorical variables.

@@ -2,12 +2,11 @@
 title: "Tissue fibrosis associated depletion of lipid‐filled cells"
 collection: publications
 category: manuscripts
-permalink: /publication/2024-03-01-tissue-fibrosis-associated-depletion-of-lipid‐filled-cells
 excerpt: 'review paper on skin cycling.'
 date: 2024-03-01
-venue: 'Wiley Experimental Dermatology'
+venue: 'Experimental Dermatology'
 paperurl: 'https://onlinelibrary.wiley.com/doi/pdf/10.1111/exd.15054'
-citation: 'A Jussila, B Zhang, S Kirti, R Atit. (2010). &quot;Tissue fibrosis associated depletion of lipid‐filled cells.&quot; <i>Wiley Experimental Dermatology</i>. 1(2).'
+citation: 'A Jussila, B Zhang, S Kirti, R Atit. (2024). &quot;Tissue fibrosis associated depletion of lipid‐filled cells.&quot; <i>Experimental Dermatology</i>. 33(3), e15054.'
 ---
 
 ## Abstract

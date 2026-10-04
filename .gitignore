@@ -1,0 +1,14 @@
+# Jekyll local build output (CI builds into docs/)
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Dependencies
+node_modules/
+.bundle/
+vendor/
+.venv/
+
+# OS
+.DS_Store

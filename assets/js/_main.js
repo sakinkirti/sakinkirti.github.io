@@ -39,11 +39,17 @@ let setTheme = (theme) => {
   }
 };
 
-// Toggle the theme manually
+// Toggle the theme manually. Choosing the same theme as the device clears the
+// override, so the site goes back to following the device setting.
 var toggleTheme = () => {
   const current_theme = $("html").attr("data-theme");
   const new_theme = current_theme === "dark" ? "light" : "dark";
-  localStorage.setItem("theme", new_theme);
+  const device_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  if (new_theme === device_theme) {
+    localStorage.removeItem("theme");
+  } else {
+    localStorage.setItem("theme", new_theme);
+  }
   setTheme(new_theme);
 };
 

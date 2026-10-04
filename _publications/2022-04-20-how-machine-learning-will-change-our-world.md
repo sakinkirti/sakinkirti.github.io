@@ -2,7 +2,6 @@
 title: "How Machine Learning Will Change Our World: How Machine Learning Can Make Life Easier-And a Bit More Complicated"
 collection: publications
 category: magazines
-permalink: /publication/2022-04-20-how-machine-learning-will-change-our-world
 excerpt: 'A brief discussion of machine learning and privacy.'
 date: 2022-04-20
 venue: 'The Synapse: Intercollegiate Science Magazine'

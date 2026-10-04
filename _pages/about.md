@@ -7,14 +7,27 @@ redirect_from:
   - /about.html
 ---
 
-I was born and brought up in San Jose, CA, and went to Lynbrook High School. I started my research journey in Dr. Stefan Heller's research lab at the Stanford University School of Medicine. I performed _in-situ_ hybridizations of various genes in the chicken cochlea, working to assemble an atlas of inner ear hair cell regenerative genes.
+I'm a Bioinformatics PhD student at UCLA interested in computational neuroscience and representation learning. In particular, I want to understand a) how the retina generates signals that are robust to varying conditions, and b) how we can use these properties in neural networks to make models robust to noise. My recent work has focused on regularizers that separate signal and nuisance variation so that models perform well on out of distribution corruptions. I'm now focused on understanding various retinal ganglion cell type functionality and what they add to visual representations.
 
-I moved to Cleveland, OH where I attended Case Western Reserve University for my Bachelor's in Computer Science, receiving both a University Scholarship and Junior-Senior Scholarship. I was mentored by Dr. Radhika Atit, where I was a Beckman Scholar, looking for mechanistic modulators of dermal fibrosis. I performed both wet and dry lab work using tools like CellProfiler, SAM, and SqueezeNet to identify histological changes in response to inhibition of DPP4. 
+I'm lucky to be advised by [Dr. Joel Zylberberg at UCLA](http://jzlab.org/). Prior to starting my PhD, I was fortunate to be mentored by [Dr. Patrick Ellinor at the Broad Institute](https://www.ellinorlab.org/), [Dr. Radhika Atit at Case Western Reserve University](https://case.edu/artsci/biology/atitlab/), and [Dr. Stefan Heller at Stanford](https://hellerlab-stanford.net/).
 
-I moved further east to Boston, MA to work under Dr. Patrick Ellinor at The Broad Institute. I built on computer vision methods like DINO to build unbiased feature extraction methods in the context of high-throughput imaging screens of cardiovascular diseases. Additionally, I built methods to reduce inter-plate variability in high-throughput imaging screens by modifying single-cell batch correction methods. I also built software to quickly analyze videos of contracting cardioids, leading to vast improvements in processing time and accuracy compared to existing methods.
+In my free time, I enjoy photography, backpacking, weightlifting, and cooking.
 
-Now, I've moved back home to California to join the Bioinformatics PhD program at UCLA. I would like to build on my experiences and build probabilistic methods to model and identify causal interactions in disease biology.
+## Updates
 
-I have a few hobbies; In my free time, I enjoy photography, backpacking, weightlifting, and cooking. These help keep my head on straight, tbh.
-
-Hope you enjoy learning a bit about my experiences :)
+{% assign news = site.data.news | sort: "date" | reverse %}
+<ul class="news">
+{% for item in news limit: 5 %}
+  <li><span class="news__date">{{ item.date | date: "%b %Y" }}</span><span>{{ item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></li>
+{% endfor %}
+</ul>
+{% if news.size > 5 %}
+<details>
+  <summary>Older updates</summary>
+  <ul class="news">
+  {% for item in news offset: 5 %}
+    <li><span class="news__date">{{ item.date | date: "%b %Y" }}</span><span>{{ item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></li>
+  {% endfor %}
+  </ul>
+</details>
+{% endif %}

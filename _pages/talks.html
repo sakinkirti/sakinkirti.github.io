@@ -5,15 +5,20 @@ permalink: /talks/
 author_profile: true
 ---
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+{% assign talks_by_date = site.talks | reverse %}
+{% assign posters = talks_by_date | where: "type", "Poster" %}
+{% assign talks = talks_by_date | where_exp: "item", "item.type != 'Poster'" %}
 
-{% if site.talkmap_link == true %}
+{% if talks.size > 0 %}
+  <h2>Talks</h2>
+  {% for post in talks %}
+    {% include archive-single-talk.html %}
+  {% endfor %}
+{% endif %}
 
-<h2>Talkmap</h2>
-<p>This is my talkmap! It shows all the locations I've given a talk. Onto filling it up!</p>
-<iframe src="/talkmap/map.html" height="700" width="1000" style="border:none;"></iframe>
-<!-- <p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p> -->
-
+{% if posters.size > 0 %}
+  <h2>Posters</h2>
+  {% for post in posters %}
+    {% include archive-single-talk.html %}
+  {% endfor %}
 {% endif %}

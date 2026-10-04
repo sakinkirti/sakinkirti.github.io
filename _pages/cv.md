@@ -9,13 +9,16 @@ redirect_from:
 
 {% include base_path %}
 
-## _Education_
-__PhD, Bioinformatics__ | University of California, Los Angeles / Los Angeles, CA | Sep 2025 - PRESENT<br>
-__BA, Computer Science__ | Case Western Reserve University / Cleveland, OH<br>
+## Education
+__PhD, Bioinformatics__ | University of California, Los Angeles / Los Angeles, CA<br>
+Sep 2025 - Present
 
-## _Experience_
+__BA, Computer Science__ | Case Western Reserve University / Cleveland, OH<br>
+Aug 2019 - May 2023
+
+## Experience
 __Computational Associate__ | The Broad Institute of MIT and Harvard / Cambridge, MA<br>
-July 2023 - July 2025<br>
+Jul 2023 - Jul 2025<br>
 _Computer Vision, Drug Discovery, Representation Learning, Cardiovascular Disease, Google Cloud Platform_
 
 __Junior Machine Learning Engineer__ | Trustlogix / Mountain View, CA<br>
@@ -42,37 +45,49 @@ __Research Intern__ | Stanford University School of Medicine / Stanford, CA<br>
 Aug 2018 - Aug 2019<br>
 _in-situ hybridizations, scRNA-seq_
 
-## _Funding_
-__Beckman Scholar's Program__ | _Arnold and Mabel Beckman Foundation & Case Western Reserve University_ | May 2020 - Aug 2021<br>
-$21,000 research grant supporting undergraduate research projects
+## Funding
+__Beckman Scholar's Program__ | Arnold and Mabel Beckman Foundation & Case Western Reserve University<br>
+May 2020 - Aug 2021<br>
+_$21,000 research grant supporting undergraduate research projects_
 
-## _Honors and Awards_
-__Junior-Senior Scholarship__ | _Case Alumni Association_ | Aug 2021 - May 2023<br> 
-$2,000 award for students with professional promise
+## Honors and Awards
+__Junior-Senior Scholarship__ | Case Alumni Association<br>
+Aug 2021 - May 2023<br>
+_$2,000 award for students with professional promise_
 
-__Highest Achieving Sophomore__ | _Case Western Reserve University_ | May 2020<br>
-Maintaining GPA of 4.0 through first two years
+__Highest Achieving Sophomore__ | Case Western Reserve University<br>
+May 2020<br>
+_Maintaining GPA of 4.0 through first two years_
 
-__University Scholarship__ | _Case Western Reserve University_ | Aug 2019 - May 2023<br> 
-$80,000 merit-based scholarship
+__University Scholarship__ | Case Western Reserve University<br>
+Aug 2019 - May 2023<br>
+_$80,000 merit-based scholarship_
 
-__Best Undergraduate Poster__ | _Society for Developmental Biology_ | Oct 2019<br> 
-Exceptional Poster Presentation at SDB regional conference
+__Best Undergraduate Poster__ | Society for Developmental Biology<br>
+Oct 2019<br>
+_Exceptional poster presentation at SDB regional conference_
 
-__Dean's High Honors__ | _Case Western Reserve University_ | Dec 2019 - May 2023<br> 
-Maintaining GPA > 3.75
+__Dean's High Honors__ | Case Western Reserve University<br>
+Dec 2019 - May 2023<br>
+_Maintaining GPA > 3.75_
 
-## _Teaching_
-__Teaching Assistant__ | Dr. Vipin Chaudhary | April 2023 - May 2023<br>
+## Teaching
+__Teaching Assistant__ | Dr. Vipin Chaudhary<br>
+Apr 2023 - May 2023<br>
 _Introduction to Machine Learning for Industry Professionals_
   
-## _Publications_
-{% for post in site.publications reversed %}
-  {% include archive-single-cv.html %}
+## Publications
+<ul class="cv-list">
+{% assign cv_publications = site.publications | sort: "date" | reverse %}
+{% for post in cv_publications %}
+  <li>{{ post.citation | replace: "S Kirti", "<strong>S Kirti</strong>" }}</li>
 {% endfor %}
-  
-## _Talks_
-{% for post in site.talks reversed %}
-  {% include archive-single-talk-cv.html  %}
-{% endfor %}
+</ul>
 
+## Talks
+<ul class="cv-list">
+{% assign cv_talks = site.talks | sort: "date" | reverse %}
+{% for post in cv_talks %}
+  <li>{{ post.type }}: {{ post.title }}, {{ post.venue }}, {{ post.location }} · {{ post.date | date: "%b %Y" }}</li>
+{% endfor %}
+</ul>

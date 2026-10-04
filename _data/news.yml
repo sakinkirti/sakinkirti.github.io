@@ -1,0 +1,43 @@
+# Short news items for the homepage "Updates" section.
+# Add new items anywhere; they're sorted by date (newest first).
+# `text` supports Markdown, e.g. [links](https://example.com) and _italics_.
+# Only the month and year are shown, so use the 1st when the day is unknown.
+
+- date: 2026-09-30
+  text: "New preprint on [signal-noise factorization regularization for neural networks](https://arxiv.org/abs/2610.00751) was posted on arXiv."
+
+- date: 2025-09-01
+  text: "Started my PhD in Bioinformatics at UCLA."
+
+- date: 2025-07-01
+  text: "Wrapped up two years as a Computational Associate in Patrick Ellinor's group at the Broad Institute."
+
+- date: 2024-11-15
+  text: "Presented a poster on [Contrack](/files/AHA-Poster.pdf), a contractility screening platform for 3D cardiac microtissues, at AHA Scientific Sessions in Chicago."
+
+- date: 2024-03-01
+  text: "Review on [fibrosis-associated depletion of lipid-filled cells](https://onlinelibrary.wiley.com/doi/pdf/10.1111/exd.15054) published in _Experimental Dermatology_."
+
+- date: 2023-11-15
+  text: "Presented a poster on a [high-throughput contractility assay](/files/MGB-GCTI.pdf) for human cardiac organoids at the Mass General Brigham Gene and Cell Therapy Institute Symposium."
+
+- date: 2023-07-01
+  text: "Joined the Broad Institute as a Computational Associate, working on computer vision for cardiovascular drug discovery."
+
+- date: 2023-05-01
+  text: "Graduated from Case Western Reserve University with a BA in Computer Science."
+
+- date: 2022-06-01
+  text: "Paper on [skin fibrosis and Wnt activation via DPP4](https://pubmed.ncbi.nlm.nih.gov/34808238/) published in the _Journal of Investigative Dermatology_."
+
+- date: 2022-04-15
+  text: "Paper on [JAK/STAT-dependent immune gene expression in avian hair cell regeneration](https://journals.biologists.com/dev/article/149/8/dev200113/275250) published in _Development_."
+
+- date: 2021-03-23
+  text: "Paper on [cell-type identity of the avian cochlea](https://www.cell.com/cell-reports/fulltext/S2211-1247(21)00214-X) published in _Cell Reports_."
+
+- date: 2020-05-01
+  text: "Named a Beckman Scholar to study mechanisms of dermal fibrosis in Radhika Atit's lab at Case Western."
+
+- date: 2019-10-19
+  text: "Won Best Undergraduate Poster at the Society for Developmental Biology regional meeting."

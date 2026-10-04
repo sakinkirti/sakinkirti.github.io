@@ -2,7 +2,6 @@
 title: "Avian auditory hair cell regeneration is accompanied by JAK/STAT-dependent expression of immune-related genes in supporting cells"
 collection: publications
 category: manuscripts
-permalink: /publication/2022-04-15-avian-auditory-hair-cell-regeneration-is-accompanied
 excerpt: 'details JAK/STAT-dependent expression of immune-related genes in hair cell regeneration'
 date: 2022-04-15
 venue: 'Development'
