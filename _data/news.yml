@@ -3,6 +3,9 @@
 # `text` supports Markdown, e.g. [links](https://example.com) and _italics_.
 # Only the month and year are shown, so use the 1st when the day is unknown.
 
+- date: 2026-10-22
+  text: "Gave a talk on [how a property of neuroscience aids neural network robustness](https://docs.google.com/presentation/d/1iyQapQk3iX80dck1d-J3AwUZh7Qcct6bLUOF-YlV9rE/edit?usp=sharing) at the UCLA NeuroTheory Seminar."
+
 - date: 2026-09-30
   text: "New preprint on [signal-noise factorization regularization for neural networks](https://arxiv.org/abs/2610.00751) was posted on arXiv."
 
