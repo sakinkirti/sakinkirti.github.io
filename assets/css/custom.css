@@ -256,46 +256,40 @@ details > summary {
    Five does not validate in any arrangement — past four, fold extras into the
    neutral "other" slot (0) rather than inventing a hue. */
 .loose-threads {
-  /* page-level */
-  --lt-muted:#596579;
-  --lt-line:#d8dee8;
+  /* page-level: the site's own inks, so this page matches every other */
+  --lt-muted:var(--global-text-color-light);
+  --lt-line:var(--global-border-color);
   /* graph panel surface */
-  --lt-panel-bg:#fff;
-  --lt-panel-fg:#202b3b;
-  --lt-panel-line:#e2e7ef;
-  --lt-panel-border:#d8dee8;
-  --lt-panel-muted:#596579;
-  --lt-edge:#aeb9c9;
-  --lt-label:#202b3b;
+  --lt-panel-bg:var(--global-bg-color);
+  --lt-panel-fg:var(--global-text-color);
+  --lt-panel-line:var(--global-border-color);
+  --lt-panel-border:var(--global-dark-border-color);
+  --lt-panel-muted:var(--global-text-color-light);
+  --lt-edge:var(--global-dark-border-color);
+  --lt-label:var(--global-text-color);
   /* topic rings (validated set) */
   --lt-topic-0:#7d8794;
   --lt-topic-1:#2a78d6;
   --lt-topic-2:#eda100;
   --lt-topic-3:#e87ba4;
   --lt-topic-4:#008300;
-  --lt-ink:#53657d;
+  --lt-ink:var(--global-text-color-light);
   max-width:100%;
 }
 
 html[data-theme="dark"] .loose-threads {
-  --lt-muted:#c9ccd0;
-  --lt-line:#6a6a6a;
   --lt-panel-bg:#333333;
-  --lt-panel-fg:#f2f2f2;
   --lt-panel-line:#4a4a4a;
   --lt-panel-border:#4a4a4a;
-  --lt-panel-muted:#c9ccd0;
   --lt-edge:#7d848c;
-  --lt-label:#f2f2f2;
   --lt-topic-0:#9aa3ad;
   --lt-topic-1:#3987e5;
   --lt-topic-2:#c98500;
   --lt-topic-3:#d55181;
   --lt-topic-4:#008300;
-  --lt-ink:#aab6c4;
 }
 
-.lt-intro { max-width:48rem; color:var(--global-text-color-light); margin:-.35em 0 1.8em; font-size:1.04em; }
+.lt-intro { max-width:48rem; color:var(--global-text-color); margin:-.35em 0 1.8em; font-size:1.04em; }
 .lt-section { margin:2.6em 0; }
 .lt-section__heading { margin:0 0 .65em; font-size:1.45em; }
 

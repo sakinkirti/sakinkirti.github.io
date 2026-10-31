@@ -16,12 +16,13 @@
 </script>
 
 <!-- Main stylesheet -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
+{% assign css_v = site.time | date: '%s' %}
+<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css?v={{ css_v }}">
 
 <!-- Custom stylesheets -->
 {% if site.custom_css %}
   {% for path in site.custom_css %}
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/custom.css">
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/custom.css?v={{ css_v }}">
   {% endfor %}
 {% endif %}
 
