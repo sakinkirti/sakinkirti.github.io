@@ -312,7 +312,7 @@ html[data-theme="dark"] .loose-threads {
 
 /* nodes: hollow centre, hard ring = topic, dash = type */
 .lt-node { cursor:pointer; outline:none; }
-.lt-node__mark { fill:var(--lt-topic-0); fill-opacity:.16; stroke:var(--lt-topic-0); stroke-width:3.5; }
+.lt-node__mark { fill:var(--lt-topic-0); fill-opacity:.16; stroke:var(--lt-topic-0); stroke-width:var(--lt-stroke,3.5); }
 .lt-node--topic-1 .lt-node__mark { fill:var(--lt-topic-1); stroke:var(--lt-topic-1); }
 .lt-node--topic-2 .lt-node__mark { fill:var(--lt-topic-2); stroke:var(--lt-topic-2); }
 .lt-node--topic-3 .lt-node__mark { fill:var(--lt-topic-3); stroke:var(--lt-topic-3); }
@@ -321,10 +321,10 @@ html[data-theme="dark"] .loose-threads {
 .lt-node--kind-idea .lt-node__mark { stroke-dasharray:2 3.5; }
 /* too many notes to label them all at once: reveal on hover/focus, and keep
    labels up for whatever a filter has selected. The list below is the index. */
-.lt-node text { fill:var(--lt-label); font-size:12px; font-weight:600; paint-order:stroke; stroke:var(--lt-panel-bg); stroke-width:4px; stroke-linejoin:round; pointer-events:none; opacity:0; transition:opacity .12s ease; }
+.lt-node text { fill:var(--lt-label); font-size:var(--lt-label-size,12px); font-weight:600; paint-order:stroke; stroke:var(--lt-panel-bg); stroke-width:4px; stroke-linejoin:round; pointer-events:none; opacity:0; transition:opacity .12s ease; }
 .lt-node:hover text,.lt-node:focus text,.lt-node.is-active text { opacity:1; }
 .lt-node:hover,.lt-node:focus { /* lift the hovered node above its neighbours */ }
-.lt-node:focus .lt-node__mark,.lt-node.is-active .lt-node__mark { stroke-width:5.5; }
+.lt-node:focus .lt-node__mark,.lt-node.is-active .lt-node__mark { stroke-width:calc(var(--lt-stroke,3.5) * 1.57); }
 .lt-node.is-muted { opacity:.2; }
 
 /* legend: topic = ring colour, type = ring dash */
@@ -371,6 +371,6 @@ html[data-theme="dark"] .loose-threads {
   .lt-feed { grid-template-columns:1fr; }
   .lt-graph { min-height:280px; }
   .lt-graph-toolbar { align-items:flex-start; }
-  .lt-node text { font-size:10px; }
+  .lt-node text { font-size:calc(var(--lt-label-size,12px) * .84); }
   .lt-filter-group { align-items:flex-start; }
 }

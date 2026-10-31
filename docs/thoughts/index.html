@@ -92,12 +92,12 @@
 
 <!-- Main stylesheet -->
 
-<link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/main.css?v=1793435695">
+<link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/main.css?v=1793436100">
 
 <!-- Custom stylesheets -->
 
   
-    <link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/custom.css?v=1793435695">
+    <link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/custom.css?v=1793436100">
   
 
 
@@ -599,7 +599,15 @@
     P[i] = [an[0] + (rand() - 0.5) * 150, an[1] + (rand() - 0.5) * 110];
   });
 
-  const REST = 124, K_SPRING = 0.011, K_REP = 17500, K_TOPIC = 0.0075;
+  // Node size follows how many notes there are: area per note goes as 1/N, so
+  // radius goes as 1/sqrt(N). The force constants scale with it, otherwise the
+  // layout would keep spreading as if the nodes were still full size.
+  const R = Math.max(7, Math.min(14, 13 * Math.sqrt(13 / Math.max(notes.length, 1))));
+  const nodeScale = R / 13;
+  graph.style.setProperty('--lt-stroke', (3.5 * Math.max(nodeScale, 0.6)).toFixed(2));
+  graph.style.setProperty('--lt-label-size', Math.max(9, Math.round(12 * Math.max(nodeScale, 0.78))) + 'px');
+
+  const REST = 124 * nodeScale, K_SPRING = 0.011, K_REP = 17500 * nodeScale * nodeScale, K_TOPIC = 0.0075;
   for (let step = 0, temp = 11; step < 420; step++, temp *= 0.992) {
     const F = notes.map(() => [0, 0]);
     for (let i = 0; i < notes.length; i++) {
@@ -618,7 +626,7 @@
       const dx = P[j][0] - P[i][0], dy = P[j][1] - P[i][1];
       const d = Math.hypot(dx, dy) || 0.01;
       // more shared tags = shorter rest length = sits closer
-      const rest = Math.max(REST - (e.shared.length - 1) * 26, 62);
+      const rest = Math.max(REST - (e.shared.length - 1) * 26 * nodeScale, 62 * nodeScale);
       const f = (d - rest) * K_SPRING * Math.min(e.shared.length, 3);
       const ux = dx / d, uy = dy / d;
       F[i][0] += ux * f; F[i][1] += uy * f;
@@ -668,7 +676,8 @@
   // at once; hovering shows one at a time.
   const placedBoxes = [];
   function labelPos(p, text) {
-    const w = text.length * 6.1;
+    const em = Math.max(9, Math.round(12 * Math.max(nodeScale, 0.78)));
+    const w = text.length * em * 0.51;
     const anchor = p[0] < 118 ? 'start' : (p[0] > W - 118 ? 'end' : 'middle');
     const x = anchor === 'start' ? Math.max(8, p[0] - 16)
             : anchor === 'end'   ? Math.min(W - 8, p[0] + 16)
@@ -676,9 +685,9 @@
     const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
     const overlaps = b => placedBoxes.some(q =>
       !(b[2] < q[0] || b[0] > q[2] || b[3] < q[1] || b[1] > q[3]));
-    let y = p[1] + 30;
-    let box = [left, y - 11, left + w, y + 4];
-    if (overlaps(box)) { y = p[1] - 22; box = [left, y - 11, left + w, y + 4]; }
+    let y = p[1] + R + 17;
+    let box = [left, y - em, left + w, y + 4];
+    if (overlaps(box)) { y = p[1] - R - 9; box = [left, y - em, left + w, y + 4]; }
     placedBoxes.push(box);
     return [x, y, anchor];
   }
@@ -693,7 +702,7 @@
       'data-id': n.id, 'data-kind': n.kind, 'data-tags': (n.tags || []).join('|').toLowerCase()
     });
     // one hollow mark: the hard ring carries the topic, its dash pattern the type
-    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: 13, class: 'lt-node__mark' }));
+    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: R, class: 'lt-node__mark' }));
     const tip = el('title', {}); tip.textContent = plain; g.appendChild(tip);
     const text = plain.length > 28 ? plain.slice(0, 26) + '…' : plain;
     const lp = labelPos(p, text);
