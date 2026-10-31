@@ -41,17 +41,6 @@ author_profile: false
     <p style="margin-top:1em"><button class="lt-shuffle" type="button" id="lt-shuffle">Shuffle the notebook</button></p>
   </section>
 
-  <section class="lt-section" aria-labelledby="lt-play-heading">
-    <div class="lt-section__eyebrow">A tiny playground</div>
-    <h2 class="lt-section__heading" id="lt-play-heading">How much information survives noise?</h2>
-    <div class="lt-playground">
-      <p>Imagine a binary signal passing through a noisy channel: each bit has a probability <em>p</em> of being flipped. As noise increases, how much information can the channel carry?</p>
-      <label for="lt-noise">Bit-flip probability <strong id="lt-noise-value">10%</strong></label>
-      <input id="lt-noise" type="range" min="0" max="50" value="10" step="1">
-      <p class="lt-playground-output" id="lt-capacity" aria-live="polite">Channel capacity: 0.531 bits per bit</p>
-      <p class="lt-playground-output">For a binary symmetric channel, capacity is (1 - H_2(p)), where (H_2) is binary entropy.</p>
-    </div>
-  </section>
 </div>
 
 <script id="lt-data" type="application/json">
@@ -93,6 +82,7 @@ author_profile: false
     Object.entries(attrs || {}).forEach(([k,v]) => node.setAttribute(k, v));
     return node;
   }
+  function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   topics.forEach(t => (topicMap.get(t) || []).forEach(id => {
     const a = positions.get('n:' + id), b = positions.get('t:' + t);
@@ -138,6 +128,13 @@ author_profile: false
     const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
     item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
   });
+  const kinds = Array.from(new Set(notes.map(n => n.kind || 'Note')));
+  const legend = document.getElementById('lt-legend');
+  kinds.forEach(kind => {
+    const item = document.createElement('span'); item.className = 'lt-legend__item lt-legend__item--kind-' + kindClass(kind);
+    const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
+    item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
+  });
   const filters = document.getElementById('lt-filter');
   topics.forEach(t => {
     const b = document.createElement('button'); b.type='button'; b.dataset.filter=t; b.textContent=t; b.setAttribute('aria-pressed','false');
@@ -150,13 +147,5 @@ author_profile: false
     cards.forEach(c=>feed.appendChild(c));
   });
   choose('all');
-  const slider=document.getElementById('lt-noise'), noiseValue=document.getElementById('lt-noise-value'), capacity=document.getElementById('lt-capacity');
-  function updateNoise(){
-    const p=Number(slider.value)/100;
-    const h=p===0||p===1?0:-p*Math.log2(p)-(1-p)*Math.log2(1-p);
-    noiseValue.textContent=slider.value+'%';
-    capacity.textContent='Channel capacity: '+(1-h).toFixed(3)+' bits per bit';
-  }
-  slider.addEventListener('input',updateNoise); updateNoise();
 })();
 </script>
