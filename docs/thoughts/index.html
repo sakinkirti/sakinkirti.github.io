@@ -202,68 +202,228 @@
   
 
 
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="https://sakinkirti.github.io/images/me.jpeg" class="author__avatar" alt="Sakin Kirti"  fetchpriority="high" />
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">Sakin Kirti</h3>
+    
+    <p class="author__bio">Bioinformatics PhD Student / always exploring 🔎</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      <!-- Font Awesome icons / Biographic information  -->
+      
+        <li class="author__desktop"><i class="fas fa-fw fa-location-dot icon-pad-right" aria-hidden="true"></i>Los Angeles, CA</li>
+      
+      
+        <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i>UCLA</li>
+      
+      
+      
+      
+        <li><a href="https://sakinkirti.github.io/files/cv.pdf"><i class="fas fa-fw fa-file-pdf icon-pad-right" aria-hidden="true"></i>CV (PDF)</a></li>
+      
+
+      <!-- Font Awesome and Academicons icons / Academic websites -->
+      
+            
+      
+        <li><a href="https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en"><i class="ai ai-google-scholar ai-fw icon-pad-right"></i>Google Scholar</a></li>
+      
+      
+      
+      
+        <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
+      
+                              
+      
+      
+
+      <!-- Font Awesome icons / Repositories and software development -->
+      
+            
+            
+      
+        <li><a href="https://github.com/sakinkirti"><i class="fab fa-fw fa-github icon-pad-right" aria-hidden="true"></i>GitHub</a></li>
+      
+            
+            
+
+      <!-- Font Awesome icons / Social media -->
+              
+      
+      
+            
+      
+                  
+                  
+      
+            
+            
+      
+        <li><a href="https://www.linkedin.com/in/sakinkirti"><i class="fab fa-fw fa-linkedin icon-pad-right" aria-hidden="true"></i>LinkedIn</a></li>
+            
+      
+            
+                  
+            
+      
+            
+            
+      
+              
+      
+                      
+      
+      
+            
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
 
   <div class="archive">
     
       <h1 class="page__title">Loose Threads</h1>
     
     <div class="loose-threads">
-  <p class="lt-intro">A working map of ideas I keep circling back to: questions, half-formed connections, things I’m reading, and small experiments. Not everything here is finished, and not everything needs to be.</p>
+  <p class="lt-intro">A working map of random ideas and thoughts: questions, half-formed connections, things I’m reading, and small experiments. Leaving this deliberately unpolished to see how my thoughts evolve.</p>
 
   <section class="lt-section" aria-labelledby="lt-map-heading">
     <h2 class="lt-section__heading" id="lt-map-heading">A map of loose connections</h2>
     <div class="lt-graph-shell">
       <div class="lt-graph-toolbar">
-        <span>Explore by clicking a node</span>
+        <span>Notes are linked when they share a topic</span>
         <button type="button" id="lt-reset">Reset view</button>
       </div>
-      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 460" role="img" aria-label="Interactive map connecting notes through shared topics"></svg>
-      <div class="lt-legend" id="lt-legend" aria-label="Note types"></div>
-      <div class="lt-graph-help">Each note is connected to its topics. Select a note or topic to find related entries.</div>
+      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 460" role="group" aria-label="Map of notes, linked where they share a topic"></svg>
+      <div class="lt-legend" id="lt-legend"></div>
+      <div class="lt-graph-help">Ring colour is the note’s major topic; the ring’s line style is what kind of note it is. Hover a node for its title, or filter below to highlight a group.</div>
     </div>
   </section>
 
-  <section class="lt-section" aria-labelledby="lt-feed-heading">
-    <h2 class="lt-section__heading" id="lt-feed-heading">Things on my mind</h2>
-    <div class="lt-filter" id="lt-filter" aria-label="Filter notes by topic">
-      <button type="button" data-filter="all" aria-pressed="true">Everything</button>
+  <section class="lt-section" aria-label="Notes">
+    <div class="lt-filters">
+      <div class="lt-filter-group">
+        <span class="lt-filter-label" id="lt-kind-label">Type</span>
+        <div class="lt-filter" id="lt-filter-kind" role="group" aria-labelledby="lt-kind-label"></div>
+      </div>
+      <div class="lt-filter-group">
+        <span class="lt-filter-label" id="lt-topic-label">Topic</span>
+        <div class="lt-filter" id="lt-filter-topic" role="group" aria-labelledby="lt-topic-label">
+          <button type="button" data-filter="all" data-dim="all" aria-pressed="true">Everything</button>
+        </div>
+      </div>
     </div>
+
     <div class="lt-feed" id="lt-feed">
       
       
-      <article class="lt-note" data-id="retina-as-representation" data-tags="retinal coding|information theory|representation">
-        <div class="lt-note__meta">Oct 30, 2026 · Question</div>
+      <article class="lt-note" data-id="conditional-distributions-as-dependence">
+        <div class="lt-note__meta">Oct 14, 2026 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/conditional-distributions-as-dependence/">p(x&#124;y) as a nonlinear correlation metric?</a></h3>
+        <p>Correlation captures a narrow kind of dependence: linear association between variables. Could comparing conditional distributions, \(p(x \mid y)\), provide a more general way to character...</p>
+        <div class="lt-tags"><span class="lt-tag">information theory</span><span class="lt-tag">statistics</span><span class="lt-tag">dependence</span><span class="lt-tag">conditional distributions</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="retina-as-representation">
+        <div class="lt-note__meta">Sep 12, 2026 · Question</div>
         <h3><a class="lt-note__link" href="/thoughts/retina-as-representation/">What does the retina choose to keep?</a></h3>
         <p>The retina is not simply a camera that forwards pixels. Its output is already a transformed representation of the visual scene. What are the relevant constraints behind that transformatio...</p>
         <div class="lt-tags"><span class="lt-tag">retinal coding</span><span class="lt-tag">information theory</span><span class="lt-tag">representation</span></div>
       </article>
       
-      <article class="lt-note" data-id="invariance-and-information" data-tags="representation|information theory|machine vision">
-        <div class="lt-note__meta">Oct 24, 2026 · Research thread</div>
+      <article class="lt-note" data-id="schur-complement-and-information">
+        <div class="lt-note__meta">Aug 7, 2026 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/schur-complement-and-information/">What does the Schur complement have to do with information?</a></h3>
+        <p>The Schur complement appears in the conditional covariance of jointly Gaussian random variables. It seems to isolate the part of \(X\)’s variability that remains after accounting for \(Y\).</p>
+        <div class="lt-tags"><span class="lt-tag">information theory</span><span class="lt-tag">linear algebra</span><span class="lt-tag">gaussian variables</span><span class="lt-tag">conditional covariance</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="invariance-and-information">
+        <div class="lt-note__meta">Jul 21, 2026 · Research thread</div>
         <h3><a class="lt-note__link" href="/thoughts/invariance-and-information/">What does invariance cost?</a></h3>
         <p>A representation that ignores nuisance variation can make downstream decisions easier. But invariance is also information loss: distinctions in the input are deliberately collapsed.</p>
         <div class="lt-tags"><span class="lt-tag">representation</span><span class="lt-tag">information theory</span><span class="lt-tag">machine vision</span></div>
       </article>
       
-      <article class="lt-note" data-id="schur-complement-and-information" data-tags="information theory|linear algebra|gaussian variables|conditional covariance">
-        <div class="lt-note__meta">Oct 19, 2026 · Question</div>
-        <h3><a class="lt-note__link" href="/thoughts/schur-complement-and-information/">What does the Schur complement have to do with information?</a></h3>
-        <p>The Schur complement appears in the conditional covariance of jointly Gaussian random variables. It seems to isolate the part of (X)’s variability that remains after accounting for (Y).</p>
-        <div class="lt-tags"><span class="lt-tag">information theory</span><span class="lt-tag">linear algebra</span><span class="lt-tag">Gaussian variables</span><span class="lt-tag">conditional covariance</span></div>
+      <article class="lt-note" data-id="can-you-compute-a-price">
+        <div class="lt-note__meta">Jun 2, 2026 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/can-you-compute-a-price/">Can you compute a price?</a></h3>
+        <p>Mises argued in 1920 that a planned economy can’t work: with no prices there’s no way to express what anything costs in terms of everything else. Lange said fine, the planner solves the e...</p>
+        <div class="lt-tags"><span class="lt-tag">economics</span><span class="lt-tag">information</span><span class="lt-tag">history</span></div>
       </article>
       
-      <article class="lt-note" data-id="noise-as-a-probe" data-tags="noise|representation|machine vision">
-        <div class="lt-note__meta">Oct 18, 2026 · Idea</div>
+      <article class="lt-note" data-id="notation-decides-what-is-easy">
+        <div class="lt-note__meta">Apr 3, 2026 · Idea</div>
+        <h3><a class="lt-note__link" href="/thoughts/notation-decides-what-is-easy/">Notation decides what's easy to think</a></h3>
+        <p>Try long division in Roman numerals. The algorithm isn’t harder, the notation just won’t hold the intermediate state.</p>
+        <div class="lt-tags"><span class="lt-tag">notation</span><span class="lt-tag">mathematics</span><span class="lt-tag">language</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="inductive-biases-and-efficiency">
+        <div class="lt-note__meta">Feb 11, 2026 · Idea</div>
+        <h3><a class="lt-note__link" href="/thoughts/inductive-biases-and-efficiency/">Effective inductive biases are the path to efficient models</a></h3>
+        <p>Scale works and it costs more every year.</p>
+        <div class="lt-tags"><span class="lt-tag">machine learning</span><span class="lt-tag">inductive bias</span><span class="lt-tag">architecture</span><span class="lt-tag">efficiency</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="everyone-kept-their-own-noon">
+        <div class="lt-note__meta">Nov 8, 2025 · Idea</div>
+        <h3><a class="lt-note__link" href="/thoughts/everyone-kept-their-own-noon/">Everyone kept their own noon</a></h3>
+        <p>Until the 1840s every English town ran on local solar time. Bristol sat about ten minutes behind London and nobody minded, because nothing moved fast enough for it to matter.</p>
+        <div class="lt-tags"><span class="lt-tag">history</span><span class="lt-tag">standards</span><span class="lt-tag">infrastructure</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="noise-as-a-probe">
+        <div class="lt-note__meta">Sep 30, 2025 · Idea</div>
         <h3><a class="lt-note__link" href="/thoughts/noise-as-a-probe/">Noise as a probe of representation</a></h3>
         <p>Rather than treating noise only as something to remove, use it as a way to interrogate a representation. Perturb the input, intermediate features, or readout and ask which changes matter ...</p>
         <div class="lt-tags"><span class="lt-tag">noise</span><span class="lt-tag">representation</span><span class="lt-tag">machine vision</span></div>
       </article>
       
-      <article class="lt-note" data-id="conditional-distributions-as-dependence" data-tags="information theory|statistics|dependence|conditional distributions">
-        <div class="lt-note__meta">Oct 14, 2026 · Question</div>
-        <h3><a class="lt-note__link" href="/thoughts/conditional-distributions-as-dependence/">p(x|y) as a nonlinear correlation metric?</a></h3>
-        <p>Correlation captures a narrow kind of dependence: linear association between variables. Could comparing conditional distributions, (p(x \mid y)), provide a more general way to characteriz...</p>
-        <div class="lt-tags"><span class="lt-tag">information theory</span><span class="lt-tag">statistics</span><span class="lt-tag">dependence</span><span class="lt-tag">conditional distributions</span></div>
+      <article class="lt-note" data-id="why-the-spreadsheet-won">
+        <div class="lt-note__meta">Jun 14, 2025 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/why-the-spreadsheet-won/">Why did the spreadsheet win?</a></h3>
+        <p>Excel probably has more users than every programming language combined, and most of them wouldn’t say they write code.</p>
+        <div class="lt-tags"><span class="lt-tag">software</span><span class="lt-tag">tools</span><span class="lt-tag">interfaces</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="transformers-beyond-scale">
+        <div class="lt-note__meta">Mar 22, 2025 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/transformers-beyond-scale/">Apart from scale, what do transformer models get us?</a></h3>
+        <p>Transformers showed up at the same time as a jump in data and compute, so the two are hard to pull apart.</p>
+        <div class="lt-tags"><span class="lt-tag">machine vision</span><span class="lt-tag">representation</span><span class="lt-tag">architecture</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="tube-map-is-wrong-on-purpose">
+        <div class="lt-note__meta">Dec 28, 2024 · Idea</div>
+        <h3><a class="lt-note__link" href="/thoughts/tube-map-is-wrong-on-purpose/">The Tube map is wrong on purpose</a></h3>
+        <p>Beck’s 1933 diagram is wrong about distance nearly everywhere and is the better map for it. Riders want stop counts and interchanges, not geography.</p>
+        <div class="lt-tags"><span class="lt-tag">design</span><span class="lt-tag">abstraction</span><span class="lt-tag">maps</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="relevant-models-of-biology">
+        <div class="lt-note__meta">Nov 19, 2024 · Research thread</div>
+        <h3><a class="lt-note__link" href="/thoughts/relevant-models-of-biology/">How do we get closer to the biology we actually care about?</a></h3>
+        <p>Model systems get picked for how easy they are to work with. Immortalized lines, 2D monolayers, one cell type, no mechanical load. Each is a step away from the thing you’re modeling, and ...</p>
+        <div class="lt-tags"><span class="lt-tag">cardiac organoids</span><span class="lt-tag">disease modeling</span><span class="lt-tag">machine vision</span></div>
       </article>
       
     </div>
@@ -274,20 +434,91 @@
 </div>
 
 <script id="lt-data" type="application/json">
-[
+{
+"topicOrder": ["machine learning","information theory","biology","curiosities"],
+"notes": [
 
 
-  {"id":"retina-as-representation","title":"What does the retina choose to keep?","kind":"Question","tags":["retinal coding","information theory","representation"]},
+  {"id":"conditional-distributions-as-dependence",
+   "title":"p(x&#124;y) as a nonlinear correlation metric?",
+   "kind":"Question",
+   "topic":"information theory",
+   "tags":["information theory","statistics","dependence","conditional distributions"]},
 
-  {"id":"invariance-and-information","title":"What does invariance cost?","kind":"Research thread","tags":["representation","information theory","machine vision"]},
+  {"id":"retina-as-representation",
+   "title":"What does the retina choose to keep?",
+   "kind":"Question",
+   "topic":"biology",
+   "tags":["retinal coding","information theory","representation"]},
 
-  {"id":"schur-complement-and-information","title":"What does the Schur complement have to do with information?","kind":"Question","tags":["information theory","linear algebra","Gaussian variables","conditional covariance"]},
+  {"id":"schur-complement-and-information",
+   "title":"What does the Schur complement have to do with information?",
+   "kind":"Question",
+   "topic":"information theory",
+   "tags":["information theory","linear algebra","gaussian variables","conditional covariance"]},
 
-  {"id":"noise-as-a-probe","title":"Noise as a probe of representation","kind":"Idea","tags":["noise","representation","machine vision"]},
+  {"id":"invariance-and-information",
+   "title":"What does invariance cost?",
+   "kind":"Research thread",
+   "topic":"machine learning",
+   "tags":["representation","information theory","machine vision"]},
 
-  {"id":"conditional-distributions-as-dependence","title":"p(x|y) as a nonlinear correlation metric?","kind":"Question","tags":["information theory","statistics","dependence","conditional distributions"]}
+  {"id":"can-you-compute-a-price",
+   "title":"Can you compute a price?",
+   "kind":"Question",
+   "topic":"information theory",
+   "tags":["economics","information","history"]},
+
+  {"id":"notation-decides-what-is-easy",
+   "title":"Notation decides what's easy to think",
+   "kind":"Idea",
+   "topic":"curiosities",
+   "tags":["notation","mathematics","language"]},
+
+  {"id":"inductive-biases-and-efficiency",
+   "title":"Effective inductive biases are the path to efficient models",
+   "kind":"Idea",
+   "topic":"machine learning",
+   "tags":["machine learning","inductive bias","architecture","efficiency"]},
+
+  {"id":"everyone-kept-their-own-noon",
+   "title":"Everyone kept their own noon",
+   "kind":"Idea",
+   "topic":"curiosities",
+   "tags":["history","standards","infrastructure"]},
+
+  {"id":"noise-as-a-probe",
+   "title":"Noise as a probe of representation",
+   "kind":"Idea",
+   "topic":"machine learning",
+   "tags":["noise","representation","machine vision"]},
+
+  {"id":"why-the-spreadsheet-won",
+   "title":"Why did the spreadsheet win?",
+   "kind":"Question",
+   "topic":"curiosities",
+   "tags":["software","tools","interfaces"]},
+
+  {"id":"transformers-beyond-scale",
+   "title":"Apart from scale, what do transformer models get us?",
+   "kind":"Question",
+   "topic":"machine learning",
+   "tags":["machine vision","representation","architecture"]},
+
+  {"id":"tube-map-is-wrong-on-purpose",
+   "title":"The Tube map is wrong on purpose",
+   "kind":"Idea",
+   "topic":"curiosities",
+   "tags":["design","abstraction","maps"]},
+
+  {"id":"relevant-models-of-biology",
+   "title":"How do we get closer to the biology we actually care about?",
+   "kind":"Research thread",
+   "topic":"biology",
+   "tags":["cardiac organoids","disease modeling","machine vision"]}
 
 ]
+}
 </script>
 <script>
 (function () {
@@ -295,94 +526,257 @@
   const graph = document.getElementById('lt-graph');
   const feed = document.getElementById('lt-feed');
   if (!dataEl || !graph || !feed) return;
-  const notes = JSON.parse(dataEl.textContent);
+
+  const data = JSON.parse(dataEl.textContent);
+  const notes = data.notes || [];
+  const topicOrder = (data.topicOrder || []).map(t => String(t).toLowerCase());
   const ns = 'http://www.w3.org/2000/svg';
   const cx = 380, cy = 225;
-  const topicMap = new Map();
-  notes.forEach(n => (n.tags || []).forEach(t => {
-    const key = String(t).toLowerCase();
-    if (!topicMap.has(key)) topicMap.set(key, []);
-    topicMap.get(key).push(n.id);
-  }));
-  const topics = Array.from(topicMap.keys()).sort();
-  const positions = new Map();
-  notes.forEach((n, i) => {
-    const angle = (2 * Math.PI * i / Math.max(notes.length, 1)) - Math.PI / 2;
-    const radius = notes.length < 3 ? 155 : 172;
-    positions.set('n:' + n.id, [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
-  });
-  topics.forEach((t, i) => {
-    const angle = (2 * Math.PI * i / Math.max(topics.length, 1)) - Math.PI / 2;
-    positions.set('t:' + t, [cx + Math.cos(angle) * 100, cy + Math.sin(angle) * 100]);
-  });
+  const defaultOrder = Array.from(feed.children);
+
+  function slug(s) { return String(s == null ? '' : s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function decodeEntities(str) {
+    const ta = document.createElement('textarea');
+    ta.innerHTML = String(str == null ? '' : str);
+    return ta.value;
+  }
   function el(name, attrs) {
     const node = document.createElementNS(ns, name);
-    Object.entries(attrs || {}).forEach(([k,v]) => node.setAttribute(k, v));
+    Object.entries(attrs || {}).forEach(([k, v]) => node.setAttribute(k, v));
     return node;
   }
-  function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
-  function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
-  topics.forEach(t => (topicMap.get(t) || []).forEach(id => {
-    const a = positions.get('n:' + id), b = positions.get('t:' + t);
-    graph.appendChild(el('line', {x1:a[0],y1:a[1],x2:b[0],y2:b[1],class:'lt-edge'}));
-  }));
-  function choose(type, value) {
-    const activeNotes = type === 'note' ? [value] : (topicMap.get(value) || []);
+
+  // Colour follows the entity: a topic's slot comes from its position in the
+  // configured list, so adding a note never repaints the existing ones.
+  function topicSlot(topic) {
+    const i = topicOrder.indexOf(String(topic).toLowerCase());
+    return i === -1 ? 0 : (i + 1);        // 0 = the neutral "other" slot
+  }
+
+  const kinds = [];
+  notes.forEach(n => { if (!kinds.includes(n.kind)) kinds.push(n.kind); });
+  const topics = [];
+  notes.forEach(n => { if (!topics.includes(n.topic)) topics.push(n.topic); });
+  topics.sort((a, b) => topicSlot(a) - topicSlot(b));
+
+  // edges: one per pair of notes sharing at least one tag, weighted by overlap
+  const edges = [];
+  for (let i = 0; i < notes.length; i++) {
+    for (let j = i + 1; j < notes.length; j++) {
+      const a = (notes[i].tags || []).map(t => String(t).toLowerCase());
+      const b = (notes[j].tags || []).map(t => String(t).toLowerCase());
+      const shared = a.filter(t => b.includes(t));
+      if (shared.length) edges.push({ a: notes[i].id, b: notes[j].id, shared });
+    }
+  }
+
+  // Layout. Deliberately not a ring — these are loose notes, so they get a
+  // relaxation that lets shared tags pull notes together and everything else
+  // push apart. Seeded, so the scatter looks arbitrary but is the same on
+  // every load; the layout only moves when the notes themselves change.
+  function seeded(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      let t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  const rand = seeded(0x10FA5E ^ notes.length);
+  const PAD = 72, W = 760, H = 460;
+  const idx = new Map(notes.map((n, i) => [n.id, i]));
+  const P = notes.map(() => [0, 0]);
+
+  // start each note near its topic's own corner of the canvas, jittered
+  const slots = [];
+  notes.forEach(n => { if (!slots.includes(topicSlot(n.topic))) slots.push(topicSlot(n.topic)); });
+  const anchor = new Map();
+  slots.forEach((sl, i) => {
+    const a = (2 * Math.PI * i / Math.max(slots.length, 1)) + 0.6;
+    anchor.set(sl, [cx + Math.cos(a) * 150, cy + Math.sin(a) * 92]);
+  });
+  notes.forEach((n, i) => {
+    const an = anchor.get(topicSlot(n.topic)) || [cx, cy];
+    P[i] = [an[0] + (rand() - 0.5) * 150, an[1] + (rand() - 0.5) * 110];
+  });
+
+  const REST = 124, K_SPRING = 0.011, K_REP = 17500, K_TOPIC = 0.0075;
+  for (let step = 0, temp = 11; step < 420; step++, temp *= 0.992) {
+    const F = notes.map(() => [0, 0]);
+    for (let i = 0; i < notes.length; i++) {
+      for (let j = i + 1; j < notes.length; j++) {
+        let dx = P[i][0] - P[j][0], dy = P[i][1] - P[j][1];
+        let d2 = dx * dx + dy * dy || 0.01;
+        if (d2 > 90000) continue;                    // ignore distant pairs
+        const d = Math.sqrt(d2), f = K_REP / d2;
+        const ux = dx / d, uy = dy / d;
+        F[i][0] += ux * f; F[i][1] += uy * f;
+        F[j][0] -= ux * f; F[j][1] -= uy * f;
+      }
+    }
+    edges.forEach(e => {
+      const i = idx.get(e.a), j = idx.get(e.b);
+      const dx = P[j][0] - P[i][0], dy = P[j][1] - P[i][1];
+      const d = Math.hypot(dx, dy) || 0.01;
+      // more shared tags = shorter rest length = sits closer
+      const rest = Math.max(REST - (e.shared.length - 1) * 26, 62);
+      const f = (d - rest) * K_SPRING * Math.min(e.shared.length, 3);
+      const ux = dx / d, uy = dy / d;
+      F[i][0] += ux * f; F[i][1] += uy * f;
+      F[j][0] -= ux * f; F[j][1] -= uy * f;
+    });
+    notes.forEach((n, i) => {
+      const an = anchor.get(topicSlot(n.topic)) || [cx, cy];
+      F[i][0] += (an[0] - P[i][0]) * K_TOPIC;
+      F[i][1] += (an[1] - P[i][1]) * K_TOPIC;
+      const m = Math.hypot(F[i][0], F[i][1]) || 0.01;
+      const s = Math.min(m, temp) / m;
+      P[i][0] = Math.max(PAD, Math.min(W - PAD, P[i][0] + F[i][0] * s));
+      P[i][1] = Math.max(PAD, Math.min(H - PAD, P[i][1] + F[i][1] * s));
+    });
+  }
+
+  // relaxation leaves the cloud off-centre and smaller than the canvas;
+  // recentre and scale it uniformly so the shape is kept but the space is used
+  const xs = P.map(p => p[0]), ys = P.map(p => p[1]);
+  const minx = Math.min(...xs), maxx = Math.max(...xs);
+  const miny = Math.min(...ys), maxy = Math.max(...ys);
+  const sc = Math.min((W - 2 * PAD) / Math.max(maxx - minx, 1),
+                      (H - 2 * PAD) / Math.max(maxy - miny, 1), 1.4);
+  P.forEach(q => {
+    q[0] = W / 2 + (q[0] - (minx + maxx) / 2) * sc;
+    q[1] = H / 2 + (q[1] - (miny + maxy) / 2) * sc;
+  });
+
+  const pos = new Map();
+  notes.forEach((n, i) => pos.set(n.id, P[i]));
+
+  edges.forEach(e => {
+    const p = pos.get(e.a), q = pos.get(e.b);
+    const line = el('line', {
+      x1: p[0], y1: p[1], x2: q[0], y2: q[1],
+      class: 'lt-edge',
+      'stroke-width': Math.min(1 + e.shared.length * 0.9, 4)
+    });
+    line.dataset.a = e.a; line.dataset.b = e.b;
+    line.dataset.tags = e.shared.join('|');
+    graph.appendChild(line);
+  });
+
+  // Labels sit under their node by default. Near a canvas edge they anchor
+  // inward so they can't be clipped, and if one would land on a label already
+  // placed it flips above instead. Only matters when a filter reveals several
+  // at once; hovering shows one at a time.
+  const placedBoxes = [];
+  function labelPos(p, text) {
+    const w = text.length * 6.1;
+    const anchor = p[0] < 118 ? 'start' : (p[0] > W - 118 ? 'end' : 'middle');
+    const x = anchor === 'start' ? Math.max(8, p[0] - 16)
+            : anchor === 'end'   ? Math.min(W - 8, p[0] + 16)
+            : p[0];
+    const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
+    const overlaps = b => placedBoxes.some(q =>
+      !(b[2] < q[0] || b[0] > q[2] || b[3] < q[1] || b[1] > q[3]));
+    let y = p[1] + 30;
+    let box = [left, y - 11, left + w, y + 4];
+    if (overlaps(box)) { y = p[1] - 22; box = [left, y - 11, left + w, y + 4]; }
+    placedBoxes.push(box);
+    return [x, y, anchor];
+  }
+
+  notes.forEach(n => {
+    const p = pos.get(n.id);
+    const plain = decodeEntities(n.title);
+    const g = el('g', {
+      class: 'lt-node lt-node--topic-' + topicSlot(n.topic) + ' lt-node--kind-' + slug(n.kind),
+      tabindex: '0', role: 'button',
+      'aria-label': plain + ' — ' + n.kind + ', ' + n.topic,
+      'data-id': n.id, 'data-kind': n.kind, 'data-tags': (n.tags || []).join('|').toLowerCase()
+    });
+    // one hollow mark: the hard ring carries the topic, its dash pattern the type
+    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: 13, class: 'lt-node__mark' }));
+    const tip = el('title', {}); tip.textContent = plain; g.appendChild(tip);
+    const text = plain.length > 28 ? plain.slice(0, 26) + '…' : plain;
+    const lp = labelPos(p, text);
+    const label = el('text', { x: lp[0], y: lp[1], 'text-anchor': lp[2] });
+    label.textContent = text;
+    g.appendChild(label);
+    g.addEventListener('click', () => choose('note', n.id));
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose('note', n.id); } });
+    graph.appendChild(g);
+  });
+
+  function matches(n, dim, value) {
+    if (dim === 'all') return true;
+    if (dim === 'note') return n.id === value;
+    if (dim === 'kind') return n.kind === value;
+    if (dim === 'topic') return n.topic === value;
+    return true;
+  }
+
+  function choose(dim, value) {
+    const active = notes.filter(n => matches(n, dim, value)).map(n => n.id);
+    const isAll = dim === 'all';
+
     document.querySelectorAll('.lt-note').forEach(card => {
-      const show = type === 'all' || activeNotes.includes(card.dataset.id);
-      card.hidden = !show;
+      card.hidden = !(isAll || active.includes(card.dataset.id));
     });
-    document.querySelectorAll('.lt-node').forEach(node => {
-      const selected = type === 'all' || (node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)) || (node.dataset.type === 'topic' && node.dataset.value === value && type === 'topic');
-      node.classList.toggle('is-active', selected && type !== 'all');
-      node.classList.toggle('is-muted', type !== 'all' && !selected && !(node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)));
+    graph.querySelectorAll('.lt-node').forEach(node => {
+      const on = isAll || active.includes(node.dataset.id);
+      node.classList.toggle('is-active', !isAll && on);
+      node.classList.toggle('is-muted', !isAll && !on);
     });
-    document.querySelectorAll('#lt-filter button').forEach(b => b.setAttribute('aria-pressed', String(type === 'all' ? b.dataset.filter === 'all' : b.dataset.filter === value)));
+    graph.querySelectorAll('.lt-edge').forEach(line => {
+      const on = isAll || (active.includes(line.dataset.a) && active.includes(line.dataset.b));
+      line.classList.toggle('is-muted', !isAll && !on);
+    });
+    document.querySelectorAll('.lt-filter button').forEach(b => {
+      b.setAttribute('aria-pressed', String(isAll ? b.dataset.dim === 'all' : (b.dataset.dim === dim && b.dataset.filter === value)));
+    });
     document.getElementById('lt-empty').hidden = feed.querySelectorAll('.lt-note:not([hidden])').length > 0;
   }
-  topics.forEach(t => {
-    const p = positions.get('t:' + t);
-    const g = el('g', {class:'lt-node lt-node--tag',tabindex:'0',role:'button','aria-label':'Filter by '+t,'data-type':'topic','data-value':t});
-    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:7}));
-    const label = el('text',{x:p[0],y:p[1]-13,'text-anchor':'middle'}); label.textContent=t; g.appendChild(label);
-    g.addEventListener('click',()=>choose('topic',t));
-    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('topic',t);}});
-    graph.appendChild(g);
-  });
-  notes.forEach(n => {
-    const p = positions.get('n:' + n.id);
-    const g = el('g', {class:'lt-node lt-node--thought lt-node--kind-' + kindClass(n.kind),tabindex:'0',role:'button','aria-label':n.title,'data-type':'note','data-value':n.id});
-    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:12}));
-    const label = el('text',{x:p[0],y:p[1]+30,'text-anchor':'middle'}); label.textContent=n.title.length>30?n.title.slice(0,28)+'…':n.title; g.appendChild(label);
-    g.addEventListener('click',()=>choose('note',n.id));
-    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('note',n.id);}});
-    graph.appendChild(g);
-  });
-  const kinds = Array.from(new Set(notes.map(n => n.kind || 'Note')));
+
+  function addFilter(container, dim, value, text) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.dataset.filter = value; b.dataset.dim = dim;
+    b.textContent = text; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', () => choose(dim, value));
+    container.appendChild(b);
+    return b;
+  }
+  const kindBox = document.getElementById('lt-filter-kind');
+  kinds.forEach(k => addFilter(kindBox, 'kind', k, k).classList.add('lt-chip--kind-' + slug(k)));
+  const topicBox = document.getElementById('lt-filter-topic');
+  topics.forEach(t => addFilter(topicBox, 'topic', t, t).classList.add('lt-chip--topic-' + topicSlot(t)));
+
+  // legend: one row per encoded dimension
   const legend = document.getElementById('lt-legend');
-  kinds.forEach(kind => {
-    const item = document.createElement('span');
-    item.className = 'lt-legend__item lt-legend__item--kind-' + kindClass(kind);
-    const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
-    item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
+  function legendRow(title, items) {
+    const row = document.createElement('div');
+    row.className = 'lt-legend__row';
+    const lab = document.createElement('span');
+    lab.className = 'lt-legend__title'; lab.textContent = title;
+    row.appendChild(lab);
+    items.forEach(it => {
+      const item = document.createElement('span');
+      item.className = 'lt-legend__item ' + it.cls;
+      const sw = document.createElement('i'); sw.setAttribute('aria-hidden', 'true');
+      item.appendChild(sw); item.appendChild(document.createTextNode(it.text));
+      row.appendChild(item);
+    });
+    legend.appendChild(row);
+  }
+  legendRow('Topic', topics.map(t => ({ cls: 'lt-legend__item--topic lt-legend__item--topic-' + topicSlot(t), text: t })));
+  legendRow('Type', kinds.map(k => ({ cls: 'lt-legend__item--kind lt-legend__item--kind-' + slug(k), text: k })));
+
+  document.getElementById('lt-reset').addEventListener('click', () => {
+    defaultOrder.forEach(c => feed.appendChild(c));
+    choose('all');
   });
-  const kinds = Array.from(new Set(notes.map(n => n.kind || 'Note')));
-  const legend = document.getElementById('lt-legend');
-  kinds.forEach(kind => {
-    const item = document.createElement('span'); item.className = 'lt-legend__item lt-legend__item--kind-' + kindClass(kind);
-    const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
-    item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
-  });
-  const filters = document.getElementById('lt-filter');
-  topics.forEach(t => {
-    const b = document.createElement('button'); b.type='button'; b.dataset.filter=t; b.textContent=t; b.setAttribute('aria-pressed','false');
-    b.addEventListener('click',()=>choose('topic',t)); filters.appendChild(b);
-  });
-  document.getElementById('lt-reset').addEventListener('click',()=>choose('all'));
-  document.getElementById('lt-shuffle').addEventListener('click',()=>{
-    const cards=Array.from(feed.children);
-    for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}
-    cards.forEach(c=>feed.appendChild(c));
+  document.getElementById('lt-shuffle').addEventListener('click', () => {
+    const cards = Array.from(feed.children);
+    for (let i = cards.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[cards[i], cards[j]] = [cards[j], cards[i]]; }
+    cards.forEach(c => feed.appendChild(c));
   });
   choose('all');
 })();
