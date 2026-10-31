@@ -30,7 +30,7 @@ author:
   employer         : "UCLA"
   uri              : # "https://sakinkirti.github.io"
   email            : # "none@example.org" 
-  cv               : "/files/cv.pdf" # PDF in /files/, or a full URL
+  cv               : # "/files/cv.pdf" - uncomment once the PDF is in /files/
 
   # Academic websites
   academia         : # URL
