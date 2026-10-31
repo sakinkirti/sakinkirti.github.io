@@ -1,6 +1,15 @@
 {% include base_path %}
 
-{% if site.tag_archive.type and page.tags[0] %}
+{% comment %}
+  Loose Threads notes show their tags as plain text. The site-wide tag archive
+  groups site.posts only, so a tag link from a note landed on the blog archive
+  at an anchor that doesn't exist there.
+{% endcomment %}
+{% if page.collection == 'thoughts' and page.tags[0] %}
+  <p class="page__taxonomy lt-tags lt-tags--page">
+    {% for tag in page.tags %}<span class="lt-tag">{{ tag }}</span>{% endfor %}
+  </p>
+{% elsif site.tag_archive.type and page.tags[0] %}
   {% include tag-list.html %}
 {% endif %}
 

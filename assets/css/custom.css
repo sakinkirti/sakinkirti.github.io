@@ -248,14 +248,13 @@ details > summary {
 
 
 /* === Loose Threads ===
-   Two encodings on each node: FILL = major topic, OUTLINE = note type.
-   Both palettes were checked with the data-viz validator on this panel's own
-   surface, all-pairs, in light and dark:
-     topic fills   blue / orange / aqua      (slots 1-3; all hard checks pass)
-     type outlines yellow / magenta / violet (CVD-clean, and clear of the fill hues)
-   Outlines also carry a dash pattern, so type never rests on colour alone.
-   Slots 4-6 below are NOT all-pairs validated — past three topics, re-run
-   scripts/validate_palette.js or fold the extras into "other" (slot 0). */
+   Each node is a hollow mark. The hard RING colour is the note's major topic;
+   the ring's DASH pattern is the note type, so type carries no hue and the
+   whole palette is free for topics. Four topic hues validated all-pairs in
+   light and dark with the data-viz validator, on this panel's own surface:
+     blue / yellow / magenta / green
+   Five does not validate in any arrangement — past four, fold extras into the
+   neutral "other" slot (0) rather than inventing a hue. */
 .loose-threads {
   /* page-level */
   --lt-muted:#596579;
@@ -268,19 +267,13 @@ details > summary {
   --lt-panel-muted:#596579;
   --lt-edge:#aeb9c9;
   --lt-label:#202b3b;
-  /* topic fills */
-  --lt-topic-0:#9aa7b8;
+  /* topic rings (validated set) */
+  --lt-topic-0:#7d8794;
   --lt-topic-1:#2a78d6;
-  --lt-topic-2:#eb6834;
-  --lt-topic-3:#1baf7a;
-  --lt-topic-4:#eda100;
-  --lt-topic-5:#e87ba4;
-  --lt-topic-6:#008300;
-  /* type outlines */
-  --lt-kind-default:#53657d;
-  --lt-kind-1:#eda100;
-  --lt-kind-2:#e87ba4;
-  --lt-kind-3:#6250d6;
+  --lt-topic-2:#eda100;
+  --lt-topic-3:#e87ba4;
+  --lt-topic-4:#008300;
+  --lt-ink:#53657d;
   max-width:100%;
 }
 
@@ -294,17 +287,12 @@ html[data-theme="dark"] .loose-threads {
   --lt-panel-muted:#c9ccd0;
   --lt-edge:#7d848c;
   --lt-label:#f2f2f2;
-  --lt-topic-0:#8d959f;
+  --lt-topic-0:#9aa3ad;
   --lt-topic-1:#3987e5;
-  --lt-topic-2:#d95926;
-  --lt-topic-3:#199e70;
-  --lt-topic-4:#c98500;
-  --lt-topic-5:#d55181;
-  --lt-topic-6:#008300;
-  --lt-kind-default:#aab6c4;
-  --lt-kind-1:#c98500;
-  --lt-kind-2:#d55181;
-  --lt-kind-3:#9085e9;
+  --lt-topic-2:#c98500;
+  --lt-topic-3:#d55181;
+  --lt-topic-4:#008300;
+  --lt-ink:#aab6c4;
 }
 
 .lt-intro { max-width:48rem; color:var(--global-text-color-light); margin:-.35em 0 1.8em; font-size:1.04em; }
@@ -328,40 +316,35 @@ html[data-theme="dark"] .loose-threads {
 .lt-edge { stroke:var(--lt-edge); opacity:.6; transition:opacity .15s ease; }
 .lt-edge.is-muted { opacity:.12; }
 
-/* nodes: fill = topic, ring = type, with a surface-coloured gap between them */
+/* nodes: hollow centre, hard ring = topic, dash = type */
 .lt-node { cursor:pointer; outline:none; }
-.lt-node__fill { fill:var(--lt-topic-0); stroke:var(--lt-panel-bg); stroke-width:2; }
-.lt-node__ring { fill:none; stroke:var(--lt-kind-default); stroke-width:3; }
-.lt-node--topic-1 .lt-node__fill { fill:var(--lt-topic-1); }
-.lt-node--topic-2 .lt-node__fill { fill:var(--lt-topic-2); }
-.lt-node--topic-3 .lt-node__fill { fill:var(--lt-topic-3); }
-.lt-node--topic-4 .lt-node__fill { fill:var(--lt-topic-4); }
-.lt-node--topic-5 .lt-node__fill { fill:var(--lt-topic-5); }
-.lt-node--topic-6 .lt-node__fill { fill:var(--lt-topic-6); }
-.lt-node--kind-question .lt-node__ring       { stroke:var(--lt-kind-1); }
-.lt-node--kind-research-thread .lt-node__ring{ stroke:var(--lt-kind-2); stroke-dasharray:7 4; }
-.lt-node--kind-idea .lt-node__ring           { stroke:var(--lt-kind-3); stroke-dasharray:2 3.5; }
-.lt-node text { fill:var(--lt-label); font-size:12px; font-weight:600; paint-order:stroke; stroke:var(--lt-panel-bg); stroke-width:4px; stroke-linejoin:round; pointer-events:none; }
-.lt-node:focus .lt-node__ring,.lt-node.is-active .lt-node__ring { stroke-width:5; }
+.lt-node__mark { fill:var(--lt-topic-0); fill-opacity:.16; stroke:var(--lt-topic-0); stroke-width:3.5; }
+.lt-node--topic-1 .lt-node__mark { fill:var(--lt-topic-1); stroke:var(--lt-topic-1); }
+.lt-node--topic-2 .lt-node__mark { fill:var(--lt-topic-2); stroke:var(--lt-topic-2); }
+.lt-node--topic-3 .lt-node__mark { fill:var(--lt-topic-3); stroke:var(--lt-topic-3); }
+.lt-node--topic-4 .lt-node__mark { fill:var(--lt-topic-4); stroke:var(--lt-topic-4); }
+.lt-node--kind-research-thread .lt-node__mark { stroke-dasharray:7 4; }
+.lt-node--kind-idea .lt-node__mark { stroke-dasharray:2 3.5; }
+/* too many notes to label them all at once: reveal on hover/focus, and keep
+   labels up for whatever a filter has selected. The list below is the index. */
+.lt-node text { fill:var(--lt-label); font-size:12px; font-weight:600; paint-order:stroke; stroke:var(--lt-panel-bg); stroke-width:4px; stroke-linejoin:round; pointer-events:none; opacity:0; transition:opacity .12s ease; }
+.lt-node:hover text,.lt-node:focus text,.lt-node.is-active text { opacity:1; }
+.lt-node:hover,.lt-node:focus { /* lift the hovered node above its neighbours */ }
+.lt-node:focus .lt-node__mark,.lt-node.is-active .lt-node__mark { stroke-width:5.5; }
 .lt-node.is-muted { opacity:.2; }
 
-/* legend: one row per encoded dimension */
+/* legend: topic = ring colour, type = ring dash */
 .lt-legend { display:flex; flex-direction:column; gap:.3em; padding:.2em 1em .7em; color:var(--lt-panel-fg); font-size:.8em; }
 .lt-legend__row { display:flex; flex-wrap:wrap; align-items:center; gap:.5em 1em; }
 .lt-legend__title { color:var(--lt-panel-muted); font-size:.92em; min-width:3.2em; }
 .lt-legend__item { display:inline-flex; align-items:center; gap:.4em; }
-.lt-legend__item i { display:inline-block; width:.85em; height:.85em; border-radius:50%; }
-.lt-legend__item--fill i { background:var(--lt-topic-0); }
-.lt-legend__item--topic-1 i { background:var(--lt-topic-1); }
-.lt-legend__item--topic-2 i { background:var(--lt-topic-2); }
-.lt-legend__item--topic-3 i { background:var(--lt-topic-3); }
-.lt-legend__item--topic-4 i { background:var(--lt-topic-4); }
-.lt-legend__item--topic-5 i { background:var(--lt-topic-5); }
-.lt-legend__item--topic-6 i { background:var(--lt-topic-6); }
-.lt-legend__item--ring i { background:transparent; border:2.5px solid var(--lt-kind-default); }
-.lt-legend__item--kind-question i        { border-color:var(--lt-kind-1); border-style:solid; }
-.lt-legend__item--kind-research-thread i { border-color:var(--lt-kind-2); border-style:dashed; }
-.lt-legend__item--kind-idea i            { border-color:var(--lt-kind-3); border-style:dotted; }
+.lt-legend__item i { display:inline-block; width:.9em; height:.9em; border-radius:50%; border:2.5px solid var(--lt-ink); background:transparent; }
+.lt-legend__item--topic-1 i { border-color:var(--lt-topic-1); background:color-mix(in srgb, var(--lt-topic-1) 16%, transparent); }
+.lt-legend__item--topic-2 i { border-color:var(--lt-topic-2); background:color-mix(in srgb, var(--lt-topic-2) 16%, transparent); }
+.lt-legend__item--topic-3 i { border-color:var(--lt-topic-3); background:color-mix(in srgb, var(--lt-topic-3) 16%, transparent); }
+.lt-legend__item--topic-4 i { border-color:var(--lt-topic-4); background:color-mix(in srgb, var(--lt-topic-4) 16%, transparent); }
+.lt-legend__item--kind-research-thread i { border-style:dashed; }
+.lt-legend__item--kind-idea i { border-style:dotted; }
 
 /* filters */
 .lt-filters { display:flex; flex-direction:column; gap:.7em; margin:0 0 1.3em; }
@@ -369,9 +352,13 @@ html[data-theme="dark"] .loose-threads {
 .lt-filter-label { color:var(--lt-muted); font-size:.78em; text-transform:uppercase; letter-spacing:.06em; min-width:3.6em; }
 .lt-filter { display:flex; flex-wrap:wrap; gap:.45em; }
 .lt-filter button[aria-pressed="true"] { background:var(--global-text-color); color:var(--global-bg-color); border-color:var(--global-text-color); }
-.lt-chip--kind-question        { box-shadow:inset 3px 0 0 var(--lt-kind-1); }
-.lt-chip--kind-research-thread { box-shadow:inset 3px 0 0 var(--lt-kind-2); }
-.lt-chip--kind-idea            { box-shadow:inset 3px 0 0 var(--lt-kind-3); }
+.lt-chip--topic-1 { box-shadow:inset 3px 0 0 var(--lt-topic-1); }
+.lt-chip--topic-2 { box-shadow:inset 3px 0 0 var(--lt-topic-2); }
+.lt-chip--topic-3 { box-shadow:inset 3px 0 0 var(--lt-topic-3); }
+.lt-chip--topic-4 { box-shadow:inset 3px 0 0 var(--lt-topic-4); }
+.lt-filter button[data-dim="kind"] { border-color:var(--lt-ink); }
+.lt-filter button[data-dim="kind"].lt-chip--kind-research-thread { border-style:dashed; }
+.lt-filter button[data-dim="kind"].lt-chip--kind-idea { border-style:dotted; }
 
 /* feed */
 .lt-feed { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1em; }
@@ -382,6 +369,7 @@ html[data-theme="dark"] .loose-threads {
 .lt-note p { margin:0 0 .65em; font-size:.92em; }
 .lt-tags { display:flex; flex-wrap:wrap; gap:.35em; }
 .lt-tag { color:var(--lt-muted); font-size:.72em; border:1px solid var(--lt-line); border-radius:999px; padding:.12em .55em; }
+.lt-tags--page { margin:1.4em 0 0; }
 .lt-note__link { color:inherit; text-decoration:none; }
 .lt-note__link:hover { text-decoration:underline; }
 

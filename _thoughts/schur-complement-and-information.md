@@ -1,6 +1,6 @@
 ---
 title: "What does the Schur complement have to do with information?"
-date: 2026-10-19
+date: 2026-08-07
 kind: "Question"
 topic: "information theory"
 tags:
@@ -13,5 +13,3 @@ tags:
 The Schur complement appears in the conditional covariance of jointly Gaussian random variables. It seems to isolate the part of \\(X\\)'s variability that remains after accounting for \\(Y\\).
 
 How does this connect to mutual information and conditional entropy? Is there a useful way to think about the Schur complement as separating what is shared between two random variables from what remains specific to one of them?
-
-*An unresolved connection between block-matrix algebra and statistical dependence.*

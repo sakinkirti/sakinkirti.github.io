@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 <div class="loose-threads">
-  <p class="lt-intro">A working map of ideas I keep circling back to: questions, half-formed connections, things I’m reading, and small experiments. Not everything here is finished, and not everything needs to be.</p>
+  <p class="lt-intro">A working map of random ideas and thoughts: questions, half-formed connections, things I’m reading, and small experiments. Leaving this deliberately unpolished to see how my thoughts evolve.</p>
 
   <section class="lt-section" aria-labelledby="lt-map-heading">
     <h2 class="lt-section__heading" id="lt-map-heading">A map of loose connections</h2>
@@ -17,13 +17,11 @@ author_profile: true
       </div>
       <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 460" role="group" aria-label="Map of notes, linked where they share a topic"></svg>
       <div class="lt-legend" id="lt-legend"></div>
-      <div class="lt-graph-help">Fill colour is the note’s major topic; the outline is what kind of note it is. Use the filters below to highlight a group.</div>
+      <div class="lt-graph-help">Ring colour is the note’s major topic; the ring’s line style is what kind of note it is. Hover a node for its title, or filter below to highlight a group.</div>
     </div>
   </section>
 
-  <section class="lt-section" aria-labelledby="lt-feed-heading">
-    <h2 class="lt-section__heading" id="lt-feed-heading">Things on my mind</h2>
-
+  <section class="lt-section" aria-label="Notes">
     <div class="lt-filters">
       <div class="lt-filter-group">
         <span class="lt-filter-label" id="lt-kind-label">Type</span>
@@ -105,19 +103,8 @@ author_profile: true
   const kinds = [];
   notes.forEach(n => { if (!kinds.includes(n.kind)) kinds.push(n.kind); });
   const topics = [];
-  notes.forEach(n => (n.tags || []).forEach(t => {
-    const k = String(t).toLowerCase();
-    if (!topics.includes(k)) topics.push(k);
-  }));
-  topics.sort();
-
-  // positions: notes only — the map is note-to-note now
-  const pos = new Map();
-  notes.forEach((n, i) => {
-    const angle = (2 * Math.PI * i / Math.max(notes.length, 1)) - Math.PI / 2;
-    const radius = notes.length < 3 ? 155 : 172;
-    pos.set(n.id, [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
-  });
+  notes.forEach(n => { if (!topics.includes(n.topic)) topics.push(n.topic); });
+  topics.sort((a, b) => topicSlot(a) - topicSlot(b));
 
   // edges: one per pair of notes sharing at least one tag, weighted by overlap
   const edges = [];
@@ -129,6 +116,88 @@ author_profile: true
       if (shared.length) edges.push({ a: notes[i].id, b: notes[j].id, shared });
     }
   }
+
+  // Layout. Deliberately not a ring — these are loose notes, so they get a
+  // relaxation that lets shared tags pull notes together and everything else
+  // push apart. Seeded, so the scatter looks arbitrary but is the same on
+  // every load; the layout only moves when the notes themselves change.
+  function seeded(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      let t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  const rand = seeded(0x10FA5E ^ notes.length);
+  const PAD = 72, W = 760, H = 460;
+  const idx = new Map(notes.map((n, i) => [n.id, i]));
+  const P = notes.map(() => [0, 0]);
+
+  // start each note near its topic's own corner of the canvas, jittered
+  const slots = [];
+  notes.forEach(n => { if (!slots.includes(topicSlot(n.topic))) slots.push(topicSlot(n.topic)); });
+  const anchor = new Map();
+  slots.forEach((sl, i) => {
+    const a = (2 * Math.PI * i / Math.max(slots.length, 1)) + 0.6;
+    anchor.set(sl, [cx + Math.cos(a) * 150, cy + Math.sin(a) * 92]);
+  });
+  notes.forEach((n, i) => {
+    const an = anchor.get(topicSlot(n.topic)) || [cx, cy];
+    P[i] = [an[0] + (rand() - 0.5) * 150, an[1] + (rand() - 0.5) * 110];
+  });
+
+  const REST = 124, K_SPRING = 0.011, K_REP = 17500, K_TOPIC = 0.0075;
+  for (let step = 0, temp = 11; step < 420; step++, temp *= 0.992) {
+    const F = notes.map(() => [0, 0]);
+    for (let i = 0; i < notes.length; i++) {
+      for (let j = i + 1; j < notes.length; j++) {
+        let dx = P[i][0] - P[j][0], dy = P[i][1] - P[j][1];
+        let d2 = dx * dx + dy * dy || 0.01;
+        if (d2 > 90000) continue;                    // ignore distant pairs
+        const d = Math.sqrt(d2), f = K_REP / d2;
+        const ux = dx / d, uy = dy / d;
+        F[i][0] += ux * f; F[i][1] += uy * f;
+        F[j][0] -= ux * f; F[j][1] -= uy * f;
+      }
+    }
+    edges.forEach(e => {
+      const i = idx.get(e.a), j = idx.get(e.b);
+      const dx = P[j][0] - P[i][0], dy = P[j][1] - P[i][1];
+      const d = Math.hypot(dx, dy) || 0.01;
+      // more shared tags = shorter rest length = sits closer
+      const rest = Math.max(REST - (e.shared.length - 1) * 26, 62);
+      const f = (d - rest) * K_SPRING * Math.min(e.shared.length, 3);
+      const ux = dx / d, uy = dy / d;
+      F[i][0] += ux * f; F[i][1] += uy * f;
+      F[j][0] -= ux * f; F[j][1] -= uy * f;
+    });
+    notes.forEach((n, i) => {
+      const an = anchor.get(topicSlot(n.topic)) || [cx, cy];
+      F[i][0] += (an[0] - P[i][0]) * K_TOPIC;
+      F[i][1] += (an[1] - P[i][1]) * K_TOPIC;
+      const m = Math.hypot(F[i][0], F[i][1]) || 0.01;
+      const s = Math.min(m, temp) / m;
+      P[i][0] = Math.max(PAD, Math.min(W - PAD, P[i][0] + F[i][0] * s));
+      P[i][1] = Math.max(PAD, Math.min(H - PAD, P[i][1] + F[i][1] * s));
+    });
+  }
+
+  // relaxation leaves the cloud off-centre and smaller than the canvas;
+  // recentre and scale it uniformly so the shape is kept but the space is used
+  const xs = P.map(p => p[0]), ys = P.map(p => p[1]);
+  const minx = Math.min(...xs), maxx = Math.max(...xs);
+  const miny = Math.min(...ys), maxy = Math.max(...ys);
+  const sc = Math.min((W - 2 * PAD) / Math.max(maxx - minx, 1),
+                      (H - 2 * PAD) / Math.max(maxy - miny, 1), 1.4);
+  P.forEach(q => {
+    q[0] = W / 2 + (q[0] - (minx + maxx) / 2) * sc;
+    q[1] = H / 2 + (q[1] - (miny + maxy) / 2) * sc;
+  });
+
+  const pos = new Map();
+  notes.forEach((n, i) => pos.set(n.id, P[i]));
+
   edges.forEach(e => {
     const p = pos.get(e.a), q = pos.get(e.b);
     const line = el('line', {
@@ -141,6 +210,27 @@ author_profile: true
     graph.appendChild(line);
   });
 
+  // Labels sit under their node by default. Near a canvas edge they anchor
+  // inward so they can't be clipped, and if one would land on a label already
+  // placed it flips above instead. Only matters when a filter reveals several
+  // at once; hovering shows one at a time.
+  const placedBoxes = [];
+  function labelPos(p, text) {
+    const w = text.length * 6.1;
+    const anchor = p[0] < 118 ? 'start' : (p[0] > W - 118 ? 'end' : 'middle');
+    const x = anchor === 'start' ? Math.max(8, p[0] - 16)
+            : anchor === 'end'   ? Math.min(W - 8, p[0] + 16)
+            : p[0];
+    const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
+    const overlaps = b => placedBoxes.some(q =>
+      !(b[2] < q[0] || b[0] > q[2] || b[3] < q[1] || b[1] > q[3]));
+    let y = p[1] + 30;
+    let box = [left, y - 11, left + w, y + 4];
+    if (overlaps(box)) { y = p[1] - 22; box = [left, y - 11, left + w, y + 4]; }
+    placedBoxes.push(box);
+    return [x, y, anchor];
+  }
+
   notes.forEach(n => {
     const p = pos.get(n.id);
     const plain = decodeEntities(n.title);
@@ -150,12 +240,13 @@ author_profile: true
       'aria-label': plain + ' — ' + n.kind + ', ' + n.topic,
       'data-id': n.id, 'data-kind': n.kind, 'data-tags': (n.tags || []).join('|').toLowerCase()
     });
-    // fill, then a surface-coloured gap, then the type ring, so the ring
-    // stays legible whatever the fill underneath it is
-    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: 11, class: 'lt-node__fill' }));
-    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: 15, class: 'lt-node__ring' }));
-    const label = el('text', { x: p[0], y: p[1] + 32, 'text-anchor': 'middle' });
-    label.textContent = plain.length > 30 ? plain.slice(0, 28) + '…' : plain;
+    // one hollow mark: the hard ring carries the topic, its dash pattern the type
+    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: 13, class: 'lt-node__mark' }));
+    const tip = el('title', {}); tip.textContent = plain; g.appendChild(tip);
+    const text = plain.length > 28 ? plain.slice(0, 26) + '…' : plain;
+    const lp = labelPos(p, text);
+    const label = el('text', { x: lp[0], y: lp[1], 'text-anchor': lp[2] });
+    label.textContent = text;
     g.appendChild(label);
     g.addEventListener('click', () => choose('note', n.id));
     g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose('note', n.id); } });
@@ -166,7 +257,7 @@ author_profile: true
     if (dim === 'all') return true;
     if (dim === 'note') return n.id === value;
     if (dim === 'kind') return n.kind === value;
-    if (dim === 'topic') return (n.tags || []).map(t => String(t).toLowerCase()).includes(value);
+    if (dim === 'topic') return n.topic === value;
     return true;
   }
 
@@ -203,7 +294,7 @@ author_profile: true
   const kindBox = document.getElementById('lt-filter-kind');
   kinds.forEach(k => addFilter(kindBox, 'kind', k, k).classList.add('lt-chip--kind-' + slug(k)));
   const topicBox = document.getElementById('lt-filter-topic');
-  topics.forEach(t => addFilter(topicBox, 'topic', t, t));
+  topics.forEach(t => addFilter(topicBox, 'topic', t, t).classList.add('lt-chip--topic-' + topicSlot(t)));
 
   // legend: one row per encoded dimension
   const legend = document.getElementById('lt-legend');
@@ -222,11 +313,8 @@ author_profile: true
     });
     legend.appendChild(row);
   }
-  const usedTopics = [];
-  notes.forEach(n => { if (!usedTopics.includes(n.topic)) usedTopics.push(n.topic); });
-  usedTopics.sort((a, b) => topicSlot(a) - topicSlot(b));
-  legendRow('Topic', usedTopics.map(t => ({ cls: 'lt-legend__item--fill lt-legend__item--topic-' + topicSlot(t), text: t })));
-  legendRow('Type', kinds.map(k => ({ cls: 'lt-legend__item--ring lt-legend__item--kind-' + slug(k), text: k })));
+  legendRow('Topic', topics.map(t => ({ cls: 'lt-legend__item--topic lt-legend__item--topic-' + topicSlot(t), text: t })));
+  legendRow('Type', kinds.map(k => ({ cls: 'lt-legend__item--kind lt-legend__item--kind-' + slug(k), text: k })));
 
   document.getElementById('lt-reset').addEventListener('click', () => {
     defaultOrder.forEach(c => feed.appendChild(c));

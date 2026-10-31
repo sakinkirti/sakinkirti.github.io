@@ -1,8 +1,8 @@
 ---
 title: "What does the retina choose to keep?"
-date: 2026-10-30
+date: 2026-09-12
 kind: "Question"
-topic: "retinal coding"
+topic: "biology"
 tags:
   - retinal coding
   - information theory

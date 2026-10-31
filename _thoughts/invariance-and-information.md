@@ -1,8 +1,8 @@
 ---
 title: "What does invariance cost?"
-date: 2026-10-24
+date: 2026-07-21
 kind: "Research thread"
-topic: "representation"
+topic: "machine learning"
 tags:
   - representation
   - information theory

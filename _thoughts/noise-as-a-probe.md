@@ -1,8 +1,8 @@
 ---
 title: "Noise as a probe of representation"
-date: 2026-10-18
+date: 2025-09-30
 kind: "Idea"
-topic: "representation"
+topic: "machine learning"
 tags:
   - noise
   - representation

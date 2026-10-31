@@ -83,9 +83,10 @@ author:
 # gets on the map, so APPEND new topics rather than inserting them. The first
 # three slots are the colour-validated set; see assets/css/custom.css.
 thought_topics:
+  - machine learning
   - information theory
-  - representation
-  - retinal coding
+  - biology
+  - curiosities
 
 publication_category:
   books:
