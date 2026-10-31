@@ -1,7 +1,8 @@
 ---
-title: "p(x|y) as a nonlinear correlation metric?"
+title: "p(x&#124;y) as a nonlinear correlation metric?"
 date: 2026-10-14
 kind: "Question"
+topic: "information theory"
 tags:
   - information theory
   - statistics
@@ -9,7 +10,7 @@ tags:
   - conditional distributions
 ---
 
-Correlation captures a narrow kind of dependence: linear association between variables. Could comparing conditional distributions, \(p(x \\mid y)\), provide a more general way to characterize how much knowing \(Y\) changes what we expect about \(X\)?
+Correlation captures a narrow kind of dependence: linear association between variables. Could comparing conditional distributions, \\(p(x \\mid y)\\), provide a more general way to characterize how much knowing \\(Y\\) changes what we expect about \\(X\\)?
 
 This is almost certainly an idea many people have explored before, under various names and in different mathematical forms. I'm curious what the closest existing concepts are, and how they relate to mutual information and other measures of statistical dependence.
 

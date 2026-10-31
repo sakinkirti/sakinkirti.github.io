@@ -30,6 +30,7 @@ author:
   employer         : "UCLA"
   uri              : # "https://sakinkirti.github.io"
   email            : # "none@example.org" 
+  cv               : "/files/cv.pdf" # PDF in /files/, or a full URL
 
   # Academic websites
   academia         : # URL
@@ -78,6 +79,14 @@ author:
   zhihu            : # Username
 
 # Publication Category - The following the list of publication categories and their headings
+# Major topics for Loose Threads. Position in this list fixes the colour a topic
+# gets on the map, so APPEND new topics rather than inserting them. The first
+# three slots are the colour-validated set; see assets/css/custom.css.
+thought_topics:
+  - information theory
+  - representation
+  - retinal coding
+
 publication_category:
   books:
     title: 'Books'
@@ -296,7 +305,7 @@ defaults:
       type: thoughts
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: false
       comments: false
   # _talks

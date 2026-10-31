@@ -2,7 +2,7 @@
 layout: archive
 title: "Loose Threads"
 permalink: /thoughts/
-author_profile: false
+author_profile: true
 ---
 
 <div class="loose-threads">
@@ -12,24 +12,35 @@ author_profile: false
     <h2 class="lt-section__heading" id="lt-map-heading">A map of loose connections</h2>
     <div class="lt-graph-shell">
       <div class="lt-graph-toolbar">
-        <span>Explore by clicking a node</span>
+        <span>Notes are linked when they share a topic</span>
         <button type="button" id="lt-reset">Reset view</button>
       </div>
-      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 460" role="img" aria-label="Interactive map connecting notes through shared topics"></svg>
-      <div class="lt-legend" id="lt-legend" aria-label="Note types"></div>
-      <div class="lt-graph-help">Each note is connected to its topics. Select a note or topic to find related entries.</div>
+      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 460" role="group" aria-label="Map of notes, linked where they share a topic"></svg>
+      <div class="lt-legend" id="lt-legend"></div>
+      <div class="lt-graph-help">Fill colour is the note’s major topic; the outline is what kind of note it is. Use the filters below to highlight a group.</div>
     </div>
   </section>
 
   <section class="lt-section" aria-labelledby="lt-feed-heading">
     <h2 class="lt-section__heading" id="lt-feed-heading">Things on my mind</h2>
-    <div class="lt-filter" id="lt-filter" aria-label="Filter notes by topic">
-      <button type="button" data-filter="all" aria-pressed="true">Everything</button>
+
+    <div class="lt-filters">
+      <div class="lt-filter-group">
+        <span class="lt-filter-label" id="lt-kind-label">Type</span>
+        <div class="lt-filter" id="lt-filter-kind" role="group" aria-labelledby="lt-kind-label"></div>
+      </div>
+      <div class="lt-filter-group">
+        <span class="lt-filter-label" id="lt-topic-label">Topic</span>
+        <div class="lt-filter" id="lt-filter-topic" role="group" aria-labelledby="lt-topic-label">
+          <button type="button" data-filter="all" data-dim="all" aria-pressed="true">Everything</button>
+        </div>
+      </div>
     </div>
+
     <div class="lt-feed" id="lt-feed">
       {% assign sorted_thoughts = site.thoughts | sort: "date" | reverse %}
       {% for thought in sorted_thoughts %}
-      <article class="lt-note" data-id="{{ thought.slug | default: thought.title | slugify }}" data-tags="{{ thought.tags | join: '|' | downcase | escape }}">
+      <article class="lt-note" data-id="{{ thought.slug | default: thought.title | slugify }}">
         <div class="lt-note__meta">{{ thought.date | date: "%b %-d, %Y" }}{% if thought.kind %} · {{ thought.kind }}{% endif %}</div>
         <h3><a class="lt-note__link" href="{{ thought.url | relative_url }}">{{ thought.title }}</a></h3>
         <p>{{ thought.excerpt | default: thought.content | strip_html | strip_newlines | truncate: 190 }}</p>
@@ -44,12 +55,19 @@ author_profile: false
 </div>
 
 <script id="lt-data" type="application/json">
-[
+{
+"topicOrder": {{ site.thought_topics | default: empty | jsonify }},
+"notes": [
 {% assign sorted_thoughts = site.thoughts | sort: "date" | reverse %}
 {% for thought in sorted_thoughts %}
-  {"id":{{ thought.slug | default: thought.title | slugify | jsonify }},"title":{{ thought.title | jsonify }},"kind":{{ thought.kind | default: "Note" | jsonify }},"tags":{{ thought.tags | default: empty | jsonify }}}{% unless forloop.last %},{% endunless %}
+  {"id":{{ thought.slug | default: thought.title | slugify | jsonify }},
+   "title":{{ thought.title | jsonify }},
+   "kind":{{ thought.kind | default: "Note" | jsonify }},
+   "topic":{{ thought.topic | default: thought.tags[0] | default: "other" | jsonify }},
+   "tags":{{ thought.tags | default: empty | jsonify }}}{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]
+}
 </script>
 <script>
 (function () {
@@ -57,94 +75,167 @@ author_profile: false
   const graph = document.getElementById('lt-graph');
   const feed = document.getElementById('lt-feed');
   if (!dataEl || !graph || !feed) return;
-  const notes = JSON.parse(dataEl.textContent);
+
+  const data = JSON.parse(dataEl.textContent);
+  const notes = data.notes || [];
+  const topicOrder = (data.topicOrder || []).map(t => String(t).toLowerCase());
   const ns = 'http://www.w3.org/2000/svg';
   const cx = 380, cy = 225;
-  const topicMap = new Map();
+  const defaultOrder = Array.from(feed.children);
+
+  function slug(s) { return String(s == null ? '' : s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function decodeEntities(str) {
+    const ta = document.createElement('textarea');
+    ta.innerHTML = String(str == null ? '' : str);
+    return ta.value;
+  }
+  function el(name, attrs) {
+    const node = document.createElementNS(ns, name);
+    Object.entries(attrs || {}).forEach(([k, v]) => node.setAttribute(k, v));
+    return node;
+  }
+
+  // Colour follows the entity: a topic's slot comes from its position in the
+  // configured list, so adding a note never repaints the existing ones.
+  function topicSlot(topic) {
+    const i = topicOrder.indexOf(String(topic).toLowerCase());
+    return i === -1 ? 0 : (i + 1);        // 0 = the neutral "other" slot
+  }
+
+  const kinds = [];
+  notes.forEach(n => { if (!kinds.includes(n.kind)) kinds.push(n.kind); });
+  const topics = [];
   notes.forEach(n => (n.tags || []).forEach(t => {
-    const key = String(t).toLowerCase();
-    if (!topicMap.has(key)) topicMap.set(key, []);
-    topicMap.get(key).push(n.id);
+    const k = String(t).toLowerCase();
+    if (!topics.includes(k)) topics.push(k);
   }));
-  const topics = Array.from(topicMap.keys()).sort();
-  const positions = new Map();
+  topics.sort();
+
+  // positions: notes only — the map is note-to-note now
+  const pos = new Map();
   notes.forEach((n, i) => {
     const angle = (2 * Math.PI * i / Math.max(notes.length, 1)) - Math.PI / 2;
     const radius = notes.length < 3 ? 155 : 172;
-    positions.set('n:' + n.id, [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
+    pos.set(n.id, [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
   });
-  topics.forEach((t, i) => {
-    const angle = (2 * Math.PI * i / Math.max(topics.length, 1)) - Math.PI / 2;
-    positions.set('t:' + t, [cx + Math.cos(angle) * 100, cy + Math.sin(angle) * 100]);
-  });
-  function el(name, attrs) {
-    const node = document.createElementNS(ns, name);
-    Object.entries(attrs || {}).forEach(([k,v]) => node.setAttribute(k, v));
-    return node;
+
+  // edges: one per pair of notes sharing at least one tag, weighted by overlap
+  const edges = [];
+  for (let i = 0; i < notes.length; i++) {
+    for (let j = i + 1; j < notes.length; j++) {
+      const a = (notes[i].tags || []).map(t => String(t).toLowerCase());
+      const b = (notes[j].tags || []).map(t => String(t).toLowerCase());
+      const shared = a.filter(t => b.includes(t));
+      if (shared.length) edges.push({ a: notes[i].id, b: notes[j].id, shared });
+    }
   }
-  function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
-  function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
-  topics.forEach(t => (topicMap.get(t) || []).forEach(id => {
-    const a = positions.get('n:' + id), b = positions.get('t:' + t);
-    graph.appendChild(el('line', {x1:a[0],y1:a[1],x2:b[0],y2:b[1],class:'lt-edge'}));
-  }));
-  function choose(type, value) {
-    const activeNotes = type === 'note' ? [value] : (topicMap.get(value) || []);
+  edges.forEach(e => {
+    const p = pos.get(e.a), q = pos.get(e.b);
+    const line = el('line', {
+      x1: p[0], y1: p[1], x2: q[0], y2: q[1],
+      class: 'lt-edge',
+      'stroke-width': Math.min(1 + e.shared.length * 0.9, 4)
+    });
+    line.dataset.a = e.a; line.dataset.b = e.b;
+    line.dataset.tags = e.shared.join('|');
+    graph.appendChild(line);
+  });
+
+  notes.forEach(n => {
+    const p = pos.get(n.id);
+    const plain = decodeEntities(n.title);
+    const g = el('g', {
+      class: 'lt-node lt-node--topic-' + topicSlot(n.topic) + ' lt-node--kind-' + slug(n.kind),
+      tabindex: '0', role: 'button',
+      'aria-label': plain + ' — ' + n.kind + ', ' + n.topic,
+      'data-id': n.id, 'data-kind': n.kind, 'data-tags': (n.tags || []).join('|').toLowerCase()
+    });
+    // fill, then a surface-coloured gap, then the type ring, so the ring
+    // stays legible whatever the fill underneath it is
+    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: 11, class: 'lt-node__fill' }));
+    g.appendChild(el('circle', { cx: p[0], cy: p[1], r: 15, class: 'lt-node__ring' }));
+    const label = el('text', { x: p[0], y: p[1] + 32, 'text-anchor': 'middle' });
+    label.textContent = plain.length > 30 ? plain.slice(0, 28) + '…' : plain;
+    g.appendChild(label);
+    g.addEventListener('click', () => choose('note', n.id));
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose('note', n.id); } });
+    graph.appendChild(g);
+  });
+
+  function matches(n, dim, value) {
+    if (dim === 'all') return true;
+    if (dim === 'note') return n.id === value;
+    if (dim === 'kind') return n.kind === value;
+    if (dim === 'topic') return (n.tags || []).map(t => String(t).toLowerCase()).includes(value);
+    return true;
+  }
+
+  function choose(dim, value) {
+    const active = notes.filter(n => matches(n, dim, value)).map(n => n.id);
+    const isAll = dim === 'all';
+
     document.querySelectorAll('.lt-note').forEach(card => {
-      const show = type === 'all' || activeNotes.includes(card.dataset.id);
-      card.hidden = !show;
+      card.hidden = !(isAll || active.includes(card.dataset.id));
     });
-    document.querySelectorAll('.lt-node').forEach(node => {
-      const selected = type === 'all' || (node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)) || (node.dataset.type === 'topic' && node.dataset.value === value && type === 'topic');
-      node.classList.toggle('is-active', selected && type !== 'all');
-      node.classList.toggle('is-muted', type !== 'all' && !selected && !(node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)));
+    graph.querySelectorAll('.lt-node').forEach(node => {
+      const on = isAll || active.includes(node.dataset.id);
+      node.classList.toggle('is-active', !isAll && on);
+      node.classList.toggle('is-muted', !isAll && !on);
     });
-    document.querySelectorAll('#lt-filter button').forEach(b => b.setAttribute('aria-pressed', String(type === 'all' ? b.dataset.filter === 'all' : b.dataset.filter === value)));
+    graph.querySelectorAll('.lt-edge').forEach(line => {
+      const on = isAll || (active.includes(line.dataset.a) && active.includes(line.dataset.b));
+      line.classList.toggle('is-muted', !isAll && !on);
+    });
+    document.querySelectorAll('.lt-filter button').forEach(b => {
+      b.setAttribute('aria-pressed', String(isAll ? b.dataset.dim === 'all' : (b.dataset.dim === dim && b.dataset.filter === value)));
+    });
     document.getElementById('lt-empty').hidden = feed.querySelectorAll('.lt-note:not([hidden])').length > 0;
   }
-  topics.forEach(t => {
-    const p = positions.get('t:' + t);
-    const g = el('g', {class:'lt-node lt-node--tag',tabindex:'0',role:'button','aria-label':'Filter by '+t,'data-type':'topic','data-value':t});
-    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:7}));
-    const label = el('text',{x:p[0],y:p[1]-13,'text-anchor':'middle'}); label.textContent=t; g.appendChild(label);
-    g.addEventListener('click',()=>choose('topic',t));
-    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('topic',t);}});
-    graph.appendChild(g);
-  });
-  notes.forEach(n => {
-    const p = positions.get('n:' + n.id);
-    const g = el('g', {class:'lt-node lt-node--thought lt-node--kind-' + kindClass(n.kind),tabindex:'0',role:'button','aria-label':n.title,'data-type':'note','data-value':n.id});
-    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:12}));
-    const label = el('text',{x:p[0],y:p[1]+30,'text-anchor':'middle'}); label.textContent=n.title.length>30?n.title.slice(0,28)+'…':n.title; g.appendChild(label);
-    g.addEventListener('click',()=>choose('note',n.id));
-    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('note',n.id);}});
-    graph.appendChild(g);
-  });
-  const kinds = Array.from(new Set(notes.map(n => n.kind || 'Note')));
+
+  function addFilter(container, dim, value, text) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.dataset.filter = value; b.dataset.dim = dim;
+    b.textContent = text; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', () => choose(dim, value));
+    container.appendChild(b);
+    return b;
+  }
+  const kindBox = document.getElementById('lt-filter-kind');
+  kinds.forEach(k => addFilter(kindBox, 'kind', k, k).classList.add('lt-chip--kind-' + slug(k)));
+  const topicBox = document.getElementById('lt-filter-topic');
+  topics.forEach(t => addFilter(topicBox, 'topic', t, t));
+
+  // legend: one row per encoded dimension
   const legend = document.getElementById('lt-legend');
-  kinds.forEach(kind => {
-    const item = document.createElement('span');
-    item.className = 'lt-legend__item lt-legend__item--kind-' + kindClass(kind);
-    const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
-    item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
+  function legendRow(title, items) {
+    const row = document.createElement('div');
+    row.className = 'lt-legend__row';
+    const lab = document.createElement('span');
+    lab.className = 'lt-legend__title'; lab.textContent = title;
+    row.appendChild(lab);
+    items.forEach(it => {
+      const item = document.createElement('span');
+      item.className = 'lt-legend__item ' + it.cls;
+      const sw = document.createElement('i'); sw.setAttribute('aria-hidden', 'true');
+      item.appendChild(sw); item.appendChild(document.createTextNode(it.text));
+      row.appendChild(item);
+    });
+    legend.appendChild(row);
+  }
+  const usedTopics = [];
+  notes.forEach(n => { if (!usedTopics.includes(n.topic)) usedTopics.push(n.topic); });
+  usedTopics.sort((a, b) => topicSlot(a) - topicSlot(b));
+  legendRow('Topic', usedTopics.map(t => ({ cls: 'lt-legend__item--fill lt-legend__item--topic-' + topicSlot(t), text: t })));
+  legendRow('Type', kinds.map(k => ({ cls: 'lt-legend__item--ring lt-legend__item--kind-' + slug(k), text: k })));
+
+  document.getElementById('lt-reset').addEventListener('click', () => {
+    defaultOrder.forEach(c => feed.appendChild(c));
+    choose('all');
   });
-  const kinds = Array.from(new Set(notes.map(n => n.kind || 'Note')));
-  const legend = document.getElementById('lt-legend');
-  kinds.forEach(kind => {
-    const item = document.createElement('span'); item.className = 'lt-legend__item lt-legend__item--kind-' + kindClass(kind);
-    const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
-    item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
-  });
-  const filters = document.getElementById('lt-filter');
-  topics.forEach(t => {
-    const b = document.createElement('button'); b.type='button'; b.dataset.filter=t; b.textContent=t; b.setAttribute('aria-pressed','false');
-    b.addEventListener('click',()=>choose('topic',t)); filters.appendChild(b);
-  });
-  document.getElementById('lt-reset').addEventListener('click',()=>choose('all'));
-  document.getElementById('lt-shuffle').addEventListener('click',()=>{
-    const cards=Array.from(feed.children);
-    for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}
-    cards.forEach(c=>feed.appendChild(c));
+  document.getElementById('lt-shuffle').addEventListener('click', () => {
+    const cards = Array.from(feed.children);
+    for (let i = cards.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[cards[i], cards[j]] = [cards[j], cards[i]]; }
+    cards.forEach(c => feed.appendChild(c));
   });
   choose('all');
 })();
