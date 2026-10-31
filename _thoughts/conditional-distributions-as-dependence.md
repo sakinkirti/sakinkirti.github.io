@@ -1,6 +1,6 @@
 ---
 title: "p(x|y) as a nonlinear correlation metric?"
-date: 2026-10-30
+date: 2026-10-14
 kind: "Question"
 tags:
   - information theory
