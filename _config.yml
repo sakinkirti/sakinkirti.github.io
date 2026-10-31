@@ -290,6 +290,15 @@ defaults:
       author_profile: true
       share: true
       comment: true
+  # _thoughts
+  - scope:
+      path: ""
+      type: thoughts
+    values:
+      layout: single
+      author_profile: false
+      share: false
+      comments: false
   # _talks
   - scope:
       path: ""
