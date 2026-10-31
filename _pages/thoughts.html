@@ -1,0 +1,154 @@
+---
+layout: archive
+title: "Loose Threads"
+permalink: /thoughts/
+author_profile: false
+---
+
+<div class="loose-threads">
+  <p class="lt-intro">A working map of ideas I keep circling back to: questions, half-formed connections, things I’m reading, and small experiments. Not everything here is finished, and not everything needs to be.</p>
+
+  <section class="lt-section" aria-labelledby="lt-map-heading">
+    <div class="lt-section__eyebrow">The constellation</div>
+    <h2 class="lt-section__heading" id="lt-map-heading">A map of loose connections</h2>
+    <div class="lt-graph-shell">
+      <div class="lt-graph-toolbar">
+        <span>Explore by clicking a node</span>
+        <button type="button" id="lt-reset">Reset view</button>
+      </div>
+      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 420" role="img" aria-label="Interactive map connecting notes through shared topics"></svg>
+      <div class="lt-graph-help">Solid nodes are notes; smaller, muted nodes are shared topics. Connections are generated from tags.</div>
+    </div>
+  </section>
+
+  <section class="lt-section" aria-labelledby="lt-feed-heading">
+    <div class="lt-section__eyebrow">The notebook</div>
+    <h2 class="lt-section__heading" id="lt-feed-heading">Things on my mind</h2>
+    <div class="lt-filter" id="lt-filter" aria-label="Filter notes by topic">
+      <button type="button" data-filter="all" aria-pressed="true">Everything</button>
+    </div>
+    <div class="lt-feed" id="lt-feed">
+      {% assign sorted_thoughts = site.thoughts | sort: "date" | reverse %}
+      {% for thought in sorted_thoughts %}
+      <article class="lt-note" data-id="{{ thought.slug | default: thought.title | slugify }}" data-tags="{{ thought.tags | join: '|' | downcase | escape }}">
+        <div class="lt-note__meta">{{ thought.date | date: "%b %-d, %Y" }}{% if thought.kind %} · {{ thought.kind }}{% endif %}</div>
+        <h3><a class="lt-note__link" href="{{ thought.url | relative_url }}">{{ thought.title }}</a></h3>
+        <p>{{ thought.excerpt | default: thought.content | strip_html | strip_newlines | truncate: 190 }}</p>
+        <div class="lt-tags">{% for tag in thought.tags %}<span class="lt-tag">{{ tag }}</span>{% endfor %}</div>
+      </article>
+      {% endfor %}
+    </div>
+    <p id="lt-empty" hidden>No notes in this thread yet.</p>
+    <p style="margin-top:1em"><button class="lt-shuffle" type="button" id="lt-shuffle">Shuffle the notebook</button></p>
+  </section>
+
+  <section class="lt-section" aria-labelledby="lt-play-heading">
+    <div class="lt-section__eyebrow">A tiny playground</div>
+    <h2 class="lt-section__heading" id="lt-play-heading">How much information survives noise?</h2>
+    <div class="lt-playground">
+      <p>Imagine a binary signal passing through a noisy channel: each bit has a probability <em>p</em> of being flipped. As noise increases, how much information can the channel carry?</p>
+      <label for="lt-noise">Bit-flip probability <strong id="lt-noise-value">10%</strong></label>
+      <input id="lt-noise" type="range" min="0" max="50" value="10" step="1">
+      <p class="lt-playground-output" id="lt-capacity" aria-live="polite">Channel capacity: 0.531 bits per bit</p>
+      <p class="lt-playground-output">For a binary symmetric channel, capacity is (1 - H_2(p)), where (H_2) is binary entropy.</p>
+    </div>
+  </section>
+</div>
+
+<script id="lt-data" type="application/json">
+[
+{% assign sorted_thoughts = site.thoughts | sort: "date" | reverse %}
+{% for thought in sorted_thoughts %}
+  {"id":{{ thought.slug | default: thought.title | slugify | jsonify }},"title":{{ thought.title | jsonify }},"tags":{{ thought.tags | default: empty | jsonify }}}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+</script>
+<script>
+(function () {
+  const dataEl = document.getElementById('lt-data');
+  const graph = document.getElementById('lt-graph');
+  const feed = document.getElementById('lt-feed');
+  if (!dataEl || !graph || !feed) return;
+  const notes = JSON.parse(dataEl.textContent);
+  const ns = 'http://www.w3.org/2000/svg';
+  const cx = 380, cy = 205;
+  const topicMap = new Map();
+  notes.forEach(n => (n.tags || []).forEach(t => {
+    const key = String(t).toLowerCase();
+    if (!topicMap.has(key)) topicMap.set(key, []);
+    topicMap.get(key).push(n.id);
+  }));
+  const topics = Array.from(topicMap.keys()).sort();
+  const positions = new Map();
+  notes.forEach((n, i) => {
+    const angle = (2 * Math.PI * i / Math.max(notes.length, 1)) - Math.PI / 2;
+    const radius = notes.length < 3 ? 105 : 145;
+    positions.set('n:' + n.id, [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
+  });
+  topics.forEach((t, i) => {
+    const angle = (2 * Math.PI * i / Math.max(topics.length, 1)) - Math.PI / 2;
+    positions.set('t:' + t, [cx + Math.cos(angle) * 72, cy + Math.sin(angle) * 72]);
+  });
+  function el(name, attrs) {
+    const node = document.createElementNS(ns, name);
+    Object.entries(attrs || {}).forEach(([k,v]) => node.setAttribute(k, v));
+    return node;
+  }
+  topics.forEach(t => (topicMap.get(t) || []).forEach(id => {
+    const a = positions.get('n:' + id), b = positions.get('t:' + t);
+    graph.appendChild(el('line', {x1:a[0],y1:a[1],x2:b[0],y2:b[1],class:'lt-edge'}));
+  }));
+  function choose(type, value) {
+    const activeNotes = type === 'note' ? [value] : (topicMap.get(value) || []);
+    document.querySelectorAll('.lt-note').forEach(card => {
+      const show = type === 'all' || activeNotes.includes(card.dataset.id);
+      card.hidden = !show;
+    });
+    document.querySelectorAll('.lt-node').forEach(node => {
+      const selected = type === 'all' || (node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)) || (node.dataset.type === 'topic' && node.dataset.value === value && type === 'topic');
+      node.classList.toggle('is-active', selected && type !== 'all');
+      node.classList.toggle('is-muted', type !== 'all' && !selected && !(node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)));
+    });
+    document.querySelectorAll('#lt-filter button').forEach(b => b.setAttribute('aria-pressed', String(type === 'all' ? b.dataset.filter === 'all' : b.dataset.filter === value)));
+    document.getElementById('lt-empty').hidden = feed.querySelectorAll('.lt-note:not([hidden])').length > 0;
+  }
+  topics.forEach(t => {
+    const p = positions.get('t:' + t);
+    const g = el('g', {class:'lt-node lt-node--tag',tabindex:'0',role:'button','aria-label':'Filter by '+t,'data-type':'topic','data-value':t});
+    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:6}));
+    const label = el('text',{x:p[0],y:p[1]-12,'text-anchor':'middle'}); label.textContent=t; g.appendChild(label);
+    g.addEventListener('click',()=>choose('topic',t));
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('topic',t);}});
+    graph.appendChild(g);
+  });
+  notes.forEach(n => {
+    const p = positions.get('n:' + n.id);
+    const g = el('g', {class:'lt-node lt-node--thought',tabindex:'0',role:'button','aria-label':n.title,'data-type':'note','data-value':n.id});
+    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:9}));
+    const label = el('text',{x:p[0],y:p[1]+25,'text-anchor':'middle'}); label.textContent=n.title.length>27?n.title.slice(0,25)+'…':n.title; g.appendChild(label);
+    g.addEventListener('click',()=>choose('note',n.id));
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('note',n.id);}});
+    graph.appendChild(g);
+  });
+  const filters = document.getElementById('lt-filter');
+  topics.forEach(t => {
+    const b = document.createElement('button'); b.type='button'; b.dataset.filter=t; b.textContent=t; b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',()=>choose('topic',t)); filters.appendChild(b);
+  });
+  document.getElementById('lt-reset').addEventListener('click',()=>choose('all'));
+  document.getElementById('lt-shuffle').addEventListener('click',()=>{
+    const cards=Array.from(feed.children);
+    for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}
+    cards.forEach(c=>feed.appendChild(c));
+  });
+  choose('all');
+  const slider=document.getElementById('lt-noise'), noiseValue=document.getElementById('lt-noise-value'), capacity=document.getElementById('lt-capacity');
+  function updateNoise(){
+    const p=Number(slider.value)/100;
+    const h=p===0||p===1?0:-p*Math.log2(p)-(1-p)*Math.log2(1-p);
+    noiseValue.textContent=slider.value+'%';
+    capacity.textContent='Channel capacity: '+(1-h).toFixed(3)+' bits per bit';
+  }
+  slider.addEventListener('input',updateNoise); updateNoise();
+})();
+</script>
