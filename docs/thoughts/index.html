@@ -211,20 +211,19 @@
   <p class="lt-intro">A working map of ideas I keep circling back to: questions, half-formed connections, things I’m reading, and small experiments. Not everything here is finished, and not everything needs to be.</p>
 
   <section class="lt-section" aria-labelledby="lt-map-heading">
-    <div class="lt-section__eyebrow">The constellation</div>
     <h2 class="lt-section__heading" id="lt-map-heading">A map of loose connections</h2>
     <div class="lt-graph-shell">
       <div class="lt-graph-toolbar">
         <span>Explore by clicking a node</span>
         <button type="button" id="lt-reset">Reset view</button>
       </div>
-      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 420" role="img" aria-label="Interactive map connecting notes through shared topics"></svg>
-      <div class="lt-graph-help">Solid nodes are notes; smaller, muted nodes are shared topics. Connections are generated from tags.</div>
+      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 460" role="img" aria-label="Interactive map connecting notes through shared topics"></svg>
+      <div class="lt-legend" id="lt-legend" aria-label="Note types"></div>
+      <div class="lt-graph-help">Each note is connected to its topics. Select a note or topic to find related entries.</div>
     </div>
   </section>
 
   <section class="lt-section" aria-labelledby="lt-feed-heading">
-    <div class="lt-section__eyebrow">The notebook</div>
     <h2 class="lt-section__heading" id="lt-feed-heading">Things on my mind</h2>
     <div class="lt-filter" id="lt-filter" aria-label="Filter notes by topic">
       <button type="button" data-filter="all" aria-pressed="true">Everything</button>
@@ -272,32 +271,21 @@
     <p style="margin-top:1em"><button class="lt-shuffle" type="button" id="lt-shuffle">Shuffle the notebook</button></p>
   </section>
 
-  <section class="lt-section" aria-labelledby="lt-play-heading">
-    <div class="lt-section__eyebrow">A tiny playground</div>
-    <h2 class="lt-section__heading" id="lt-play-heading">How much information survives noise?</h2>
-    <div class="lt-playground">
-      <p>Imagine a binary signal passing through a noisy channel: each bit has a probability <em>p</em> of being flipped. As noise increases, how much information can the channel carry?</p>
-      <label for="lt-noise">Bit-flip probability <strong id="lt-noise-value">10%</strong></label>
-      <input id="lt-noise" type="range" min="0" max="50" value="10" step="1">
-      <p class="lt-playground-output" id="lt-capacity" aria-live="polite">Channel capacity: 0.531 bits per bit</p>
-      <p class="lt-playground-output">For a binary symmetric channel, capacity is (1 - H_2(p)), where (H_2) is binary entropy.</p>
-    </div>
-  </section>
 </div>
 
 <script id="lt-data" type="application/json">
 [
 
 
-  {"id":"retina-as-representation","title":"What does the retina choose to keep?","tags":["retinal coding","information theory","representation"]},
+  {"id":"retina-as-representation","title":"What does the retina choose to keep?","kind":"Question","tags":["retinal coding","information theory","representation"]},
 
-  {"id":"invariance-and-information","title":"What does invariance cost?","tags":["representation","information theory","machine vision"]},
+  {"id":"invariance-and-information","title":"What does invariance cost?","kind":"Research thread","tags":["representation","information theory","machine vision"]},
 
-  {"id":"schur-complement-and-information","title":"What does the Schur complement have to do with information?","tags":["information theory","linear algebra","Gaussian variables","conditional covariance"]},
+  {"id":"schur-complement-and-information","title":"What does the Schur complement have to do with information?","kind":"Question","tags":["information theory","linear algebra","Gaussian variables","conditional covariance"]},
 
-  {"id":"noise-as-a-probe","title":"Noise as a probe of representation","tags":["noise","representation","machine vision"]},
+  {"id":"noise-as-a-probe","title":"Noise as a probe of representation","kind":"Idea","tags":["noise","representation","machine vision"]},
 
-  {"id":"conditional-distributions-as-dependence","title":"p(x|y) as a nonlinear correlation metric?","tags":["information theory","statistics","dependence","conditional distributions"]}
+  {"id":"conditional-distributions-as-dependence","title":"p(x|y) as a nonlinear correlation metric?","kind":"Question","tags":["information theory","statistics","dependence","conditional distributions"]}
 
 ]
 </script>
@@ -309,7 +297,7 @@
   if (!dataEl || !graph || !feed) return;
   const notes = JSON.parse(dataEl.textContent);
   const ns = 'http://www.w3.org/2000/svg';
-  const cx = 380, cy = 205;
+  const cx = 380, cy = 225;
   const topicMap = new Map();
   notes.forEach(n => (n.tags || []).forEach(t => {
     const key = String(t).toLowerCase();
@@ -320,18 +308,20 @@
   const positions = new Map();
   notes.forEach((n, i) => {
     const angle = (2 * Math.PI * i / Math.max(notes.length, 1)) - Math.PI / 2;
-    const radius = notes.length < 3 ? 105 : 145;
+    const radius = notes.length < 3 ? 155 : 172;
     positions.set('n:' + n.id, [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
   });
   topics.forEach((t, i) => {
     const angle = (2 * Math.PI * i / Math.max(topics.length, 1)) - Math.PI / 2;
-    positions.set('t:' + t, [cx + Math.cos(angle) * 72, cy + Math.sin(angle) * 72]);
+    positions.set('t:' + t, [cx + Math.cos(angle) * 100, cy + Math.sin(angle) * 100]);
   });
   function el(name, attrs) {
     const node = document.createElementNS(ns, name);
     Object.entries(attrs || {}).forEach(([k,v]) => node.setAttribute(k, v));
     return node;
   }
+  function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function kindClass(kind) { return String(kind || 'note').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   topics.forEach(t => (topicMap.get(t) || []).forEach(id => {
     const a = positions.get('n:' + id), b = positions.get('t:' + t);
     graph.appendChild(el('line', {x1:a[0],y1:a[1],x2:b[0],y2:b[1],class:'lt-edge'}));
@@ -353,20 +343,35 @@
   topics.forEach(t => {
     const p = positions.get('t:' + t);
     const g = el('g', {class:'lt-node lt-node--tag',tabindex:'0',role:'button','aria-label':'Filter by '+t,'data-type':'topic','data-value':t});
-    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:6}));
-    const label = el('text',{x:p[0],y:p[1]-12,'text-anchor':'middle'}); label.textContent=t; g.appendChild(label);
+    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:7}));
+    const label = el('text',{x:p[0],y:p[1]-13,'text-anchor':'middle'}); label.textContent=t; g.appendChild(label);
     g.addEventListener('click',()=>choose('topic',t));
     g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('topic',t);}});
     graph.appendChild(g);
   });
   notes.forEach(n => {
     const p = positions.get('n:' + n.id);
-    const g = el('g', {class:'lt-node lt-node--thought',tabindex:'0',role:'button','aria-label':n.title,'data-type':'note','data-value':n.id});
-    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:9}));
-    const label = el('text',{x:p[0],y:p[1]+25,'text-anchor':'middle'}); label.textContent=n.title.length>27?n.title.slice(0,25)+'…':n.title; g.appendChild(label);
+    const g = el('g', {class:'lt-node lt-node--thought lt-node--kind-' + kindClass(n.kind),tabindex:'0',role:'button','aria-label':n.title,'data-type':'note','data-value':n.id});
+    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:12}));
+    const label = el('text',{x:p[0],y:p[1]+30,'text-anchor':'middle'}); label.textContent=n.title.length>30?n.title.slice(0,28)+'…':n.title; g.appendChild(label);
     g.addEventListener('click',()=>choose('note',n.id));
     g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('note',n.id);}});
     graph.appendChild(g);
+  });
+  const kinds = Array.from(new Set(notes.map(n => n.kind || 'Note')));
+  const legend = document.getElementById('lt-legend');
+  kinds.forEach(kind => {
+    const item = document.createElement('span');
+    item.className = 'lt-legend__item lt-legend__item--kind-' + kindClass(kind);
+    const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
+    item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
+  });
+  const kinds = Array.from(new Set(notes.map(n => n.kind || 'Note')));
+  const legend = document.getElementById('lt-legend');
+  kinds.forEach(kind => {
+    const item = document.createElement('span'); item.className = 'lt-legend__item lt-legend__item--kind-' + kindClass(kind);
+    const swatch = document.createElement('i'); swatch.setAttribute('aria-hidden','true');
+    item.appendChild(swatch); item.appendChild(document.createTextNode(kind)); legend.appendChild(item);
   });
   const filters = document.getElementById('lt-filter');
   topics.forEach(t => {
@@ -380,14 +385,6 @@
     cards.forEach(c=>feed.appendChild(c));
   });
   choose('all');
-  const slider=document.getElementById('lt-noise'), noiseValue=document.getElementById('lt-noise-value'), capacity=document.getElementById('lt-capacity');
-  function updateNoise(){
-    const p=Number(slider.value)/100;
-    const h=p===0||p===1?0:-p*Math.log2(p)-(1-p)*Math.log2(1-p);
-    noiseValue.textContent=slider.value+'%';
-    capacity.textContent='Channel capacity: '+(1-h).toFixed(3)+' bits per bit';
-  }
-  slider.addEventListener('input',updateNoise); updateNoise();
 })();
 </script>
 
