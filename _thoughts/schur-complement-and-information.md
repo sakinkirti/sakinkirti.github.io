@@ -1,6 +1,6 @@
 ---
 title: "What does the Schur complement have to do with information?"
-date: 2026-10-30
+date: 2026-10-19
 kind: "Question"
 tags:
   - information theory
