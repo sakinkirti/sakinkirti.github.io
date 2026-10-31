@@ -1,0 +1,461 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Loose Threads - Sakin Kirti</title>
+
+
+
+
+
+
+
+
+
+
+  <link rel="canonical" href="https://sakinkirti.github.io/thoughts/">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Sakin Kirti",
+      "url" : "https://sakinkirti.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+<!-- Open Graph protocol data (https://ogp.me/), used by social media -->
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Sakin Kirti"> 
+<meta property="og:title" content="Loose Threads">
+
+
+  <meta property="og:description" name="description" content="Bioinformatics PhD student at UCLA studying computational neuroscience and representation learning, from robust retinal coding to noise-robust neural networks.">
+
+
+  <meta property="og:url" content="https://sakinkirti.github.io/thoughts/">
+
+
+
+
+
+<!-- end Open Graph protocol -->
+
+<link href="https://sakinkirti.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Sakin Kirti Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/main.css">
+
+<!-- Custom stylesheets -->
+
+  
+    <link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/custom.css">
+  
+
+
+<meta http-equiv="cleartype" content="on">
+
+    
+
+<!-- start custom head snippets -->
+
+<!-- Apply the theme before first paint: saved choice, else the device setting -->
+<script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  })();
+</script>
+
+<!-- Site font: Albert Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
+<!-- Support for Academicons -->
+<link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/academicons.css"/>
+
+<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://sakinkirti.github.io/images/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/svg+xml" href="https://sakinkirti.github.io/images/favicon.svg"/>
+<link rel="icon" type="image/png" href="https://sakinkirti.github.io/images/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="https://sakinkirti.github.io/images/favicon-192x192.png" sizes="192x192"/>
+<link rel="manifest" href="https://sakinkirti.github.io/images/manifest.json"/>
+<link rel="icon" href="/images/favicon.ico"/>
+<meta name="theme-color" content="#ffffff"/>
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <nav id="site-nav" class="greedy-nav">
+      <button class="greedy-nav__toggle" aria-expanded="false" aria-label="Menu">
+        <div class="navicon"></div>
+      </button>
+
+      <div class="greedy-nav__wrap">
+        <a class="masthead__menu-item masthead__menu-item--lg persist" href="https://sakinkirti.github.io/">Sakin Kirti</a>
+
+        <ul class="visible-links">
+          
+          
+          
+          
+          <li class="masthead__menu-item masthead__menu-item--active"><a href="https://sakinkirti.github.io/thoughts/" aria-current="page">Loose Threads</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/portfolio/">Personal</a></li>
+          
+          
+          <li id="theme-toggle" class="masthead__menu-item persist tail">
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"
+                title="toggle theme"></i></a>
+          </li>
+        </ul>
+
+        <ul class="hidden-links hidden"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="archive">
+    
+      <h1 class="page__title">Loose Threads</h1>
+    
+    <div class="loose-threads">
+  <p class="lt-intro">A working map of ideas I keep circling back to: questions, half-formed connections, things I’m reading, and small experiments. Not everything here is finished, and not everything needs to be.</p>
+
+  <section class="lt-section" aria-labelledby="lt-map-heading">
+    <div class="lt-section__eyebrow">The constellation</div>
+    <h2 class="lt-section__heading" id="lt-map-heading">A map of loose connections</h2>
+    <div class="lt-graph-shell">
+      <div class="lt-graph-toolbar">
+        <span>Explore by clicking a node</span>
+        <button type="button" id="lt-reset">Reset view</button>
+      </div>
+      <svg class="lt-graph" id="lt-graph" viewBox="0 0 760 420" role="img" aria-label="Interactive map connecting notes through shared topics"></svg>
+      <div class="lt-graph-help">Solid nodes are notes; smaller, muted nodes are shared topics. Connections are generated from tags.</div>
+    </div>
+  </section>
+
+  <section class="lt-section" aria-labelledby="lt-feed-heading">
+    <div class="lt-section__eyebrow">The notebook</div>
+    <h2 class="lt-section__heading" id="lt-feed-heading">Things on my mind</h2>
+    <div class="lt-filter" id="lt-filter" aria-label="Filter notes by topic">
+      <button type="button" data-filter="all" aria-pressed="true">Everything</button>
+    </div>
+    <div class="lt-feed" id="lt-feed">
+      
+      
+      <article class="lt-note" data-id="retina-as-representation" data-tags="retinal coding|information theory|representation">
+        <div class="lt-note__meta">Oct 30, 2026 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/retina-as-representation/">What does the retina choose to keep?</a></h3>
+        <p>The retina is not simply a camera that forwards pixels. Its output is already a transformed representation of the visual scene. What are the relevant constraints behind that transformatio...</p>
+        <div class="lt-tags"><span class="lt-tag">retinal coding</span><span class="lt-tag">information theory</span><span class="lt-tag">representation</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="invariance-and-information" data-tags="representation|information theory|machine vision">
+        <div class="lt-note__meta">Oct 24, 2026 · Research thread</div>
+        <h3><a class="lt-note__link" href="/thoughts/invariance-and-information/">What does invariance cost?</a></h3>
+        <p>A representation that ignores nuisance variation can make downstream decisions easier. But invariance is also information loss: distinctions in the input are deliberately collapsed.</p>
+        <div class="lt-tags"><span class="lt-tag">representation</span><span class="lt-tag">information theory</span><span class="lt-tag">machine vision</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="schur-complement-and-information" data-tags="information theory|linear algebra|gaussian variables|conditional covariance">
+        <div class="lt-note__meta">Oct 19, 2026 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/schur-complement-and-information/">What does the Schur complement have to do with information?</a></h3>
+        <p>The Schur complement appears in the conditional covariance of jointly Gaussian random variables. It seems to isolate the part of (X)’s variability that remains after accounting for (Y).</p>
+        <div class="lt-tags"><span class="lt-tag">information theory</span><span class="lt-tag">linear algebra</span><span class="lt-tag">Gaussian variables</span><span class="lt-tag">conditional covariance</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="noise-as-a-probe" data-tags="noise|representation|machine vision">
+        <div class="lt-note__meta">Oct 18, 2026 · Idea</div>
+        <h3><a class="lt-note__link" href="/thoughts/noise-as-a-probe/">Noise as a probe of representation</a></h3>
+        <p>Rather than treating noise only as something to remove, use it as a way to interrogate a representation. Perturb the input, intermediate features, or readout and ask which changes matter ...</p>
+        <div class="lt-tags"><span class="lt-tag">noise</span><span class="lt-tag">representation</span><span class="lt-tag">machine vision</span></div>
+      </article>
+      
+      <article class="lt-note" data-id="conditional-distributions-as-dependence" data-tags="information theory|statistics|dependence|conditional distributions">
+        <div class="lt-note__meta">Oct 14, 2026 · Question</div>
+        <h3><a class="lt-note__link" href="/thoughts/conditional-distributions-as-dependence/">p(x|y) as a nonlinear correlation metric?</a></h3>
+        <p>Correlation captures a narrow kind of dependence: linear association between variables. Could comparing conditional distributions, (p(x \mid y)), provide a more general way to characteriz...</p>
+        <div class="lt-tags"><span class="lt-tag">information theory</span><span class="lt-tag">statistics</span><span class="lt-tag">dependence</span><span class="lt-tag">conditional distributions</span></div>
+      </article>
+      
+    </div>
+    <p id="lt-empty" hidden>No notes in this thread yet.</p>
+    <p style="margin-top:1em"><button class="lt-shuffle" type="button" id="lt-shuffle">Shuffle the notebook</button></p>
+  </section>
+
+  <section class="lt-section" aria-labelledby="lt-play-heading">
+    <div class="lt-section__eyebrow">A tiny playground</div>
+    <h2 class="lt-section__heading" id="lt-play-heading">How much information survives noise?</h2>
+    <div class="lt-playground">
+      <p>Imagine a binary signal passing through a noisy channel: each bit has a probability <em>p</em> of being flipped. As noise increases, how much information can the channel carry?</p>
+      <label for="lt-noise">Bit-flip probability <strong id="lt-noise-value">10%</strong></label>
+      <input id="lt-noise" type="range" min="0" max="50" value="10" step="1">
+      <p class="lt-playground-output" id="lt-capacity" aria-live="polite">Channel capacity: 0.531 bits per bit</p>
+      <p class="lt-playground-output">For a binary symmetric channel, capacity is (1 - H_2(p)), where (H_2) is binary entropy.</p>
+    </div>
+  </section>
+</div>
+
+<script id="lt-data" type="application/json">
+[
+
+
+  {"id":"retina-as-representation","title":"What does the retina choose to keep?","tags":["retinal coding","information theory","representation"]},
+
+  {"id":"invariance-and-information","title":"What does invariance cost?","tags":["representation","information theory","machine vision"]},
+
+  {"id":"schur-complement-and-information","title":"What does the Schur complement have to do with information?","tags":["information theory","linear algebra","Gaussian variables","conditional covariance"]},
+
+  {"id":"noise-as-a-probe","title":"Noise as a probe of representation","tags":["noise","representation","machine vision"]},
+
+  {"id":"conditional-distributions-as-dependence","title":"p(x|y) as a nonlinear correlation metric?","tags":["information theory","statistics","dependence","conditional distributions"]}
+
+]
+</script>
+<script>
+(function () {
+  const dataEl = document.getElementById('lt-data');
+  const graph = document.getElementById('lt-graph');
+  const feed = document.getElementById('lt-feed');
+  if (!dataEl || !graph || !feed) return;
+  const notes = JSON.parse(dataEl.textContent);
+  const ns = 'http://www.w3.org/2000/svg';
+  const cx = 380, cy = 205;
+  const topicMap = new Map();
+  notes.forEach(n => (n.tags || []).forEach(t => {
+    const key = String(t).toLowerCase();
+    if (!topicMap.has(key)) topicMap.set(key, []);
+    topicMap.get(key).push(n.id);
+  }));
+  const topics = Array.from(topicMap.keys()).sort();
+  const positions = new Map();
+  notes.forEach((n, i) => {
+    const angle = (2 * Math.PI * i / Math.max(notes.length, 1)) - Math.PI / 2;
+    const radius = notes.length < 3 ? 105 : 145;
+    positions.set('n:' + n.id, [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius]);
+  });
+  topics.forEach((t, i) => {
+    const angle = (2 * Math.PI * i / Math.max(topics.length, 1)) - Math.PI / 2;
+    positions.set('t:' + t, [cx + Math.cos(angle) * 72, cy + Math.sin(angle) * 72]);
+  });
+  function el(name, attrs) {
+    const node = document.createElementNS(ns, name);
+    Object.entries(attrs || {}).forEach(([k,v]) => node.setAttribute(k, v));
+    return node;
+  }
+  topics.forEach(t => (topicMap.get(t) || []).forEach(id => {
+    const a = positions.get('n:' + id), b = positions.get('t:' + t);
+    graph.appendChild(el('line', {x1:a[0],y1:a[1],x2:b[0],y2:b[1],class:'lt-edge'}));
+  }));
+  function choose(type, value) {
+    const activeNotes = type === 'note' ? [value] : (topicMap.get(value) || []);
+    document.querySelectorAll('.lt-note').forEach(card => {
+      const show = type === 'all' || activeNotes.includes(card.dataset.id);
+      card.hidden = !show;
+    });
+    document.querySelectorAll('.lt-node').forEach(node => {
+      const selected = type === 'all' || (node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)) || (node.dataset.type === 'topic' && node.dataset.value === value && type === 'topic');
+      node.classList.toggle('is-active', selected && type !== 'all');
+      node.classList.toggle('is-muted', type !== 'all' && !selected && !(node.dataset.type === 'note' && activeNotes.includes(node.dataset.value)));
+    });
+    document.querySelectorAll('#lt-filter button').forEach(b => b.setAttribute('aria-pressed', String(type === 'all' ? b.dataset.filter === 'all' : b.dataset.filter === value)));
+    document.getElementById('lt-empty').hidden = feed.querySelectorAll('.lt-note:not([hidden])').length > 0;
+  }
+  topics.forEach(t => {
+    const p = positions.get('t:' + t);
+    const g = el('g', {class:'lt-node lt-node--tag',tabindex:'0',role:'button','aria-label':'Filter by '+t,'data-type':'topic','data-value':t});
+    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:6}));
+    const label = el('text',{x:p[0],y:p[1]-12,'text-anchor':'middle'}); label.textContent=t; g.appendChild(label);
+    g.addEventListener('click',()=>choose('topic',t));
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('topic',t);}});
+    graph.appendChild(g);
+  });
+  notes.forEach(n => {
+    const p = positions.get('n:' + n.id);
+    const g = el('g', {class:'lt-node lt-node--thought',tabindex:'0',role:'button','aria-label':n.title,'data-type':'note','data-value':n.id});
+    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:9}));
+    const label = el('text',{x:p[0],y:p[1]+25,'text-anchor':'middle'}); label.textContent=n.title.length>27?n.title.slice(0,25)+'…':n.title; g.appendChild(label);
+    g.addEventListener('click',()=>choose('note',n.id));
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose('note',n.id);}});
+    graph.appendChild(g);
+  });
+  const filters = document.getElementById('lt-filter');
+  topics.forEach(t => {
+    const b = document.createElement('button'); b.type='button'; b.dataset.filter=t; b.textContent=t; b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',()=>choose('topic',t)); filters.appendChild(b);
+  });
+  document.getElementById('lt-reset').addEventListener('click',()=>choose('all'));
+  document.getElementById('lt-shuffle').addEventListener('click',()=>{
+    const cards=Array.from(feed.children);
+    for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}
+    cards.forEach(c=>feed.appendChild(c));
+  });
+  choose('all');
+  const slider=document.getElementById('lt-noise'), noiseValue=document.getElementById('lt-noise-value'), capacity=document.getElementById('lt-capacity');
+  function updateNoise(){
+    const p=Number(slider.value)/100;
+    const h=p===0||p===1?0:-p*Math.log2(p)-(1-p)*Math.log2(1-p);
+    noiseValue.textContent=slider.value+'%';
+    capacity.textContent='Channel capacity: '+(1-h).toFixed(3)+' bits per bit';
+  }
+  slider.addEventListener('input',updateNoise); updateNoise();
+})();
+</script>
+
+  </div>
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+
+<!-- Support for MatJax -->
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+
+<!-- Support for Plotly -->
+<script defer src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js'></script>
+
+<!-- Support for Mermaid -->
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({startOnLoad:true, theme:'default'});
+    await mermaid.run({querySelector:'code.language-mermaid'});
+</script>
+
+<!-- end custom footer snippets -->
+
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i> Google Scholar</a></li>
+    
+    
+      <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw" aria-hidden="true"></i> ORCID</a></li>
+    
+    
+      <li><a href="https://github.com/sakinkirti"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+      <li><a href="https://www.linkedin.com/in/sakinkirti"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">
+  &copy; 2026 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
+  Site last updated 2026-10-31
+</div>
+
+      </footer>
+    </div>
+
+    <script type="module" src="https://sakinkirti.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

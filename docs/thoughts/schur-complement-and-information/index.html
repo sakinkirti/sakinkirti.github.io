@@ -1,0 +1,376 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>What does the Schur complement have to do with information? - Sakin Kirti</title>
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-10-19T00:00:00+00:00">
+
+
+
+  <link rel="canonical" href="https://sakinkirti.github.io/thoughts/schur-complement-and-information/">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Sakin Kirti",
+      "url" : "https://sakinkirti.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+<!-- Open Graph protocol data (https://ogp.me/), used by social media -->
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Sakin Kirti"> 
+<meta property="og:title" content="What does the Schur complement have to do with information?">
+
+  <meta property="og:type" content="article">
+
+
+  <meta property="og:description" name="description" content="The Schur complement appears in the conditional covariance of jointly Gaussian random variables. It seems to isolate the part of (X)’s variability that remains after accounting for (Y).">
+
+
+  <meta property="og:url" content="https://sakinkirti.github.io/thoughts/schur-complement-and-information/">
+
+
+
+
+
+<!-- end Open Graph protocol -->
+
+<link href="https://sakinkirti.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Sakin Kirti Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/main.css">
+
+<!-- Custom stylesheets -->
+
+  
+    <link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/custom.css">
+  
+
+
+<meta http-equiv="cleartype" content="on">
+
+    
+
+<!-- start custom head snippets -->
+
+<!-- Apply the theme before first paint: saved choice, else the device setting -->
+<script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  })();
+</script>
+
+<!-- Site font: Albert Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
+<!-- Support for Academicons -->
+<link rel="stylesheet" href="https://sakinkirti.github.io/assets/css/academicons.css"/>
+
+<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://sakinkirti.github.io/images/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/svg+xml" href="https://sakinkirti.github.io/images/favicon.svg"/>
+<link rel="icon" type="image/png" href="https://sakinkirti.github.io/images/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="https://sakinkirti.github.io/images/favicon-192x192.png" sizes="192x192"/>
+<link rel="manifest" href="https://sakinkirti.github.io/images/manifest.json"/>
+<link rel="icon" href="/images/favicon.ico"/>
+<meta name="theme-color" content="#ffffff"/>
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <nav id="site-nav" class="greedy-nav">
+      <button class="greedy-nav__toggle" aria-expanded="false" aria-label="Menu">
+        <div class="navicon"></div>
+      </button>
+
+      <div class="greedy-nav__wrap">
+        <a class="masthead__menu-item masthead__menu-item--lg persist" href="https://sakinkirti.github.io/">Sakin Kirti</a>
+
+        <ul class="visible-links">
+          
+          
+          
+          
+          <li class="masthead__menu-item masthead__menu-item--active"><a href="https://sakinkirti.github.io/thoughts/" aria-current="page">Loose Threads</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/publications/">Publications</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/talks/">Talks</a></li>
+          
+          
+          
+          
+          
+          <li class="masthead__menu-item"><a href="https://sakinkirti.github.io/portfolio/">Personal</a></li>
+          
+          
+          <li id="theme-toggle" class="masthead__menu-item persist tail">
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"
+                title="toggle theme"></i></a>
+          </li>
+        </ul>
+
+        <ul class="hidden-links hidden"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="What does the Schur complement have to do with information?">
+    <meta itemprop="description" content="The Schur complement appears in the conditional covariance of jointly Gaussian random variables. It seems to isolate the part of (X)’s variability that remains after accounting for (Y).">
+    <meta itemprop="datePublished" content="October 19, 2026">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">What does the Schur complement have to do with information?
+</h1>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-10-19T00:00:00+00:00">October 19, 2026</time></p>
+            
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>The Schur complement appears in the conditional covariance of jointly Gaussian random variables. It seems to isolate the part of (X)’s variability that remains after accounting for (Y).</p>
+
+<p>How does this connect to mutual information and conditional entropy? Is there a useful way to think about the Schur complement as separating what is shared between two random variables from what remains specific to one of them?</p>
+
+<p><em>An unresolved connection between block-matrix algebra and statistical dependence.</em></p>
+
+
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://sakinkirti.github.io/tags/#conditional-covariance" class="page__taxonomy-item" rel="tag">conditional covariance</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://sakinkirti.github.io/tags/#gaussian-variables" class="page__taxonomy-item" rel="tag">Gaussian variables</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://sakinkirti.github.io/tags/#information-theory" class="page__taxonomy-item" rel="tag">information theory</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://sakinkirti.github.io/tags/#linear-algebra" class="page__taxonomy-item" rel="tag">linear algebra</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="https://sakinkirti.github.io/thoughts/noise-as-a-probe/" class="pagination--pager" title="Noise as a probe of representation
+">Previous</a>
+    
+    
+      <a href="https://sakinkirti.github.io/thoughts/invariance-and-information/" class="pagination--pager" title="What does invariance cost?
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+
+<!-- Support for MatJax -->
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+
+<!-- Support for Plotly -->
+<script defer src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js'></script>
+
+<!-- Support for Mermaid -->
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({startOnLoad:true, theme:'default'});
+    await mermaid.run({querySelector:'code.language-mermaid'});
+</script>
+
+<!-- end custom footer snippets -->
+
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i> Google Scholar</a></li>
+    
+    
+      <li><a href="https://orcid.org/0000-0003-0752-3464"><i class="ai ai-orcid ai-fw" aria-hidden="true"></i> ORCID</a></li>
+    
+    
+      <li><a href="https://github.com/sakinkirti"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+      <li><a href="https://www.linkedin.com/in/sakinkirti"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">
+  &copy; 2026 Sakin Kirti, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
+  Site last updated 2026-10-31
+</div>
+
+      </footer>
+    </div>
+
+    <script type="module" src="https://sakinkirti.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
